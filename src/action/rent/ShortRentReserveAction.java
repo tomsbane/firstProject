@@ -1,11 +1,12 @@
-package action;
+package action.rent;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import action.Action;
 import vo.ActionForward;
 
-public class shortRentReserveAction implements Action {
+public class ShortRentReserveAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {

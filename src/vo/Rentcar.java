@@ -10,7 +10,7 @@ public class Rentcar {
 	private String car_brand;
 	private String car_image;
 	private int car_readCount;
-	//기본생성자는 안해도됨
+	
 	public Rentcar() {}
 
 	public Rentcar(int car_no, String car_name, String car_group, int car_year, String car_reserve, int car_price,

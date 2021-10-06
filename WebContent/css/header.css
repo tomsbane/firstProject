@@ -1,167 +1,72 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+@import
+	url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap')
+	;
 
-:root {
-	--overlay-color: #03a9f4;
-}
-
-*
-{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
-header
-{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 40px 100px 0px;
-  z-index: 1000;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
 }
 
- header .logo
-{
-  font-size:70px;
-  color: #fff;
-  text-transform: uppercase;
-  cursor: pointer;
-  text-decoration: none;
+#header {
+	width: auto;
+	height: 83px;
+	margin-left:15px;
+	margin-right:15px;
+	display:flex;
+	z-index: 10;
+	position: relative;
 }
 
-
-header .blogo
-{
-  font-size:70px;
-  color:black;
-  text-transform: uppercase;
-  cursor: pointer;
-  text-decoration: none;
-}
-
-.toggle.active
-{
-  background: url(https://i.ibb.co/rt3HybH/close.png);
-  background-repeat: no-repeat;
-  background-size: 28x;
-  background-position: center;
-  cursor: pointer;
-}
-.btoggle
-{
-  position: relative;
-  width: 60px;
-  height: 60px;
-  background: url(../images/bmenu.png);
-  background-repeat: no-repeat;
-  background-size: 35px;
-  background-position: center;
-  cursor: pointer;
-}
-.btoggle.active
-{
-  background: url(../images/bclose.png);
-  background-repeat: no-repeat;
-  background-size: 28x;
-  background-position: center;
-  cursor: pointer;
-}
-.showcase
-{
-  position: absolute;
-  right: 0;
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: white;
-  transition: 0.5s;
-  z-index: 1;
-}
-.showcase a
-{
- text-decoration: none;	
-}
-.showcase a:hover{
+a {
 	text-decoration: none;
+	color: black;
 }
-.showcase a:visit{
+
+a:active {
 	text-decoration: none;
+	color: black;
 }
 
-.showcase.active
-{
-  right: 300px;
+a:hover {
+	text-decoration: none;
+	color: black;
 }
 
-.banner{
-  right: 0;
-  width: 100%;
-  height: 180px;
-  background: url(../images/banner.png) no-repeat;
-  background-size: cover;
-  z-index: 2;
-  margin-bottom:400px;
+a:checked {
+	text-decoration: none;
+	color: black;
 }
 
-
-.menu
-{
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 300px;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.menu ul
-{
-  position: relative;
-}
-.menu ul li
-{
-  list-style: none;
-}
-.menu ul li a
-{
-  text-decoration: none;
-  font-size: 24px;
-  color: #111;
-}
-.menu ul li a:hover
-{
-  color: var(--overlay-color);
+.logo {
+	font-size: 50px;
+	color: black;
+	text-transform: uppercase;
+	cursor: pointer;
+	text-decoration: none;
+	margin-left:50px;
 }
 
-@media (max-width: 789px)
-{
-  .showcase,
-  .showcase header
-  {
-    padding: 40px;
-  }
-  .text h2
-  {
-    font-size: 3em;
-  }
-  .text h3
-  {
-    font-size: 2em;
-  }
-#carListArea{
- background-size:100px 100px;
+.menu {
+	font-size: 17px;
+	line-height: 83px;
+	margin: 0px 0px 0px 10px;
+	justify-content: space-between;
+	
 }
-.div_empty{	
-	width: 100%;
-	height: 100%;
-	text-align:	center;
-	background-color: yellow;
+ 
+.lists li {
+	list-style: none;
+	padding: 0px;
+	float: left;
+	margin-right: 50px;
 }
+
+.log {
+	text-decoration: none;
+	float: right;
+	font-size: 17px;
+	line-height: 83px;
+	margin-right: 50px;
 }

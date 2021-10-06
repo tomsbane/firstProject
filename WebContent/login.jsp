@@ -11,6 +11,8 @@
 
 </head>
 <body>
+<jsp:include page="header1.jsp"></jsp:include>
+
 	<nav class="navbar navbar-default">
 		<div class="navbar-header">
 			<button type=button class="navbar-toggle collapsed"

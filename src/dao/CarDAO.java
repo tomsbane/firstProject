@@ -75,6 +75,64 @@ public class CarDAO {
 
 		return carList;
 	}
+	public int insertCar(Rentcar car){
+		 String sql = "INSERT INTO rentcar VALUES(null,?,?,?,?,?,?,?,?)"; 
+		
+		int insertCount = 0;
+		
+		try {
+			psmt = con.prepareStatement(sql);
+			
+			psmt.setString(1, car.getCar_name());
+			psmt.setString(2, car.getCar_group());
+			psmt.setInt(3, car.getCar_year());
+			psmt.setString(4, car.getCar_reserve());
+			psmt.setInt(5, car.getCar_price());
+			psmt.setString(6, car.getCar_brand());
+			psmt.setString(7, car.getCar_image());
+			psmt.setInt(8, car.getCar_readCount());
+			
+			insertCount = psmt.executeUpdate();//업데이트가 성공하면 1리턴받음
+			
+		} catch (Exception e) {					
+			System.out.println("insertCar 에러 :" + e);//e:예외종류+예외메세지
+		}finally {
+			close(rs);
+			close(psmt);			
+		}
+		
+		return insertCount;
+		
+	}
+	
+	public Rentcar viewCar(int car_no) {
+		Rentcar carInfo = null;
+		String sql="select * from rentcar where car_no=?";
+		
+		try {
+			psmt=con.prepareStatement(sql);
+			psmt.setInt(1, car_no);
+			rs= psmt.executeQuery();
+			
+			if(rs.next()) {
+				carInfo = new Rentcar();
+				carInfo.setCar_name(rs.getString("car_name"));
+				carInfo.setCar_group(rs.getString("car_group"));
+				carInfo.setCar_price(rs.getInt("car_price"));
+				carInfo.setCar_brand(rs.getString("car_brand"));
+				carInfo.setCar_image(rs.getString("car_image"));
+			}
+			
+		}catch(Exception e) {
+			System.out.println("viewCar 에러 : "+e);
+		}finally {
+			close(con);
+			close(psmt);
+		}
+		return carInfo;
+		
+		
+	}
 
 	/*
 	 * //1. 모든 개 상품 정보를 조회하여 ArrayList<Dog>객체 반환 public ArrayList<Dog>

@@ -1,9 +1,11 @@
-package action;
+package action.rent;
 
 import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import svc.ShortRentListService;
+
+import action.Action;
+import svc.rent.ShortRentListService;
 import vo.ActionForward;
 import vo.Rentcar;
 

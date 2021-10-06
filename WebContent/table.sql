@@ -12,9 +12,8 @@ bonuspoint int(10),
 joindate datetime not null
 );
 
-<<<<<<< HEAD
 select * from rentcar;
-drop table rentcar;
+
 create table rentcar(
 car_no int(7) auto_increment not null primary key,
 car_name nvarchar(20),
@@ -26,6 +25,12 @@ car_brand nvarchar(15),
 car_image varchar(20),
 car_readCount int
 );
+
+alter table rentcar
+add foreign key (customer_no) references customer(customer_no);
+
+alter table rentcar
+add foreign key (car_no) references car(car_no);
 
 
 alter table rentcar auto_increment=1;
@@ -41,33 +46,17 @@ insert into rentcar values(null, 'sm6','중소형', 2022, 'y', 20000, '르노삼
 insert into rentcar values(null, 'sorento','SUV', 2022, 'y', 20000, '르노삼성', 'sorento.jpg',0);
 insert into rentcar values(null, 'tivoli','SUV', 2022, 'y', 20000, '르노삼성', 'tivoli.jpg',0);
 
-select * from rentcar;
-=======
-
-
-drop table rentcar;
-create table rentcar (
-car_no int (7) auto_increment not null primary key,
-car_name nvarchar(20),
-car_group char(1),
-car_year int(4),
-car_reserve char(1),
-car_price int(10),
-car_brand nvarchar(15),
-car_img1 varchar(20),
-car_img2 varchar(20),
-car_readCount int
+create table order_car(
+order_no int not null primary key,
+customer_no int not null,
+car_no int primary key,
+rental_date date not null,
+return_date date not null,
+rental_price int not null,
+rental_status char(1) not null
 );
 
->>>>>>> refs/remotes/origin/master
-alter table rentcar
-add foreign key (customer_no) references customer(customer_no);
 
-alter table rentcar
-add foreign key (car_no) references car(car_no);
-
-
-drop table car;
 
 
 

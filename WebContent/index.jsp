@@ -5,13 +5,12 @@
 <head>
 <meta charset="UTF-8">
 <title>TAGO</title>
-
 <link rel="stylesheet" href="css/index.css">
-</head>
+</head>	
 <body>
 	<section class="showcase">
 		<header>
-		<a href="index.jsp" ><h2 class="logo">TAGO</h2></a>
+		<div class="logo"><a href="index.jsp">TAGO</a></div>
 			<div class="toggle"></div>
 		</header>
 
@@ -23,6 +22,7 @@
 			<h2>DAEGU RENTCAR</h2>
 			<h3>TAGO</h3>
 			<p>렌트카</p>
+			<a href="admin.ad"><h4>관리자</h4></a> <!-- 나중에 지울것 -->
 			   <a href="shortRentList.do">단기렌트</a> <a href="longRentList.do">장기렌트</a>
 			   
 		</div>
@@ -42,7 +42,7 @@
 		<li><a href="qna.do">고객센터</a></li>
 		</ul>
 	</div>
-
+	
 	<script>
 		const menuToggle = document.querySelector('.toggle')
 		const showcase = document.querySelector('.showcase')

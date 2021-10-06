@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/jquery.datetimepicker.css"/ >
+    <script src="js/jquery.js"></script>
+    <script src="/build/jquery.datetimepicker.full.min.js"></script>
+    <script> jQuery.datetimepicker.setLocale('kr'); </script>
+</head>
+<body>
+    <input id="rental_date" type="text">
+    
+    
+    <script>
+        jQuery('#rental_date').datetimepicker();
+        
+        $("#rental_date").datetimepicker('setDate', '+1');
+    </script>
+
+</body>
+</html>
