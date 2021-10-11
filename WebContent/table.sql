@@ -12,6 +12,22 @@ bonuspoint int(10),
 joindate datetime not null
 );
 
+create table customer(
+/*회원가입 폼에 있음*/
+c_id varchar(45) primary key,
+c_grade nvarchar(10) not null,/*회원가입 폼에서 제외*/
+c_password varchar(256) not null,
+c_name nvarchar(20) not null,
+c_gender char(1) not null,
+c_birth datetime not null,
+c_email1 varchar(45),
+c_email2 varchar(45),
+c_tel varchar(40) not null,
+c_joindate datetime not null default now(),/*회원가입 폼에 없음*/
+order_quantity int not null default 0,
+order_money int default 0
+);
+
 select * from rentcar;
 
 create table rentcar(
