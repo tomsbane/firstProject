@@ -1,5 +1,5 @@
 drop table customer;
-
+drop table address;
 create table customer(
 /*회원가입 폼에 있음*/
 c_id varchar(45) primary key,
@@ -15,7 +15,30 @@ c_joindate datetime not null default now(),/*회원가입 폼에 없음*/
 order_quantity int not null default 0,
 order_money int default 0
 );
-update customer set c_grade='admin' where c_id='admin';
+
+
+drop table customer_detail;
+create table customer_detail (
+c_name nvarchar(20) not null,
+driver_birth datetime not null,
+drive_exp nvarchar(20),
+rental_place1 nvarchar(20) not null,
+rental_place2 nvarchar(20) not null,
+rental_place3 nvarchar(20) not null,
+return_place1 nvarchar(20) not null,
+return_place2 nvarchar(20) not null,
+return_place3 nvarchar(20) not null,
+request nvarchar(200)
+);
+
+create table drive_lic(
+c_id varchar(45) primary key,
+lic_info nvarchar(20),
+lic_area nvarchar(20),
+lic_num1 int,
+lic_num2 int,
+lic_num3 int
+);
 
 create table address(
 addr_index int auto_increment primary key,/*auto_increment하려면 primary key*/

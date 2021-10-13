@@ -17,8 +17,8 @@ public class ShortRentReserveService {
 		// 3.DB작업에 사용될 Connection객체를 DogDAO의 멤버변수로 삽입하여 DB 연결
 		carDAO.setConnection(con);
 
-		 Rentcar carView = carDAO.viewCar(car_no);
-		return carView;
+		 Rentcar carInfo = carDAO.viewCar(car_no);
+		return carInfo;
 	}
 
 }

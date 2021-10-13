@@ -25,7 +25,7 @@ public class CustomerLoginAction implements Action {
 		
 		String remember =request.getParameter("remember");//아이디 저장 체크 여부를 확인->쿠키객체 생성여부에 사용함
 		
-		customer.setC_id(c_id);;
+		customer.setC_id(c_id);
 		customer.setC_password(c_password);
 		
 		//로그인 처리를 위한 Service 객체를 생성하여

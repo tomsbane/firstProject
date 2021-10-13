@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>TAGO</title>
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style1.css">
 <link type="text/css" href="css/jquery.simple-dtpicker.css" rel="stylesheet" />
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script type="text/javascript" src="js/jquery.simple-dtpicker.js"></script>
@@ -86,7 +86,7 @@ $(function() {
 				<input type="hidden" name="car_no" id="car_no" value="${car.car_no }">
 				<input type="hidden" name="return_date" id="return_date" value="javascript:f.return_date.value">
 				<input type="hidden" name="rental_date" id="rental_date" value="javascript:f.rental_date.value">
-				<input type="submit" value="문의하기">
+				<input type="button" value="문의하기" onclick="submit();">
 				</td>
 				</form>
 				<c:if test="${((status.index+1) mod 3) == 0 }">
