@@ -22,7 +22,6 @@
 			<h2>DAEGU RENTCAR</h2>
 			<h3>TAGO</h3>
 			<p>렌트카</p>
-			<a href="admin.ad"><h4>관리자</h4></a> <!-- 나중에 지울것 -->
 			   <a href="shortRentList.do">단기렌트</a> <a href="longRentList.do">장기렌트</a>
 			   
 		</div>

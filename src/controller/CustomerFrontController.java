@@ -9,17 +9,17 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import action.Action;
-import action.user.CustomerJoinAction;
-import action.user.CustomerLoginAction;
-import action.user.CustomerModifyAction;
-import action.user.CustomerViewAction;
+import action.customer.CustomerJoinAction;
+import action.customer.CustomerLoginAction;
+import action.customer.CustomerModifyAction;
+import action.customer.CustomerViewAction;
 import vo.ActionForward;
 
 
 /**
- * Servlet implementation class UserFrontController
+ * Servlet implementation class CustomerFrontController
  */
-@WebServlet("*.usr")
+@WebServlet("*.cus")
 public class CustomerFrontController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -50,13 +50,13 @@ public class CustomerFrontController extends HttpServlet {
 		//요청객체로부터 '프로젝트명+파일경로'까지 가져옴(예)/project/boardWriteForm.dog
 		String requestURI=request.getRequestURI();
 		//요청 URL : http://localhost:8090/project/boardWriteForm.dog
-		//요청 URI : /project/userLogin.me
+		//요청 URI : /project/customerLogin.me
 		
 		//요청객체로부터 '프로젝트 path'만 가져옴(예)/project
 		String contextPath=request.getContextPath();
 		
 		/* URI에서 contextPath길이만큼 잘라낸 나머지 문자열
-		 * /project/userLogin.me - /project = "/userLogin.me"
+		 * /project/customerLogin.me - /project = "/customerLogin.me"
 		 */
 		String command=requestURI.substring(contextPath.length());//(index 8~끝까지) 부분문자열 반환
 		
@@ -67,11 +67,11 @@ public class CustomerFrontController extends HttpServlet {
 		Action action = null;
 		ActionForward forward = null;
 		/*---'로그인 폼 보기' -> 처리-----------------------------------*/
-		if(command.equals("/userLogin.usr")) {//'로그인 폼 보기' 요청이면
-			request.setAttribute("showPage", "/user/loginForm.jsp");
-			forward = new ActionForward("user.jsp", false); //반드시 디스패치 방식으로 포워딩
-			//forward = new ActionForward(false, "/user/loginForm.jsp");
-		}else if(command.equals("/userLoginAction.usr")) {//'로그인 처리' 요청이면
+		if(command.equals("/customerLogin.cus")) {//'로그인 폼 보기' 요청이면
+			request.setAttribute("showPage", "/customer/login.jsp");
+			forward = new ActionForward("customer.jsp", false); //반드시 디스패치 방식으로 포워딩
+			//forward = new ActionForward(false, "/customer/loginForm.jsp");
+		}else if(command.equals("/customerLoginAction.cus")) {//'로그인 처리' 요청이면
 			action = new CustomerLoginAction();
 			
 			try {
@@ -87,10 +87,10 @@ public class CustomerFrontController extends HttpServlet {
 		/*----비밀번호 변경 폼 보기 -> 처리----------------------------------*/
 		
 		/*----회원가입 폼 보기 -> 처리----------------------------------*/
-		else if(command.equals("/userJoin.usr")) {//'회원가입 폼 보기' 요청이면
-			request.setAttribute("showPage", "/user/joinForm.jsp");
-			forward = new ActionForward("user.jsp", false); //반드시 디스패치 방식으로 포워딩
-		}else if(command.equals("/userJoinAction.usr")) {//'회원가입 처리' 요청이면
+		else if(command.equals("/customerJoin.cus")) {//'회원가입 폼 보기' 요청이면
+			request.setAttribute("showPage", "/customer/joinForm.jsp");
+			forward = new ActionForward("customer.jsp", false); //반드시 디스패치 방식으로 포워딩
+		}else if(command.equals("/customerJoinAction.cus")) {//'회원가입 처리' 요청이면
 			action = new CustomerJoinAction();
 			
 			try {
@@ -99,14 +99,14 @@ public class CustomerFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		/*----'로그아웃' -> 처리 후 userMain.jsp-------------------*/
-		else if(command.equals("/userLogout.usr")) {//'로그아웃' 요청이면
+		/*----'로그아웃' -> 처리 후 customerMain.jsp-------------------*/
+		else if(command.equals("/customerLogout.cus")) {//'로그아웃' 요청이면
 			HttpSession session= request.getSession();
 			session.invalidate();//세션의 모든 속성을 삭제
-			forward = new ActionForward("userMain.jsp", true);//리다이렉트 방식
+			forward = new ActionForward("index.jsp", true);//리다이렉트 방식
 		}
 		/*----'사용자 한명 상세 정보 보기' -> 정보 수정 처리-------------------*/
-		else if(command.equals("/userView.usr")) {//'사용자 한명 상세 정보 보기' 요청이면
+		else if(command.equals("/customerView.cus")) {//'사용자 한명 상세 정보 보기' 요청이면
 			action = new CustomerViewAction();
 			
 			try {
@@ -114,7 +114,7 @@ public class CustomerFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}else if(command.equals("/userModifyAction.usr")) {//'사용자 한명 상세 정보 수정' 요청이면
+		}else if(command.equals("/customerModifyAction.cus")) {//'사용자 한명 상세 정보 수정' 요청이면
 			action = new CustomerModifyAction();
 			
 			try {

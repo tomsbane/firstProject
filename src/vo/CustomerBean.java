@@ -14,9 +14,9 @@ public class CustomerBean {
 	
 	//3개는 회원가입폼에 없음
 	private String c_joindate;
-	
 	private int order_quantity;//추가
 	private int order_money;
+	
 	public String getC_id() {
 		return c_id;
 	}

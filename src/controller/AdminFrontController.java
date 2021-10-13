@@ -9,7 +9,9 @@ import action.Action;
 import action.admin.AdminCarListAction;
 import action.admin.AdminListAction;
 import action.admin.CarRegistAction;
+import action.admin.CarRegistFormAction;
 import action.admin.CarViewAction;
+import action.admin.ReserveCarAction;
 import vo.ActionForward;
 
 /**
@@ -71,7 +73,15 @@ public class AdminFrontController extends HttpServlet {
 		/* 글쓰기 페이지를 열어주는 요청인 경우는 특별한 비지니스 로직을 실행할 필요없이
 		 * 글쓰기 할 수 있는 뷰페이지로만 포워딩하면 됨
 		 */
-		if(command.equals("/admin.ad")) {//'상품 목록보기'요청이면
+		if(command.equals("/adminCarList.ad")) {//'상품 목록보기'요청이면
+			action = new AdminCarListAction();
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		else if(command.equals("/carInsert.ad")) {//'상품 등록'요청이면
 			action = new AdminListAction();
 			try {
 				forward = action.execute(request, response);
@@ -89,6 +99,7 @@ public class AdminFrontController extends HttpServlet {
 			}
 		}
 		*/
+		
 		else if(command.equals("/carView.ad")) {//'특정 개 상품의 상세 정보 보기' 요청이면						
 			action = new CarViewAction();			
 			try {
@@ -97,16 +108,23 @@ public class AdminFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		else if(command.equals("/carRegistForm.ad")) {//'새로운 개 상품 정보 등록 폼의 뷰페이지 보기' 요청이면						
-			/*
-			action = new DogRegistFormAction();			
+		else if(command.equals("/reserveCar.ad")) {//'특정 개 상품의 상세 정보 보기' 요청이면						
+			action = new ReserveCarAction();			
 			try {
 				forward = action.execute(request, response);
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
-			*/
-			forward=new ActionForward("/admin/carRegistForm.jsp", false);
+		}
+		
+		else if(command.equals("/carRegistForm.ad")) {//'새로운 개 상품 정보 등록 폼의 뷰페이지 보기' 요청이면						
+			
+			action = new CarRegistFormAction();
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
 		}
 		if(command.equals("/carRegist.ad")) {//'새로운 개 상품 정보 등록을 처리하는' 요청이면						
 			action = new CarRegistAction();			

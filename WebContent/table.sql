@@ -27,6 +27,15 @@ c_joindate datetime not null default now(),/*회원가입 폼에 없음*/
 order_quantity int not null default 0,
 order_money int default 0
 );
+update customer set c_grade='admin' where c_id='admin';
+
+create table address(
+addr_index int auto_increment primary key,/*auto_increment하려면 primary key*/
+c_id varchar(45) not null,
+postcode int not null,/*우편번호*/
+address1 Nvarchar(60) not null,
+address2 Nvarchar(60) not null
+);
 
 select * from rentcar;
 
