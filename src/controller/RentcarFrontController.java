@@ -52,8 +52,8 @@ public class RentcarFrontController extends HttpServlet {
 		
 	
 		String command=requestURI.substring(contextPath.length());
+		System.out.println(command);
 		
-
 		Action action = null;
 		ActionForward forward = null;
 		

@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style1.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Insert title here</title>
 <script>
@@ -15,7 +15,7 @@ function check(){
 	}
 	f.submit();
 }
-	</script>
+</script> 
 </head>
 <body>
 <jsp:include page="header1.jsp"></jsp:include>
@@ -25,6 +25,7 @@ function check(){
 		style="background-image: url(images/bg-rental-rez2.png); height: 180px;"></div>
 </section>
 <form action="shortRentReserve.do" method="post" name="f">
+<input type="hidden" value="${car_no }" name="car_no" id="car_no">
 <section class="section-reserve"> 
 	<div class="car-info">
 		<table class="car-table">
@@ -52,6 +53,8 @@ function check(){
 	
 	<div class="cnt-group">
 	<div class="div-date">
+		<input type="hidden" id="rental_date" name="rental_date" value="${rental_date }">
+		<input type="hidden" id="return_date" name="return_date" value="${return_date }">
 		<span class="div-font">인수일시</span> ${rental_date} <img src="images/arrow.png" class="arrow"> <span class="div-font">반납일시</span> ${return_date}
 	</div>
 	</div>
@@ -62,18 +65,18 @@ function check(){
 		 	<div class="cnt-title"><h2>배차(인수)</h2></div>
 				<div class="cnt-info">현재 타고 수성점에서만 배차하실 수 있습니다.</div>
 				
-				<label for class="label-hidden">시도 선택</label>
-				<select>
+				<label for="rental_place1" class="label-hidden">시도 선택</label>
+				<select id="rental_place1">
 					<option value="대구광역시">대구광역시</option>
 				</select>
 				
-				<label for class="label-hidden">구 선택</label>
-				<select>
+				<label for="rental_place2" class="label-hidden">구 선택</label>
+				<select name="rental_place2" id="rental_place2">
 					<option value="수성구">수성구</option>
 				</select>
 				
-				<label for class="label-hidden">동 선택</label>
-				<select>
+				<label for="rental_place3" class="label-hidden">동 선택</label>
+				<select name="rental_place3">
 					<option value="만촌동">만촌동</option>
 				</select>
 		</div>
@@ -84,18 +87,18 @@ function check(){
 			
 				<div class="cnt-info">현재 타고 수성점에서만 반납하실 수 있습니다.</div>
 				
-				<label for class="label-hidden">시도 선택</label>
-				<select>
+				<label for="return_place1" class="label-hidden">시도 선택</label>
+				<select name="return_place1">
 					<option value="대구광역시">대구광역시</option>
 				</select>
 				
-				<label for class="label-hidden">구 선택</label>
-				<select>
+				<label for="return_place2" class="label-hidden">구 선택</label>
+				<select name="return_place2">
 					<option value="수성구">수성구</option>
 				</select>
 				
-				<label for class="label-hidden">동 선택</label>
-				<select>
+				<label for="return_place3" class="label-hidden">동 선택</label>
+				<select name="return_place3">
 					<option value="만촌동">만촌동</option>
 				</select>
 		</div>
@@ -159,7 +162,7 @@ function check(){
 		<div class="box">
 			<a href="javascript:history.back();" class="box-b"> < 이전단계</a>
 			
-			<a href="javascript:check();" class="box-a">다음단계 > </a>
+			<a href="javascript:check();" class="box-a">예약하기 > </a>
 		</div>
 		
 	</section>	

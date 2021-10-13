@@ -51,8 +51,8 @@ if(cookies != null && cookies.length > 0){
 						aria-expanded="false">접속하기<span class=caret></span></a>
 						
 					<ul class="dropdown-menu">
-						<li class="active"><a href="customerLoginAction.cus"></a>로그인</li>
-						<li><a href="customerJoin.cus"></a>회원가입</li>
+						<li class="active"><a href="customerLoginAction.cus">로그인</a></li>
+						<li><a href="customerJoin.cus">회원가입</a></li>
 					</ul>
 				</li>
 			</ul>

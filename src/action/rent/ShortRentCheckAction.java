@@ -18,14 +18,16 @@ public class ShortRentCheckAction implements Action {
 		String rental_date = request.getParameter("rental_date");
 		String return_date = request.getParameter("return_date");
 		int car_no = Integer.parseInt(request.getParameter("car_no"));
+		
 		ShortRentCheckService shortRentCheckService = new ShortRentCheckService();
 
 		Rentcar carInfo = shortRentCheckService.getShortRentInfo(car_no);
-
+		
+		request.setAttribute("car_no", car_no);
 		request.setAttribute("carInfo", carInfo);
 		request.setAttribute("rental_date", rental_date);
 		request.setAttribute("return_date", return_date);
-
+		
 		forward = new ActionForward("/rentFirstCheck.jsp", false);
 
 		return forward;

@@ -8,6 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Insert title here</title>
 </head>
+
 <body>
 <jsp:include page="header1.jsp"></jsp:include>
 
@@ -15,45 +16,180 @@
 	<div class="banner"
 		style="background-image: url(images/bg-rental-rez2.png); height: 180px;"></div>
 </section>
-<section class="section-reserve">
-	<section class="form-field">
-		<form>
-			<div class="text-input">예약자정보</div>
+
+<section class="form-field">
+	<form action="carBooking.do"></form>
+	<section class="left-field">
+
+			<div class="text">예약자정보</div>
 			<div class="div_clear"></div>
-			<label>예약자명</label> <input type="text" placeholder="이름을 입력하세요."
-				size="50"> <label>휴대폰번호</label> <input type="text"
-				placeholder="숫자만 입력하세요." size="50">
+			
+			<div class="col-group">
 
-			<div class="text-input">운전자정보</div>
+				<span>이름</span>
+				<div class="col-input">		
+					<input type="text" placeholder=" 이름을 입력하세요." id="c_name"><br>				
+				</div>
+				
+				<span>핸드폰</span>
+				<div class="col-input">
+					<input type="text"placeholder=" 숫자만 입력하세요."  id="c_tel"><br>
+				</div>
+				
+				<span>생년월일</span>
+				<div class="col-input">
+					<input type="text" id="c_birth" width="350" maxlength="6" placeholder="8자리(yyyy-mm-dd)">
+				</div>
+			</div>
+			
+			<div class="text">운전자정보</div>
+
 			<div class="div_clear"></div>
-			<label>생년월일</label> <input type="text" placeholder="이름을 입력하세요.">
-
-			<label>운전경력</label> <input type="text" placeholder="숫자만 입력하세요.">
-
-			<div class="text-input">면허정보(선택)</div>
-			<div class="div_clear"></div>
-			<label>면허정보</label> <input type="text" placeholder="이름을 입력하세요.">
-
-			<label>요청사항(선택)</label>
-			<textarea placeholder="내용을 입력하세요." cols="70" rows="5"></textarea>
-		</form>
-	</section>
+			
+			<div class="col-group">
+				<label for="is-same"><input type="checkbox" id="is-same" name="is-same">예약자와 운전자가 동일(체크)</label><br>
+				
+				<span>이름</span>
+				<div class="col-input">
+					<input type="text" placeholder=" 이름을 입력하세요." id="c_name"><br>
+				</div>
 	
-	<hr>
+				<span>핸드폰</span>
+				<div class="col-input">
+					<input type="text" placeholder=" 숫자만 입력하세요." id="c_tel"><br>
+				</div>
+	
+				<span>생년월일</span>
+				<div class="col-input">
+					<input type="text" id="c_birth" width="350" maxlength="6"
+						placeholder="8자리(yyyy-mm-dd)">
+				</div>
+					<c:if test="">
+				
+				</c:if>
+				
+				<c:if test="">
+				
+				</c:if>
+			</div>
+			
+			
+			<div class="text">면허정보(선택)</div>
+			<div class="div_clear"></div>
+			<div class="col-group">
+			
+			<label for="kind1" class="label-radio"><input type="radio" id="kind1" name="kinds" onclick=""><span> 1종 보통</span></label>
+			<label for="kind2" class="label-radio"><input type="radio" id="kind2" name="kinds"><span> 1종 대형</span></label>
+			<label for="kind3" class="label-radio"><input type="radio" id="kind3" name="kinds"><span> 2종 보통</span></label>
+			
+			<div class="div_clear"></div>
+				<select id="lic_where" style="width:220px;">
+					<option value="10">서울</option>
+					<option value="11">부산</option>
+					<option value="12">경기</option>
+					<option value="13">경기남부</option>
+					<option value="14">경기북부</option>
+				</select>
+				<input type="text" id="" size="10.5" maxlength="8" placeholder=" xx xxxxxx xx">	
+			</div>
+			
+			<div class="text">요청사항(선택)</div>
+				<div class="div_clear"></div>
+			<div class="col-group">
+				<textarea placeholder="내용을 입력하세요." cols="70" rows="5"></textarea>
+			</div>
+		
+	</section>
 
-	<section>
-		<div>
-			<input type="radio" name="check2"> 개인정보처리방침 동의 <a href="#">바로가기▶</a>
-			<input type="radio" name="check2"> 대여조건/환불정책 동의<a href="#">바로가기▶</a>
+
+
+	<section class="right-field">
+	
+		<div class="col-field">
+			<div class="col-field-form">
+				<table class="col-table">
+					<tr>
+						<td class="line_left" colspan="3"><h4 >대여기간</h4></td>
+					</tr>
+					<tr>
+						<td class="line_left" colspan="3">${rental_date} ~ ${return_date}</td>
+					</tr>
+					<tr>
+						<td class="line_left" colspan="3"><h4 >차량 배차 &nbsp; - &nbsp;반납위치</h4></td>
+					</tr>
+					<tr>
+						<td class="line_left">${rental_place2} ${rental_place3} - ${return_place2} ${return_place3} </td>
+					</tr>
+					<tr>
+						<td class="line_right-map">
+						<div id="map" style="width:425px;height:250px;" align="center"></div >
+						</td>
+					</tr>
+					<tr>			
+						<td class="line_left">차량 대여료</td>
+						<td class="line_right">${carInfo.car_price }</td>
+					</tr>
+
+					<tr>
+						<td class="line_left">차량 보험료</td>
+						<td class="line_right">${carInfo.car_price }</td>
+					</tr>
+				</table>
+			</div>
+			<div class="col-field-form">
+				<table class="col-table" >
+					<tr>			
+						<td class="line_left">사용 쿠폰</td>
+						<td class="line_right">${carInfo.car_price }</td>
+					</tr>	
+					<tr>			
+						<td class="line_left">할인 금액</td>
+						<td class="line_right">${carInfo.car_price }</td>
+					</tr>
+					<tr>
+						<td class="line_left">총 대여금액</td>
+						<td class="line_right">${carInfo.car_price }</td>
+					</tr>
+				</table>	
+
+				
+			</div>
+			<div class="col-field-form">
+				
+				<input type="radio" name="check1"> 개인정보처리방침 동의 <a href="#">바로가기▶</a><br>
+				<input type="radio" name="check2"> 대여조건/환불정책 동의 <a href="#">바로가기▶</a><br>
+				
+				
+			</div>
+			<div class="col-field-form">
+				
+				<a href="javascript:history.back();">이전단계</a> 
+				<a href="javascript:submit();">예약신청완료</a>
+			</div>
 		</div>
-		<hr>
-		<a href="javascript:history.back();">이전단계</a> <a
-			href="javascript:history.back();">다음단계</a>
 	</section>
+
+	
+	<div class="div_clear"></div>
+
+	<section class="section-end">
+
+		
+
+	</section>
+
+	
 </section>
 	
-<section class="section-reserve"> 	
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d0ce45414c82b140d5a726a741f11ca1"></script>
+	<script>
+		var container = document.getElementById('map');
+		var options = {
+			center: new kakao.maps.LatLng(35.85949249484983, 128.64698833298496),
+			level: 3
+		};
 
-</section>
+		var map = new kakao.maps.Map(container, options);
+	</script>
 </body>
 </html>
