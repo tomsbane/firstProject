@@ -47,7 +47,7 @@ public class CarRegistAction implements action.Action {
 		boolean isRegistSuccess = carRegistService.registCar(car);
 		//ActionForward forward = null;
 		if(isRegistSuccess) {//새 개 상품 등록 성공
-			forward=new ActionForward("admin.ad", true);//주의 :
+			forward=new ActionForward("adminCarList.ad", true);//주의 :
 		}else {
 			response.setContentType("text/html;charset=utf-8");
 			PrintWriter out=response.getWriter();
