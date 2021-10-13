@@ -1,0 +1,61 @@
+@charset "UTF-8";
+*{
+	box-sizing: border-box;
+	margin: 0 auto;
+	padding: 0;
+	text-align: center;
+}
+
+a {
+	text-decoration: none;
+}
+
+/*1.헤더*/
+#header{
+	width: 100%;
+	height: 30%;
+}
+
+/*로고 이미지 부분*/
+.header1{
+	width: 5%;
+	float:left;
+	margin-top: 0.5%;
+	margin-left: 1%;
+}
+
+/*헤더 메뉴 부분*/
+.header2{
+	width: 70%;
+	float:left;
+	margin-top: 2%;
+	margin-left: 10%;
+}
+
+/*헤더 로그인/로그아웃/회원가입 부분*/
+.header3{
+	width: 10%;
+	float:right;
+	margin-top: 2%;
+	margin-right: 0.1%;
+}
+/*섹션*/
+#section{
+	
+}
+
+/*푸터*/
+#footer{
+	width: 100%;
+	height: 20%;
+	background-color: #000040;
+	color: #fff;
+}
+
+/* @media screen and (min-width:1360px){
+	
+}
+
+@media screen and (min-width:1242px){
+	
+} */
