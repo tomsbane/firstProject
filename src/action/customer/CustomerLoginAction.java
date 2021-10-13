@@ -40,7 +40,7 @@ public class CustomerLoginAction implements Action {
 			PrintWriter out = response.getWriter();
 			out.println("<script>");
 			out.println("alert('아이디나 비밀번호가 일치하지 않습니다.');");
-			out.println("location.href='customerLogin.usr';");
+			out.println("location.href='customerLogin.cus';");
 			out.println("</script>");
 		}else {//로그인에 성공하면=회원가입이 되어있으면서 id와 pw를 정확히 입력했으면
 			//★★입력한 id로 "회원정보"를 가져와(가져오는 이유? 정보를 session영역에 공유하기 위해)
@@ -52,7 +52,7 @@ public class CustomerLoginAction implements Action {
 				PrintWriter out = response.getWriter();
 				out.println("<script>");
 				out.println("alert('존재하지 않는 계정입니다.');");
-				out.println("location.href='customerLogin.usr';");//다시 '로그인 폼 보기' 요청
+				out.println("location.href='customerLogin.cus';");//다시 '로그인 폼 보기' 요청
 				out.println("</script>");
 			}else {//null이 아니면(회원이면)
 				/* Cookie와 Session은 둘다 로그인 정보 유지하기 위한 방법
