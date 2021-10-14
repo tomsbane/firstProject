@@ -11,16 +11,10 @@
 <title>TAGO</title>
 </head>
 <body>
-	<%-- <div>
-		<jsp:include page="userHeader.jsp" />
-	</div> --%>
 	<section id="section">
 		<div>
 			<jsp:include page="${showPage }" />
 		</div>
 	</section>
-	<%-- <div>
-		<jsp:include page="userFooter.jsp" />
-	</div> --%>
 </body>
 </html>
