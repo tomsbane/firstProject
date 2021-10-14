@@ -59,22 +59,23 @@ border: 1px black;
 		</section>
 		<section id = "content_right"> 
 			<b>상품명 :</b> <input type="text" name="car_name" value="${car.car_name}"> <br/>
-			<b>그룹명 :</b> <select name="car_group">
-			<option <c:if test="${car.car_group eq '경형'}">selected</c:if>>
-			경형
-			</option>
-			<option <c:if test="${car.car_group eq '중소형'}">selected</c:if>>
-			중소형
-			</option>
-			<option <c:if test="${car.car_group eq 'SUV'}">selected</c:if>>
-			SUV
-			</option>
-			<option <c:if test="${car.car_group eq '대형'}">selected</c:if>>
-			대형
-			</option>
-			<option <c:if test="${car.car_group eq '수입'}">selected</c:if>>
-			수입
-			</option>
+			<b>그룹명 :</b> 
+			<select name="car_group">
+				<option value="경형" <c:if test="${car.car_group eq '경형'}">selected</c:if>>
+				경형
+				</option>
+				<option value="중소형" <c:if test="${car.car_group eq '중소형'}">selected</c:if>>
+				중소형
+				</option>
+				<option value="SUV"  <c:if test="${car.car_group eq 'SUV'}">selected</c:if>>
+				SUV
+				</option>
+				<option value="대형"  <c:if test="${car.car_group eq '대형'}">selected</c:if>>
+				대형
+				</option>
+				<option value="수입"  <c:if test="${car.car_group eq '수입'}">selected</c:if>>
+				수입
+				</option>
 			</select> <br/>
 			<b>연식 :</b> <input type="number" name="car_year" min="1950" max="2050" step="1" value="${car.car_year}"> <br/>
 			<b>예약가능여부 :</b> 

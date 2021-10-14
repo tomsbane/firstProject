@@ -95,7 +95,7 @@ a:checked {
 			<ul class="lists">
 				<li><a href="adminCarList.ad">차량관리</a></li>
 				<li><a href="#">예약현황관리</a></li>
-				<li><a href="shortRentList.do">회원관리</a></li>
+				<li><a href="customerList.ad">회원관리</a></li>
 				<li><a href="longRentList.do">매출관리</a></li>
 				<li><a href="qna.do">고객센터</a></li>
 			</ul>

@@ -9,8 +9,8 @@ import action.Action;
 import action.admin.AdminCarListAction;
 import action.admin.AdminListAction;
 import action.admin.AdminRegistAction;
-import action.admin.CarRegistAction;
-import action.admin.CarRegistFormAction;
+import action.admin.CarInsertAction;
+import action.admin.CarInsertFormAction;
 import action.admin.CarViewAction;
 import action.admin.CustomerListAction;
 import action.admin.NormalRegistAction;
@@ -78,16 +78,8 @@ public class AdminFrontController extends HttpServlet {
 		/* 글쓰기 페이지를 열어주는 요청인 경우는 특별한 비지니스 로직을 실행할 필요없이
 		 * 글쓰기 할 수 있는 뷰페이지로만 포워딩하면 됨
 		 */
-		if(command.equals("/adminCarList.ad")) {//'상품 목록보기'요청이면
+		if(command.equals("/adminCarList.ad")) {//'카 목록보기'요청이면
 			action = new AdminCarListAction();
-			try {
-				forward = action.execute(request, response);
-			}catch(Exception e) {
-				e.printStackTrace();
-			}
-		}
-		else if(command.equals("/carInsert.ad")) {//'상품 등록'요청이면
-			action = new AdminListAction();
 			try {
 				forward = action.execute(request, response);
 			}catch(Exception e) {
@@ -130,17 +122,17 @@ public class AdminFrontController extends HttpServlet {
 			}
 		}
 		
-		else if(command.equals("/carRegistForm.ad")) {//'새로운 카 상품 정보 등록 폼의 뷰페이지 보기' 요청이면						
+		else if(command.equals("/carInsertForm.ad")) {//'새로운 카 상품 정보 등록 폼의 뷰페이지 보기' 요청이면						
 			
-			action = new CarRegistFormAction();
+			action = new CarInsertFormAction();
 			try {
 				forward = action.execute(request, response);
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
 		}
-		else if(command.equals("/carRegist.ad")) {//'새로운 카 등록을 처리하는' 요청이면						
-			action = new CarRegistAction();			
+		else if(command.equals("/carInsert.ad")) {//'새로운 카 등록을 처리하는' 요청이면						
+			action = new CarInsertAction();			
 			try {
 				forward = action.execute(request, response);
 			}catch(Exception e) {

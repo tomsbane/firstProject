@@ -7,7 +7,7 @@ import java.sql.Connection;
 import dao.CarDAO;
 import vo.Rentcar;
 
-public class CarRegistService {
+public class CarInsertService {
 	
 	public boolean registCar(Rentcar car){
 		//1.커넥션 풀에서 Connection객체 얻어와
@@ -18,7 +18,7 @@ public class CarRegistService {
 				carDAO.setConnection(con);
 				
 				/*-----DogDAO의 해당 메서드를 호출하여 처리--------------------------------*/
-				int insertCount = carDAO.insertCar(car);
+				int insertCount = carDAO.insertNewCar(car);
 				
 				/*--(update,delete,insert)성공하면 commit 실패하면 rollback
 				 * (select 제외)--*/

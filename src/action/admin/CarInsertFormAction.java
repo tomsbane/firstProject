@@ -5,13 +5,13 @@ import javax.servlet.http.HttpServletResponse;
 import action.Action;
 import vo.ActionForward;
 
-public class CarRegistFormAction implements Action {
+public class CarInsertFormAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionForward forward = null;
 		
-		request.setAttribute("showAdmin", "/admin/carRegistForm.jsp");
+		request.setAttribute("showAdmin", "/admin/carInsertForm.jsp");
 		forward = new ActionForward("admin_template.jsp", false);
 		
 		return forward;

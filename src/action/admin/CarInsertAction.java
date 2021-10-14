@@ -7,7 +7,7 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import svc.admin.CarRegistService;
+import svc.admin.CarInsertService;
 import vo.ActionForward;
 import vo.Rentcar;
 
@@ -15,7 +15,7 @@ import vo.Rentcar;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;//서버상에 a.txt있다면 a1.txt로 수정
 
-public class CarRegistAction implements action.Action {
+public class CarInsertAction implements action.Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -42,11 +42,11 @@ public class CarRegistAction implements action.Action {
 				multi.getParameter("car_image"),
 				0);//조회수 : 0부터 시작
 		
-		CarRegistService carRegistService = new CarRegistService();
+		CarInsertService carInsertService = new CarInsertService();
 		//새로운 개 정보(dog)를 dog 테이블에  insert함
-		boolean isRegistSuccess = carRegistService.registCar(car);
+		boolean isInsertSuccess = carInsertService.registCar(car);
 		//ActionForward forward = null;
-		if(isRegistSuccess) {//새 개 상품 등록 성공
+		if(isInsertSuccess) {//새 개 상품 등록 성공
 			forward=new ActionForward("adminCarList.ad", true);//주의 :
 		}else {
 			response.setContentType("text/html;charset=utf-8");

@@ -54,7 +54,7 @@ background-color: yellow;
 			</c:if>	
 		</table>
 		<br>
-		<span id="button"><a href="carRegistForm.ad">차량추가하기</a></span>  <span id="button"><a href="reserveCarList.ad">예약불가 차량 보기</a></span>
+		<span id="button"><a href="carInsertForm.ad">차량추가하기</a></span>  <span id="button"><a href="reserveCarList.ad">예약불가 차량 보기</a></span>
 	</section>
 
 </body>

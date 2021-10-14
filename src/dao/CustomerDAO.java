@@ -9,7 +9,6 @@ import java.util.ArrayList;
 
 import vo.Address;
 import vo.CustomerBean;
-import vo.Rentcar;
 
 public class CustomerDAO {
 	// 멤버변수(전역변수 : 전체 메서드에서 사용 가능)
@@ -354,26 +353,6 @@ public class CustomerDAO {
 		return customerList;
 	}
 
-	public int adminUpdate(String c_id) {
-		int adminUpdateCount = 0;
-		//방법-1:기존의 이미지를 그대로 사용하려면
-		String sql="update customer set c_grade='admin' where c_id=?";
-
-		try {
-			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, c_id);			
-			
-			adminUpdateCount = pstmt.executeUpdate();		
-			
-		} catch (Exception e) {			
-			System.out.println("adminUpdate 에러:"+ e);
-		} finally {
-			//close(rs);
-			close(pstmt);
-		}			
-		
-		return adminUpdateCount;
-	}
 	public int normalUpdate(String c_id) {
 		int normalUpdateCount = 0;
 		//방법-1:기존의 이미지를 그대로 사용하려면
@@ -394,5 +373,6 @@ public class CustomerDAO {
 		
 		return normalUpdateCount;
 	}
+
 
 }

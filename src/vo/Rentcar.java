@@ -12,6 +12,18 @@ public class Rentcar {
 	private int car_readCount;
 	
 	public Rentcar() {}
+	
+	public Rentcar(String car_name, String car_group, int car_year, String car_reserve, int car_price, String car_brand,
+			String car_image) {
+		super();
+		this.car_name = car_name;
+		this.car_group = car_group;
+		this.car_year = car_year;
+		this.car_reserve = car_reserve;
+		this.car_price = car_price;
+		this.car_brand = car_brand;
+		this.car_image = car_image;
+	}
 
 	public Rentcar(int car_no, String car_name, String car_group, int car_year, String car_reserve, int car_price,
 			String car_brand, String car_image, int car_readCount) {

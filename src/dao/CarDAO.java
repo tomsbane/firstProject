@@ -108,29 +108,28 @@ public class CarDAO {
 		
 		return carList;
 	}
-	public int insertCar(Rentcar car){
-		 String sql = "INSERT INTO rentcar VALUES(null,?,?,?,?,?,?,?,?)"; 
-		
+	public int insertNewCar(Rentcar newCar){
 		int insertCount = 0;
+		 
+		String sql = "INSERT INTO rentcar VALUES(null,?,?,?,?,?,?,?,?)"; 
 		
 		try {
 			psmt = con.prepareStatement(sql);
 			
-			psmt.setString(1, car.getCar_name());
-			psmt.setString(2, car.getCar_group());
-			psmt.setInt(3, car.getCar_year());
-			psmt.setString(4, car.getCar_reserve());
-			psmt.setInt(5, car.getCar_price());
-			psmt.setString(6, car.getCar_brand());
-			psmt.setString(7, car.getCar_image());
-			psmt.setInt(8, car.getCar_readCount());
+			psmt.setString(1, newCar.getCar_name());
+			psmt.setString(2, newCar.getCar_group());
+			psmt.setInt(3, newCar.getCar_year());
+			psmt.setString(4, newCar.getCar_reserve());
+			psmt.setInt(5, newCar.getCar_price());
+			psmt.setString(6, newCar.getCar_brand());
+			psmt.setString(7, newCar.getCar_image());
+			psmt.setInt(8, newCar.getCar_readCount());
 			
 			insertCount = psmt.executeUpdate();//업데이트가 성공하면 1리턴받음
 			
 		} catch (Exception e) {					
-			System.out.println("insertCar 에러 :" + e);//e:예외종류+예외메세지
+			System.out.println("insertNewCar 에러 :" + e);//e:예외종류+예외메세지
 		}finally {
-			close(rs);
 			close(psmt);			
 		}
 		
@@ -194,6 +193,7 @@ public class CarDAO {
 		
 		return carReserveUpdateCount;
 	}
+
 
 	/*
 	 * //1. 모든 개 상품 정보를 조회하여 ArrayList<Dog>객체 반환 public ArrayList<Dog>

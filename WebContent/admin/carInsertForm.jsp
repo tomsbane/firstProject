@@ -44,14 +44,35 @@ table{
 <section id="registForm">
 	<header><h2>렌트카 정보 등록</h2></header>
 	<!-- 파일 업로드 요청하기 위해 enctype="multipart/form-data"로 지정해야 함 -->
-	<form action="carRegist.ad" method="post" name="writeForm" enctype="multipart/form-data">
+	<form action="carInsert.ad" method="post" name="addForm" enctype="multipart/form-data">
 		<table>
 			<tr>
-				<td colspan="2"><a href="carList.dog">목록보기</a></td>
+				<td colspan="2"><a href="carList.dog">목록보기</a>	</td>
 			</tr>
 			<tr>
-				<th class="td_left">상품명</th> <!-- 장바구니에서 품종으로 구분하여 사용하기 위해 -->
+				<th class="td_left">상품명</th> 
 				<td class="td_right"><input type="text" name="car_name" required="required"></td>
+			</tr>
+			<tr>
+				<th class="td_left">그룹</th> 
+				<td class="td_right">
+					<select name="car_group">
+						<option value="경형">
+						경형
+						</option>
+						<option value="중소형">
+						중소형
+						</option>
+						<option value="SUV">
+						SUV
+						</option>
+						<option value="대형">
+						대형
+						</option>
+						<option value="수입">
+						수입
+						</option>
+					</select></td>
 			</tr>
 			<tr>
 				<th class="td_left">연식</th>

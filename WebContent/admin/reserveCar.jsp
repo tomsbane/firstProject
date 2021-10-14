@@ -44,7 +44,7 @@ table{
 				<td>상품명: ${car.car_name}&nbsp;&nbsp;no:${car.car_no}</td>
 				<td>예약가능여부 :</td>
 				<td>${car.car_reserve }&nbsp;</td>
-				<td><a href=""><input type="button" value="Change"></a></td>
+				<td><a href="reserveChange.ad?car_no=${car.car_no}&car_reserve=${car.car_reserve}"><input type="button" value="전환"></a></td>
 			</tr>
 			</c:forEach>
 				
