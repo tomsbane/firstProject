@@ -7,9 +7,10 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import action.Action;
+import action.rent.ShortRentAction;
 import action.rent.ShortRentCheckAction;
+import action.rent.ShortRentFinalCheckAction;
 import action.rent.ShortRentListAction;
-import action.rent.ShortRentReserveAction;
 import vo.ActionForward;
 
 
@@ -78,10 +79,18 @@ public class RentcarFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}	
-		/*******예약페이지 예약정보 입력 면허 예약신청 -> 완료페이지*****************************/
-
-		else if (command.equals("/shortRentReserve.do")) {
-			action = new ShortRentReserveAction();
+		/*******예약페이지 예약정보 최종입력 -> 처리*****************************/
+		else if (command.equals("/shortRentFinalCheck.do")) {
+			action = new ShortRentFinalCheckAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		/*******예약 -> 처리*****************************/
+		else if (command.equals("/shortRentcarOrder.do")) {
+			action = new ShortRentAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {

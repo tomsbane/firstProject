@@ -24,7 +24,7 @@ function check(){
 	<div class="banner"
 		style="background-image: url(images/bg-rental-rez2.png); height: 180px;"></div>
 </section>
-<form action="shortRentReserve.do" method="post" name="f">
+<form action="shortRentFinalCheck.do" method="post" name="f">
 <input type="hidden" value="${car_no }" name="car_no" id="car_no">
 <section class="section-reserve"> 
 	<div class="car-info">

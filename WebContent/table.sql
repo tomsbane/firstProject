@@ -15,6 +15,7 @@ c_joindate datetime not null default now(),/*회원가입 폼에 없음*/
 order_quantity int not null default 0,
 order_money int default 0
 );
+
 create table address(
 addr_index int auto_increment primary key,/*auto_increment하려면 primary key*/
 c_id varchar(45) not null,
@@ -23,11 +24,24 @@ address1 Nvarchar(60) not null,
 address2 Nvarchar(60) not null
 );
 
-drop table customer_detail;
-create table customer_detail (
+drop table order_car;
+create table order_car(
+order_no int auto_increment primary key,
+c_id varchar(45) not null,
+car_no int not null,
+rental_date date not null,
+return_date date not null,
+rental_price int not null
+);
+alter table order_car auto_increment=1;
+
+
+drop table driver_detail;
+create table driver_detail (
+c_id varchar(45) not null primary key,
 c_name nvarchar(20) not null,
-driver_birth datetime not null,
-drive_exp nvarchar(20),
+c_birth datetime not null,
+c_tel varchar(40) not null,
 rental_place1 nvarchar(20) not null,
 rental_place2 nvarchar(20) not null,
 rental_place3 nvarchar(20) not null,
@@ -36,14 +50,15 @@ return_place2 nvarchar(20) not null,
 return_place3 nvarchar(20) not null,
 request nvarchar(200)
 );
+select * from driver_detail;
+select * from order_car;
 
 create table drive_lic(
-c_id varchar(45) primary key,
+c_id varchar(45),
+c_name varchar(45),
 lic_info nvarchar(20),
 lic_area nvarchar(20),
-lic_num1 int,
-lic_num2 int,
-lic_num3 int
+lic_num int
 );
 
 select * from rentcar;
@@ -80,15 +95,7 @@ insert into rentcar values(null, 'sm6','중소형', 2022, 'y', 20000, '르노삼
 insert into rentcar values(null, 'sorento','SUV', 2022, 'y', 20000, '르노삼성', 'sorento.jpg',0);
 insert into rentcar values(null, 'tivoli','SUV', 2022, 'y', 20000, '르노삼성', 'tivoli.jpg',0);
 
-create table order_car(
-order_no int not null primary key,
-customer_no int not null,
-car_no int primary key,
-rental_date date not null,
-return_date date not null,
-rental_price int not null,
-rental_status char(1) not null
-);
+
 
 
 

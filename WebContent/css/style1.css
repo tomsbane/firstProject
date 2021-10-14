@@ -101,6 +101,7 @@ ul, li{
 }
 .line_right{
 	text-align:right;
+	border-collapse:collapse;
 	border-bottom: 1px solid black;
 	padding-right: 10px;
 	padding-top:10px;
