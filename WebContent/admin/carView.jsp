@@ -97,7 +97,7 @@ border: 1px black;
 	<nav id="commandList">
 		<div id="button"><a href="adminCarList.ad">전체 목록보기 </a></div>
 		<div id="button"><a href=""> 수정하기 </a></div>
-		<div id="button"><a href="adminCarDelete.ad"> 삭제하기</a></div>
+		<div id="button"><a href="carDelete.ad?car_no=${car.car_no}"> 삭제하기</a></div>
 	</nav>
 </section>
 </body>

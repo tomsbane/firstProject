@@ -139,7 +139,7 @@ public class CarDAO {
 	
 	public Rentcar viewCar(int car_no) {
 		Rentcar carInfo = null;
-		String sql="select car_name,car_group,car_year,car_reserve,car_price,car_brand,car_image from rentcar where car_no=?";
+		String sql="select car_no,car_name,car_group,car_year,car_reserve,car_price,car_brand,car_image from rentcar where car_no=?";
 		
 		try {
 			psmt=con.prepareStatement(sql);
@@ -148,6 +148,7 @@ public class CarDAO {
 			
 			if(rs.next()) {
 				carInfo = new Rentcar();
+				carInfo.setCar_no(rs.getInt("car_no"));
 				carInfo.setCar_name(rs.getString("car_name"));
 				carInfo.setCar_group(rs.getString("car_group"));
 				carInfo.setCar_year(rs.getInt("car_year"));
@@ -192,6 +193,24 @@ public class CarDAO {
 		}			
 		
 		return carReserveUpdateCount;
+	}
+
+	public int deleteCar(int car_no) {
+		int deleteCarCount = 0;
+		String sql = "delete from rentcar where car_no=?";
+		
+		try {
+			psmt = con.prepareStatement(sql);
+			psmt.setInt(1, car_no);
+			
+			deleteCarCount=psmt.executeUpdate();
+			
+		}catch (Exception e) {
+			System.out.println("deleteCar 에러"+e);
+		}finally {
+			close(psmt);
+		}
+		return deleteCarCount;
 	}
 
 
