@@ -7,6 +7,7 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import svc.admin.AdminRegistService;
 import svc.admin.CarInsertService;
 import vo.ActionForward;
 import vo.Rentcar;
@@ -32,19 +33,19 @@ public class CarInsertAction implements action.Action {
 		//서버 상에 업로드 된 파일이름을 얻어와
 		//String imageFile = multi.getFilesystemName("imgeFile");
 		
-		Rentcar car=new Rentcar(0, //0인 이유? insert할 때 id값은 dog_seq.nextval로 자동 1증가
-				multi.getParameter("car_name"),
-				multi.getParameter("car_group"),
-				Integer.parseInt(multi.getParameter("car_year")), //String ->int로
-				multi.getParameter("car_reserve"),
-				Integer.parseInt(multi.getParameter("car_price")),
-				multi.getParameter("car_brand"),
-				multi.getParameter("car_image"),
-				0);//조회수 : 0부터 시작
+		String car_name = multi.getParameter("car_name");
+		String car_group = multi.getParameter("car_group");
+		int car_year = Integer.parseInt(multi.getParameter("car_year"));
+		String car_reserve = multi.getParameter("car_reserve");
+		int car_price = Integer.parseInt(multi.getParameter("car_price"));
+		String car_brand = multi.getParameter("car_brand");
+		String car_image = multi.getOriginalFileName("car_image");
+		
+		Rentcar newCar = new Rentcar(car_name, car_group, car_year, car_reserve, car_price, car_brand, car_image);
 		
 		CarInsertService carInsertService = new CarInsertService();
 		//새로운 개 정보(dog)를 dog 테이블에  insert함
-		boolean isInsertSuccess = carInsertService.registCar(car);
+		boolean isInsertSuccess = carInsertService.registCar(newCar);
 		//ActionForward forward = null;
 		if(isInsertSuccess) {//새 개 상품 등록 성공
 			forward=new ActionForward("adminCarList.ad", true);//주의 :

@@ -374,5 +374,26 @@ public class CustomerDAO {
 		return normalUpdateCount;
 	}
 
+	public int adminUpdate(String c_id) {
+		int adminUpdateCount = 0;
+		//방법-1:기존의 이미지를 그대로 사용하려면
+		String sql="update customer set c_grade='admin' where c_id=?";
+
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, c_id);			
+			
+			adminUpdateCount = pstmt.executeUpdate();		
+			
+		} catch (Exception e) {			
+			System.out.println("adminUpdate 에러:"+ e);
+		} finally {
+			//close(rs);
+			close(pstmt);
+		}			
+		
+		return adminUpdateCount;
+	}
+
 
 }
