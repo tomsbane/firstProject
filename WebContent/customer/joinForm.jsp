@@ -180,7 +180,7 @@ function check(){
 				<section id = "joinformArea">
 <form action="customerJoinAction.cus" method="post" name="f">
 	<!-- 처음 회원가입하면 무조건 Normal등급 -->
-	<input type="hidden" name="c_grade" value="Normal"/>
+	<input type="hidden" name="c_grade" value="normal"/>
 		<table>
 			<tr>
 				<th colspan="2">

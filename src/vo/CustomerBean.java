@@ -17,6 +17,20 @@ public class CustomerBean {
 	
 	private int order_quantity;//추가
 	private int order_money;
+	
+	public CustomerBean() {}
+	
+	public CustomerBean(String c_id, String c_grade, String c_name, String c_email1, String c_email2, String c_tel,
+			String c_joindate) {
+		super();
+		this.c_id = c_id;
+		this.c_grade = c_grade;
+		this.c_name = c_name;
+		this.c_email1 = c_email1;
+		this.c_email2 = c_email2;
+		this.c_tel = c_tel;
+		this.c_joindate = c_joindate;
+	}
 	public String getC_id() {
 		return c_id;
 	}

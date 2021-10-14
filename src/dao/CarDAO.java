@@ -75,6 +75,39 @@ public class CarDAO {
 
 		return carList;
 	}
+	public ArrayList<Rentcar> selectReserveCarList() {
+		ArrayList<Rentcar> carList = null;
+		
+		try {
+			psmt = con.prepareStatement("select * from rentcar where car_reserve='n'");
+			rs = psmt.executeQuery();
+			
+			if(rs.next()) {
+				carList = new ArrayList<Rentcar>();
+				do {
+					Rentcar rentcar = new Rentcar(
+							rs.getInt("car_no"),
+							rs.getString("car_name"),
+							rs.getString("car_group"),
+							rs.getInt("car_year"),
+							rs.getString("car_reserve"),
+							rs.getInt("car_price"),
+							rs.getString("car_brand"),
+							rs.getString("car_image"),
+							rs.getInt("car_readCount"));
+					
+					carList.add(rentcar);
+				}while(rs.next());
+			}
+		} catch (Exception e) {
+			System.out.println("selectCarList 에러 :" + e);
+		}finally {
+			close(rs);
+			close(psmt);
+		}
+		
+		return carList;
+	}
 	public int insertCar(Rentcar car){
 		 String sql = "INSERT INTO rentcar VALUES(null,?,?,?,?,?,?,?,?)"; 
 		
@@ -107,7 +140,7 @@ public class CarDAO {
 	
 	public Rentcar viewCar(int car_no) {
 		Rentcar carInfo = null;
-		String sql="select * from rentcar where car_no=?";
+		String sql="select car_name,car_group,car_year,car_reserve,car_price,car_brand,car_image from rentcar where car_no=?";
 		
 		try {
 			psmt=con.prepareStatement(sql);
@@ -118,6 +151,8 @@ public class CarDAO {
 				carInfo = new Rentcar();
 				carInfo.setCar_name(rs.getString("car_name"));
 				carInfo.setCar_group(rs.getString("car_group"));
+				carInfo.setCar_year(rs.getInt("car_year"));
+				carInfo.setCar_reserve(rs.getString("car_reserve"));
 				carInfo.setCar_price(rs.getInt("car_price"));
 				carInfo.setCar_brand(rs.getString("car_brand"));
 				carInfo.setCar_image(rs.getString("car_image"));
@@ -132,6 +167,32 @@ public class CarDAO {
 		return carInfo;
 		
 		
+	}
+
+	public int carReserveUpdate(int car_no, String car_reserve) {
+		int carReserveUpdateCount = 0;
+		//방법-1:기존의 이미지를 그대로 사용하려면
+		String sql="";
+		
+		if(car_reserve.equals("y")) {
+			sql="update rentcar set car_reserve='n' where car_no=?";
+		}else {
+			sql="update rentcar set car_reserve='y' where car_no=?";
+		}
+
+		try {
+			psmt = con.prepareStatement(sql);
+			psmt.setInt(1, car_no);
+			carReserveUpdateCount = psmt.executeUpdate();		
+			
+		} catch (Exception e) {			
+			System.out.println("carReserveUpdate 에러:"+ e);
+		} finally {
+			//close(rs);
+			close(psmt);
+		}			
+		
+		return carReserveUpdateCount;
 	}
 
 	/*

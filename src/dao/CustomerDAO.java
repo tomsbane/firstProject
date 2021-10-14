@@ -5,9 +5,11 @@ import static db.JdbcUtil.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 import vo.Address;
 import vo.CustomerBean;
+import vo.Rentcar;
 
 public class CustomerDAO {
 	// 멤버변수(전역변수 : 전체 메서드에서 사용 가능)
@@ -285,6 +287,112 @@ public class CustomerDAO {
 			close(pstmt);
 		}
 		return modifyAddrCount;
+	}
+
+	public ArrayList<CustomerBean> customerList() {
+		ArrayList<CustomerBean> customerList = null;
+		// 사용자가 입력한 id 회원정보를 조회
+		String sql = "select c_id,c_grade,c_name,c_email1,c_email2,c_tel,c_joindate from customer";
+		// String sql = "select * from customer_table where c_id=?" + c_id;
+
+		try {
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {// 해당 id에 대한 정보가 있으면
+				customerList = new ArrayList<CustomerBean>();
+				do {
+					customerList.add(new CustomerBean(rs.getString("c_id"),
+													  rs.getString("c_grade"),
+													  rs.getString("c_name"),
+												 	  rs.getString("c_email1"),
+													  rs.getString("c_email2"),
+													  rs.getString("c_tel"),
+													  rs.getString("c_joindate")
+									));
+				}while(rs.next());
+			}
+		} catch (Exception e) {
+			System.out.println("customerList 에러:" + e);
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		return customerList;
+	}
+
+	public ArrayList<CustomerBean> selectCustomer(String c_id) {
+		ArrayList<CustomerBean> customerList = null;
+		// 사용자가 입력한 id 회원정보를 조회
+		String sql = "select c_id,c_grade,c_name,c_email1,c_email2,c_tel,c_joindate from customer where c_id like ?";
+		// String sql = "select * from customer_table where c_id=?" + c_id;
+
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, '%'+c_id+'%');
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {// 해당 id에 대한 정보가 있으면
+				customerList = new ArrayList<CustomerBean>();
+				do {
+					customerList.add(new CustomerBean(rs.getString("c_id"),
+													  rs.getString("c_grade"),
+													  rs.getString("c_name"),
+												 	  rs.getString("c_email1"),
+													  rs.getString("c_email2"),
+													  rs.getString("c_tel"),
+													  rs.getString("c_joindate")
+									));
+				}while(rs.next());
+			}
+		} catch (Exception e) {
+			System.out.println("selectCustomer 에러:" + e);
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		return customerList;
+	}
+
+	public int adminUpdate(String c_id) {
+		int adminUpdateCount = 0;
+		//방법-1:기존의 이미지를 그대로 사용하려면
+		String sql="update customer set c_grade='admin' where c_id=?";
+
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, c_id);			
+			
+			adminUpdateCount = pstmt.executeUpdate();		
+			
+		} catch (Exception e) {			
+			System.out.println("adminUpdate 에러:"+ e);
+		} finally {
+			//close(rs);
+			close(pstmt);
+		}			
+		
+		return adminUpdateCount;
+	}
+	public int normalUpdate(String c_id) {
+		int normalUpdateCount = 0;
+		//방법-1:기존의 이미지를 그대로 사용하려면
+		String sql="update customer set c_grade='normal' where c_id=?";
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, c_id);			
+			
+			normalUpdateCount = pstmt.executeUpdate();		
+			
+		} catch (Exception e) {			
+			System.out.println("adminUpdate 에러:"+ e);
+		} finally {
+			//close(rs);
+			close(pstmt);
+		}			
+		
+		return normalUpdateCount;
 	}
 
 }

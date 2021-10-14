@@ -8,10 +8,15 @@ import javax.servlet.http.*;
 import action.Action;
 import action.admin.AdminCarListAction;
 import action.admin.AdminListAction;
+import action.admin.AdminRegistAction;
 import action.admin.CarRegistAction;
 import action.admin.CarRegistFormAction;
 import action.admin.CarViewAction;
+import action.admin.CustomerListAction;
+import action.admin.NormalRegistAction;
 import action.admin.ReserveCarAction;
+import action.admin.ReserveChangeAction;
+import action.admin.SelectCustomerAction;
 import vo.ActionForward;
 
 /**
@@ -100,7 +105,7 @@ public class AdminFrontController extends HttpServlet {
 		}
 		*/
 		
-		else if(command.equals("/carView.ad")) {//'특정 개 상품의 상세 정보 보기' 요청이면						
+		else if(command.equals("/carView.ad")) {//'특정 카 상품의 상세 정보 보기' 요청이면						
 			action = new CarViewAction();			
 			try {
 				forward = action.execute(request, response);
@@ -108,7 +113,15 @@ public class AdminFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		else if(command.equals("/reserveCar.ad")) {//'특정 개 상품의 상세 정보 보기' 요청이면						
+		else if(command.equals("/reserveChange.ad")) {//'예약 값변경' 요청이면						
+			action = new ReserveChangeAction();			
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		else if(command.equals("/reserveCarList.ad")) {//'예약한 카 리스트 정보 보기' 요청이면						
 			action = new ReserveCarAction();			
 			try {
 				forward = action.execute(request, response);
@@ -117,7 +130,7 @@ public class AdminFrontController extends HttpServlet {
 			}
 		}
 		
-		else if(command.equals("/carRegistForm.ad")) {//'새로운 개 상품 정보 등록 폼의 뷰페이지 보기' 요청이면						
+		else if(command.equals("/carRegistForm.ad")) {//'새로운 카 상품 정보 등록 폼의 뷰페이지 보기' 요청이면						
 			
 			action = new CarRegistFormAction();
 			try {
@@ -126,8 +139,48 @@ public class AdminFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		if(command.equals("/carRegist.ad")) {//'새로운 개 상품 정보 등록을 처리하는' 요청이면						
+		else if(command.equals("/carRegist.ad")) {//'새로운 카 등록을 처리하는' 요청이면						
 			action = new CarRegistAction();			
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		else if(command.equals("/customerList.ad")) {//'전체 회원정보 보기' 요청이면						
+			action = new CustomerListAction();			
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		else if(command.equals("/customerView.ad")) {//'특정 회원정보 보기' 요청이면						
+			action = new CustomerListAction();			
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		else if(command.equals("/selectCustomer.ad")) {//'회원id로 찾기' 요청이면						
+			action = new SelectCustomerAction();			
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		else if(command.equals("/adminRegist.ad")) {//'회원id로 관리자등록' 요청이면						
+			action = new AdminRegistAction();			
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		else if(command.equals("/normalRegist.ad")) {//'회원id로 일반고객등록' 요청이면						
+			action = new NormalRegistAction();			
 			try {
 				forward = action.execute(request, response);
 			}catch(Exception e) {

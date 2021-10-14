@@ -14,11 +14,15 @@
 	margin:auto;
 	width:540px;
 	border:1px solid red;
+	text-align: center;
 }
 table{
 	margin: auto;
 	width: 520px;
 	text-align: center;
+}
+#button{
+background-color: yellow;
 }
 </style>
 </head>
@@ -41,7 +45,7 @@ table{
 				<td>상품명: ${car.car_name}&nbsp;&nbsp;no:${car.car_no}</td>
 				<td>예약가능여부 :</td>
 				<td>${car.car_reserve }&nbsp;</td>
-				<td><a href=""><input type="button" value="Change"></a></td>
+				<td><a href="reserveChange.ad?car_no=${car.car_no}&car_reserve=${car.car_reserve}"><input type="button" value="전환"></a></td>
 			</tr>
 			</c:forEach>
 				
@@ -49,7 +53,8 @@ table{
 				<div class="div_empty">렌트카 상품이 없습니다.</div>
 			</c:if>	
 		</table>
-		<a href="carRegistForm.ad">차량추가하기</a> | <a href="reserveCar.ad">예약중 차량만 보기</a>
+		<br>
+		<span id="button"><a href="carRegistForm.ad">차량추가하기</a></span>  <span id="button"><a href="reserveCarList.ad">예약불가 차량 보기</a></span>
 	</section>
 
 </body>

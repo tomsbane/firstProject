@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 import dao.CarDAO;
 import vo.Rentcar;
-public class CarListService {
+public class ReserveCarListService {
 	
 	public ArrayList<Rentcar> getCarList(){
 		//1.커넥션 풀에서 Connection객체 얻어와

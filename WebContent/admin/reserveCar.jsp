@@ -20,22 +20,25 @@ table{
 	width: 520px;
 	text-align: center;
 }
+#commandList{
+	text-align: center;
+}
 </style>
 </head>
 <body>
 
 	<section id="carListArea">
-	<h1>예약중 차량보기 페이지</h1>
+	<h1 align="center">예약중 차량</h1>
 	<br><br>
 		<table>
 			<tr>
-				<td>
+				<td colspan="5">
 				<h3>차량 선택</h3>
 				</td>
 			</tr>
 				
 			
-			<c:forEach var="car" items="${carList}" varStatus="status">
+			<c:forEach var="car" items="${reservecarList}" varStatus="status">
 			<tr>
 				<td><a href="carView.ad?no=${car.car_no}">${car.car_no}</a></td>
 				<td>상품명: ${car.car_name}&nbsp;&nbsp;no:${car.car_no}</td>
@@ -45,11 +48,13 @@ table{
 			</tr>
 			</c:forEach>
 				
-			<c:if test="${carList == null}"> <!-- 2.개 상품목록이 없으면 -->
+			<c:if test="${reservecarList == null}"> <!-- 2.개 상품목록이 없으면 -->
 				<div class="div_empty">예약중인 렌트카 상품이 없습니다.</div>
 			</c:if>	
 		</table>
-		<a href="adminCarList.ad">전체 목록보기</a>
+		<nav id="commandList">
+		<div><a href="adminCarList.ad">전체 목록보기</a></div>
+		</nav>
 	</section>
 
 </body>

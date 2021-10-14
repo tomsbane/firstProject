@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
-import svc.rent.ShortRentListService;
+import svc.admin.CarListService;
 import vo.ActionForward;
 import vo.Rentcar;
 
@@ -16,13 +16,13 @@ public class ReserveCarAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionForward forward = null;
 		
-		ShortRentListService shortRentListService  = new ShortRentListService(); 
+		CarListService carListService  = new CarListService(); 
 		
-		ArrayList<Rentcar> carList = shortRentListService.getCarList();
+		ArrayList<Rentcar> reservecarList = carListService.getCarList();
 		
-		request.setAttribute("carList", carList);
-		
-		forward =new ActionForward("admin/carInsert.jsp", false);
+		request.setAttribute("reservecarList", reservecarList);
+		request.setAttribute("showAdmin", "/admin/reserveCar.jsp");
+		forward =new ActionForward("admin_template.jsp", false);
 		
 		return forward;
 	}
