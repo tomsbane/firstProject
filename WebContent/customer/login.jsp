@@ -36,13 +36,13 @@ if(cookies != null && cookies.length > 0){
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="main.jsp">JSP 게시판 웹사이트</a>
+			<a class="navbar-brand" href="customerJoin.cus">회원가입</a>
 		</div>
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		
 			<ul class="nav navbar-nav">
-				<li><a href="main.jsp">메인</a></li>
-				<li><a href="BBS.jsp">게시판</a></li>
+				<li><a href="javascript:window.open('${pageContext.request.contextPath}/idCheck/idFind.jsp?openInit=true','아이디찾기','top=10, left=10, width=500, height=300')">아이디 찾기</a></li>
+				<li><a href="javascript:window.open('${pageContext.request.contextPath}/idCheck/idFind.jsp?openInit=true','비밀번호찾기','top=10, left=10, width=500, height=300')">비밀번호 찾기</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown">
@@ -73,8 +73,8 @@ if(cookies != null && cookies.length > 0){
 						<input type="submit" class="btn btn-primary form-control" value="로그인">
 						<input type="checkbox" name="remember" <%if(cookieId != "") {out.print("checked");} %>/>아이디 저장<br><br>
 						<nav style="display: flex;">
-						<div class="btn btn-primary form-control" color="white;"><a href="userIdFindForm.usr">아이디 찾기</a></div>&nbsp;&nbsp;
-						<div class="btn btn-primary form-control"><a href="userPwFindForm.usr">비밀번호 찾기</a></div>
+						<div><a href="#"><input type="image" src="${pageContext.request.contextPath}/images/naver_login.png" style="width:100px;"></a></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<div><a href="#"><input type="image" src="${pageContext.request.contextPath}/images/kakao_login.png" style="width:100px;"></a></div>
 						</nav>
 				</form>
 			</div>
