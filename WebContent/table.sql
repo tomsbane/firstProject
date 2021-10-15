@@ -38,7 +38,7 @@ alter table order_car auto_increment=1;
 
 drop table driver_detail;
 create table driver_detail (
-c_id varchar(45) not null primary key,
+c_id varchar(45) not null,
 c_name nvarchar(20) not null,
 c_birth datetime not null,
 c_tel varchar(40) not null,
@@ -53,6 +53,7 @@ request nvarchar(200)
 select * from driver_detail;
 select * from order_car;
 
+drop table drive_lic;
 create table drive_lic(
 c_id varchar(45),
 c_name varchar(45),

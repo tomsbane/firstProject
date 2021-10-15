@@ -40,7 +40,7 @@ function check(){
 			
 			<span>이름</span>
 			<div class="col-input">
-				<input type="text" placeholder=" 이름을 입력하세요." id="c_name"><br>
+				<input type="text" placeholder=" 이름을 입력하세요." name="c_name"><br>
 			</div>
 	
 			<span>핸드폰</span>
@@ -50,7 +50,7 @@ function check(){
 	
 			<span>생년월일</span>
 			<div class="col-input">
-				<input type="number" id="c_birth" width="350" maxlength="8" placeholder="8자리(yyyy-mm-dd)">
+				<input type="text" name="c_birth" width="350" maxlength="8" placeholder="8자리(yyyy-mm-dd)">
 			</div>
 		</div>
 	
@@ -72,7 +72,7 @@ function check(){
 	
 			<span>생년월일</span>
 			<div class="col-input">
-				<input type="number" name="c_birth" width="350" maxlength="8"placeholder="8자리(yyyy-mm-dd)">
+				<input type="text" name="c_birth" width="350" maxlength="8" placeholder="8자리(yyyy-mm-dd)">
 			</div>
 			<c:if test="">
 	
@@ -109,7 +109,7 @@ function check(){
 		<div class="text">요청사항(선택)</div>
 		<div class="div_clear"></div>
 		<div class="col-group">
-			<textarea placeholder="내용을 입력하세요." cols="70" rows="5"></textarea>
+			<textarea name="request" id="request" placeholder="내용을 입력하세요."  cols="70" rows="5"></textarea>
 		</div>
 	
 	</section>
@@ -125,14 +125,22 @@ function check(){
 						<td class="line_left" colspan="3"><h4>대여기간</h4></td>
 					</tr>
 					<tr>
-						<td class="line_left" colspan="3">${rental_date} ~ ${return_date}</td>
+						<td class="line_left" colspan="3">
+						${rental_date} ~ ${return_date}
+						<input type="hidden" name="rental_date" value="${rental_date}">
+						<input type="hidden" name="return_date" value="${return_date}">
+						
+						</td>
 					</tr>
 					<tr>
 						<td class="line_left" colspan="3">배차 위치</td>
 					</tr>
 					<tr>
 						<td class="line_left">
-							${rental_place1}${rental_place2}${rental_place3}
+							${rental_place1} ${rental_place2} ${rental_place3}
+							<input type="hidden" name="rental_place1" value="${rental_place1}">
+							<input type="hidden" name="rental_place2" value="${rental_place2}">
+							<input type="hidden" name="rental_place3" value="${rental_place3}">
 						</td>
 					</tr>
 					<tr>
@@ -140,7 +148,10 @@ function check(){
 					</tr>
 					<tr>
 						<td class="line_left">
-							${return_place1}${return_place2}${return_place3}
+							${return_place1} ${return_place2} ${return_place3}
+							<input type="hidden" name="return_place1" value="${return_place1}">
+							<input type="hidden" name="return_place2" value="${return_place2}">
+							<input type="hidden" name="return_place3" value="${return_place3}">
 						</td>
 					</tr>
 				</table>
@@ -156,7 +167,10 @@ function check(){
 				<table class="col-table">
 					<tr>
 						<td class="line_left">차량 대여료</td>
-						<td class="line_right">${carInfo.car_price }</td>
+						<td class="line_right">
+						${carInfo.car_price }
+						<input type="hidden" name="rental_price" value="${carInfo.car_price }">
+						</td>
 					</tr>
 	
 					<tr>
@@ -195,7 +209,7 @@ function check(){
 	</section>
 	</section>
 	<input type="hidden" name="car_no" value="${car_no}">
-	<input type="hidden" name="rental_price" value="${carInfo.car_price }">
+	
 	
 </form>
 	<script type="text/javascript"

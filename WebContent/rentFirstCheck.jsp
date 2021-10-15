@@ -66,7 +66,7 @@ function check(){
 				<div class="cnt-info">현재 타고 수성점에서만 배차하실 수 있습니다.</div>
 				
 				<label for="rental_place1" class="label-hidden">시도 선택</label>
-				<select id="rental_place1">
+				<select name="rental_place1">
 					<option value="대구광역시">대구광역시</option>
 				</select>
 				
@@ -162,7 +162,7 @@ function check(){
 		<div class="box">
 			<a href="javascript:history.back();" class="box-b"> < 이전단계</a>
 			
-			<a href="javascript:check();" class="box-a">예약하기 > </a>
+			<a href="javascript:check();" class="box-a">다음 단계 > </a>
 		</div>
 		
 	</section>	
