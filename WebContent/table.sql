@@ -15,7 +15,7 @@ c_joindate datetime not null default now(),/*회원가입 폼에 없음*/
 order_quantity int not null default 0,
 order_money int default 0
 );
-/*email1, tel primary key --아이디 찾기, 비밀번호 찾기 활용예정*/
+/*email1, tel primary key --아이디 찾기, 비밀번호 찾기 활용예정1*/
 create table address(
 addr_index int auto_increment primary key,/*auto_increment하려면 primary key*/
 c_id varchar(45) not null,
