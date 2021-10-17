@@ -12,7 +12,7 @@
 </head>
 <body>
 <c:choose>
-	<c:when test="${m_id ne ''}">
+	<c:when test="${c_id ne ''}">
 		<table>
 			<tr> <!-- 사용자가 리뷰작성 -->
 				<td>

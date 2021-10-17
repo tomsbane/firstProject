@@ -9,7 +9,15 @@
 <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
 <title>작성된 리뷰보기</title>
 </head>
+<link rel="stylesheet" href="css/style1.css">
 <body>
+	<jsp:include page="../userHeader.jsp"></jsp:include>
+
+	<section class="section-bg-img2">
+		<div class="banner"
+			style="background-image: url(images/bg-rental-rez2.png); height: 180px;"></div>
+	</section>
+	
 <section>
 <c:choose>
 	<c:when test="${reviewList ne null}"><!-- 작성된 리뷰가 있으면 -->
@@ -22,7 +30,7 @@
 			</tr>
 			<tr>
 				<c:forEach var="review" items="${reviewList}" varStatus="status">
-				<td>${review.u_id}</td>
+				<td>${review.c_name}</td>
 				<td>
 					<c:if test="review.rating == 5">★★★★★</c:if>
 					<c:if test="review.rating == 4">★★★★</c:if>
@@ -45,9 +53,9 @@
 					</c:choose>
 				</td>
 				<th>
-					<a href="reviewModifyForm.re?review_num=${review.review_num}&u_id=${review.u_id}&m_id=${review.m_id}">[수정]</a>
+					<a href="reviewModifyForm.re?review_num=${review.review_num}&u_id=${review.c_id}&m_id=${review.car_no}">[수정]</a>
 					&nbsp;
-					<a href="reviewDelete.re?review_num=${review.review_num}&u_id=${review.u_id}&m_id=${review.m_id}">[삭제]</a>
+					<a href="reviewDelete.re?review_num=${review.review_num}&u_id=${review.c_id}&m_id=${review.car_no}">[삭제]</a>
 				</th>
 				
 			<c:if test="${((status.index+1) mod 1) eq 0}">

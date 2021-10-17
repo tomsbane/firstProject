@@ -39,39 +39,80 @@ public class ReviewDAO {
 	public void setConnection(Connection con) {// Connection객체를 받아 DB 연결
 		this.con = con;
 	}
-	
-	//m_id로 review_table안의 리뷰정보를 조회하여 ArrayList<Review>타입으로 리턴
-		public ArrayList<Review> selectReviewList(String m_id) {
-			ArrayList<Review> reviewList = null;
+
+	public ArrayList<Review> getReviewList() {
+		ArrayList<Review> reviewList = null;
+		
+		try {
+			pstmt = con.prepareStatement("select * from review");
+			rs = pstmt.executeQuery();
 			
-			String sql="select * from review where m_id="+m_id;
-			
-			try {
-				pstmt = con.prepareStatement(sql);						
-				rs = pstmt.executeQuery();			
+			if(rs.next()) {
+				reviewList = new ArrayList<Review>();
 				
-				if(rs.next()) {
-					//기본값인 NULL로 채워진 ArrayList<Review>객체를 
-					reviewList = new ArrayList<Review>();
-					
-					do {
-						//"조회한 review정보값으로 채워진 Review객체" 생성하여 바로 ArrayList로 추가
-						reviewList.add(new Review(rs.getInt("review_no"),
-												  rs.getInt("customer_no"),
-												  rs.getInt("car_no"),
-												  rs.getString("review_name"),
-												  rs.getString("review_contents"),
-												  rs.getInt("review_rating")));
-					}while(rs.next());
-				}
-			} catch (Exception e) {			
-				System.out.println("selectReviewList 에러:"+ e);
-			} finally {
-				close(rs);
-				close(pstmt);
-			}	
-			
-			return reviewList;
+				do {
+					reviewList.add(new Review(rs.getInt("review_num"),
+											  rs.getString("c_id"),
+											  rs.getString("c_name"),
+											  rs.getInt("car_no"),
+											  rs.getString("car_name"),
+											  rs.getInt("rating"),
+											  rs.getString("text")));							 
+				} while (rs.next());
+			}
+		} catch (Exception e) {
+			System.out.println("getReviewList 에러 :" + e);
+		} finally {
+			close(rs);
+			close(pstmt);
 		}
-	
+
+		return reviewList;
+	}
+
+	public int insertReview(String c_id, String c_name, int car_no, String car_name, int rating, String text) {
+		int insertReviewCount = 0;
+		String sql="insert into review(c_id, c_name, car_no, car_name, rating, text) values(?, ?, ?, ?, ?, ?)";
+		
+		try {
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, c_id);
+			pstmt.setString(2, c_name);
+			pstmt.setInt(3, car_no);
+			pstmt.setString(4, car_name);
+			pstmt.setInt(5, rating);
+			pstmt.setString(6, text);
+			
+			insertReviewCount= pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			System.out.println("insertReview 에러 :" + e);
+		}finally {
+			close(pstmt);
+		}
+		
+		return insertReviewCount;
+	}
+
+	public int deleteReview(int review_num, String c_id) {
+		int deleteReviewCount = 0;
+		String sql="delete from review_table WHERE review_num=? AND c_id=?";
+		
+		try {
+			pstmt = con.prepareStatement(sql);			
+			pstmt.setInt(1, review_num);						
+			pstmt.setString(2, c_id);
+			
+			deleteReviewCount = pstmt.executeUpdate();//업데이트가 성공하면 1리턴	
+			
+			
+		} catch (Exception e) {			
+			System.out.println("deleteReview 에러:"+ e);
+		} finally {
+			//close(rs);
+			close(pstmt);
+		}	
+		return deleteReviewCount;
+	}
+
 }

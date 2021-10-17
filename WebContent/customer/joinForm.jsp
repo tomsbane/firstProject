@@ -139,7 +139,7 @@ function check(){
 }
 </script>
 <body>
-<jsp:include page="../header1.jsp"></jsp:include>
+<jsp:include page="../userHeader.jsp"></jsp:include>
 
 	<nav class="navbar navbar-default">
 		<div class="navbar-header">

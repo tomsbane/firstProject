@@ -22,7 +22,9 @@ public class ShortRentAction implements Action {
 		HttpSession session = request.getSession();
 		String c_id = (String) session.getAttribute("c_id");
 		
-		System.out.println(c_id);
+		
+		
+	
 		Driver_detail driver = new Driver_detail();
 		
 		driver.setC_id(c_id);
@@ -35,6 +37,7 @@ public class ShortRentAction implements Action {
 		driver.setReturn_place1(request.getParameter("return_place1"));
 		driver.setReturn_place2(request.getParameter("return_place2"));
 		driver.setReturn_place3(request.getParameter("return_place3"));
+		driver.setRequest(request.getParameter("request"));
 		
 		Order order = new Order();
 	
@@ -55,7 +58,7 @@ public class ShortRentAction implements Action {
 			out.println("history.back();");
 			out.println("</script>");
 		}else {
-			forward = new ActionForward("/shortRent.jsp", false);
+			forward = new ActionForward("shortRentList.do", false);
 		}
 
 		return forward;
