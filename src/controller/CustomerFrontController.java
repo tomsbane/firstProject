@@ -14,7 +14,6 @@ import action.customer.CustomerJoinAction;
 import action.customer.CustomerLoginAction;
 import action.customer.CustomerModifyAction;
 import action.customer.CustomerViewAction;
-import action.customer.customerIdFindFormAction;
 import vo.ActionForward;
 
 /**
@@ -88,14 +87,7 @@ public class CustomerFrontController extends HttpServlet {
 			}
 		}
 		/*----id 찾기 폼 보기 -> 처리----------------------------------*/
-		else if (command.equals("/customerIdFindForm.cus")) {// '아이디 찾기' 요청이면
-			action = new customerIdFindFormAction();
-			try {
-				forward = action.execute(request, response);
-			}catch(Exception e) {
-				e.printStackTrace();
-			}
-		}
+		
 		/*----비밀번호 찾기 폼 보기 -> 처리----------------------------------*/
 
 		/*----비밀번호 변경 폼 보기 -> 처리----------------------------------*/
