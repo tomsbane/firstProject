@@ -84,11 +84,11 @@ $(function() {
 	<table class="list-car" >
 		<tr>
 			<td colspan="3">
-				<h2>차량 선택</h2>
+				<h2>전체 보기</h2>
 			</td>
 		</tr>
 		<tr>
-			<c:forEach var="car" items="${carList}" varStatus="status">
+			<c:forEach var="car" items="${MidSizeList}" varStatus="status">
 				<form action="shortRentCheck.do" method="post">
 				<td>
 				<img src="carImages/${car.car_image}"/> <br />
@@ -106,9 +106,9 @@ $(function() {
 			</c:if>
 			</c:forEach>
 		</tr>
-		<c:if test="${carList == null}">
+		<c:if test="${MidSizeList == null}">
 			<!-- 2.개 상품목록이 없으 -->
-			<div class="div_empty">렌트카 상품이 없습니다. 예약불가</div>
+			<div class="div_empty">중형차가 없습니다. 예약불가</div>
 		</c:if>
 	</table>
 </section>

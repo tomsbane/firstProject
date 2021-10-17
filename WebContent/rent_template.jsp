@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <meta charset="UTF-8">
 <title>TAGO</title>
 
@@ -15,9 +16,9 @@
 </head>
 <body>
 <jsp:include page="userHeader.jsp"></jsp:include>
-<section>
+
 	<jsp:include page="${showRent}"/>
-</section>	
+	
 </body>
 </html>
 

@@ -19,7 +19,7 @@ public class ShortRentListAction implements Action {
 		ArrayList<Rentcar> carList = shortRentListService.getCarList();
 		
 		request.setAttribute("carList", carList);
-		request.setAttribute("showRent", "./rent/shortRent.jsp");
+		request.setAttribute("showRent", "/rent/shortRent.jsp");
 		
 		ActionForward forward = new ActionForward("rent_template.jsp", false);//"디스패치 방식"으로 포워딩함
 		return forward;

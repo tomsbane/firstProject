@@ -246,6 +246,28 @@ ul, li{
 	letter-spacing: 2px;
 	transition: 0.2s;
 }
+
+.listMenu{
+	background-color: darkslategrey;
+	display:flex;
+	flex-direction: row;
+	width:100%;
+	list-style-type: none;
+}
+.list-item{
+	padding:15px;
+	cursor: pointer;
+	margin-left:30px;
+}
+.list-item:hover{
+	background-color: grey;
+}
+
+.list-item a{
+	text-align: center;
+	text-decoration: none;
+	color: white;
+}
 @media ( max-width : 789px) {
 	.showcase, .showcase header {
 		padding: 40px;
