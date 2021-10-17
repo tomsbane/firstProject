@@ -26,9 +26,6 @@ public class ShortRentService {
 		
 		boolean isAllInsertResult = false;
 		
-		System.out.println("드라이버"+insertDriverCount);
-		System.out.println("오더"+insertOrderCount);
-		
 		if(insertDriverCount>0 && insertOrderCount>0) {
 			isAllInsertResult = true;
 			commit(con);

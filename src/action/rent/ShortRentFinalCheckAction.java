@@ -5,8 +5,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import action.Action;
+import svc.customer.CustomerViewService;
 import svc.rent.ShortRentService;
 import vo.ActionForward;
+import vo.CustomerBean;
 import vo.Rentcar;
 
 public class ShortRentFinalCheckAction implements Action {
@@ -49,6 +51,10 @@ public class ShortRentFinalCheckAction implements Action {
 		request.setAttribute("rental_date", rental_date);
 		request.setAttribute("return_date", return_date);
 
+		CustomerViewService customerViewService =new CustomerViewService();
+		CustomerBean customerInfo=customerViewService.getCustomer(c_id);
+		request.setAttribute("customer", customerInfo);
+		
 		forward = new ActionForward("/rentFinalCheck.jsp", false);
 
 		return forward;

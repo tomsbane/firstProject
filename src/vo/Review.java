@@ -1,49 +1,50 @@
 package vo;
 
 public class Review {
-	private int review_no;
-	private int customer_no;
+	private int review_num;
+	private String c_id;
+	private String c_name;
 	private int car_no;
-	private String review_name;
-	private String review_contents;
-	private int review_rating;
+	private String car_name;
+	private int rating;
+	private String text;
+
 	
 	public Review() {}
 	
-	public Review(int review_no, int customer_no, int car_no, String review_contents, int review_rating) {
+	public Review(int review_num, String c_id, String c_name, int car_no, String car_name, int rating, String text) {
 		super();
-		this.review_no = review_no;
-		this.customer_no = customer_no;
+		this.review_num = review_num;
+		this.c_id = c_id;
+		this.c_name = c_name;
 		this.car_no = car_no;
-		this.review_contents = review_contents;
-		this.review_rating = review_rating;
+		this.car_name = car_name;
+		this.rating = rating;
+		this.text = text;
 	}
 
-	public Review(int review_no, int customer_no, int car_no, String review_name, String review_contents,
-			int review_rating) {
-		super();
-		this.review_no = review_no;
-		this.customer_no = customer_no;
-		this.car_no = car_no;
-		this.review_name = review_name;
-		this.review_contents = review_contents;
-		this.review_rating = review_rating;
+	public int getReview_num() {
+		return review_num;
 	}
 
-	public int getReview_no() {
-		return review_no;
+	public void setReview_num(int review_num) {
+		this.review_num = review_num;
 	}
 
-	public void setReview_no(int review_no) {
-		this.review_no = review_no;
+	public String getC_id() {
+		return c_id;
 	}
 
-	public int getCustomer_no() {
-		return customer_no;
+	public void setC_id(String c_id) {
+		this.c_id = c_id;
 	}
 
-	public void setCustomer_no(int customer_no) {
-		this.customer_no = customer_no;
+	public String getC_name() {
+		return c_name;
+	}
+
+	public void setC_name(String c_name) {
+		this.c_name = c_name;
 	}
 
 	public int getCar_no() {
@@ -54,28 +55,28 @@ public class Review {
 		this.car_no = car_no;
 	}
 
-	public String getReview_name() {
-		return review_name;
+	public String getCar_name() {
+		return car_name;
 	}
 
-	public void setReview_name(String review_name) {
-		this.review_name = review_name;
+	public void setCar_name(String car_name) {
+		this.car_name = car_name;
 	}
 
-	public String getReview_contents() {
-		return review_contents;
+	public int getRating() {
+		return rating;
 	}
 
-	public void setReview_contents(String review_contents) {
-		this.review_contents = review_contents;
+	public void setRating(int rating) {
+		this.rating = rating;
 	}
 
-	public int getReview_rating() {
-		return review_rating;
+	public String getText() {
+		return text;
 	}
 
-	public void setReview_rating(int review_rating) {
-		this.review_rating = review_rating;
+	public void setText(String text) {
+		this.text = text;
 	}
 	
 	
