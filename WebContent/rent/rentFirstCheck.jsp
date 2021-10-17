@@ -18,7 +18,7 @@ function check(){
 </script> 
 </head>
 <body>
-<jsp:include page="header1.jsp"></jsp:include>
+<jsp:include page="/userHeader.jsp"></jsp:include>
 
 <section class="section-bg-img2">
 	<div class="banner"

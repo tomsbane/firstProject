@@ -6,8 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>TAGO</title>
-<link rel="stylesheet" href="css/style1.css">
-<link type="text/css" href="css/jquery.simple-dtpicker.css" rel="stylesheet" />
+<link rel="stylesheet" href="../css/style1.css">
+<link type="text/css" href="../css/jquery.simple-dtpicker.css" rel="stylesheet" />
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script type="text/javascript" src="js/jquery.simple-dtpicker.js"></script>
 <script type="text/javascript">
@@ -56,10 +56,8 @@ $(function() {
 </head>
 
 <body>
-<jsp:include page="header1.jsp"></jsp:include>
-
 <section class=section-bg-img>
-<div class="banner" style="background-image: url(images/bg1.png)"><h2>단기렌트예약</h2></div>
+<div class="banner" style="background-image: url(../images/bg1.png)"><h2>단기렌트예약</h2></div>
 </section>
 
 <form name="f">
@@ -96,7 +94,7 @@ $(function() {
 			</c:forEach>
 		</tr>
 		<c:if test="${carList == null}">
-			<!-- 2.개 상품목록이 없으면 -->
+			<!-- 2.개 상품목록이 없으 -->
 			<div class="div_empty">렌트카 상품이 없습니다. 예약불가</div>
 		</c:if>
 	</table>

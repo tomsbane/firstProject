@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="../css/style.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Insert title here</title>
 </head>
@@ -21,23 +21,38 @@ function check(){
 	f.submit();
 }
 </script> 
+<script type="text/javascript">
+	let same = document.getElementById('same');
+	let name = document.getElementById('c_name');
+	let tel = document.getElementById('c_tel');
+	let birth = document.getElementById('c_birth');
+	
+	same.onclick = function(event){
+		name=${customer.c_name};
+	}
+	
+</script>
 <body>
-	<jsp:include page="header1.jsp"></jsp:include>
+	<jsp:include page="/userHeader.jsp"></jsp:include>
 
 	<section class="section-bg-img2">
 		<div class="banner"
-			style="background-image: url(images/bg-rental-rez2.png); height: 180px;"></div>
+			style="background-image: url(../images/bg-rental-rez2.png); height: 180px;"></div>
 	</section>
+	
 
+</script>
 <form action="shortRentcarOrder.do" method="post" name="f">
+
 	<section class="form-field">
 	<section class="left-field">
 	
 		<div class="text">예약자정보</div>
 		<div class="div_clear"></div>
-	
+		
+		<!-- 추후에 비로그인 상태에서 주문할 수 있도록 아이디 칸 두개로 만듬 -->
 		<div class="col-group">
-			
+			<c:if test="${customer eq null }">
 			<span>이름</span>
 			<div class="col-input">
 				<input type="text" placeholder=" 이름을 입력하세요." name="c_name"><br>
@@ -45,42 +60,60 @@ function check(){
 	
 			<span>핸드폰</span>
 			<div class="col-input">
-				<input type="number" placeholder=" 숫자만 입력하세요." id="c_tel"><br>
+				<input type="number" placeholder=" 숫자만 입력하세요." name="c_tel"><br>
 			</div>
 	
 			<span>생년월일</span>
 			<div class="col-input">
 				<input type="text" name="c_birth" width="350" maxlength="8" placeholder="8자리(yyyy-mm-dd)">
 			</div>
-		</div>
-	
-		<div class="text">운전자정보</div>
-	
-		<div class="div_clear"></div>
-	
-		<div class="col-group">
-			<label for="is-same"><input type="checkbox" id="is-same"
-				name="is-same">예약자와 운전자가 동일(체크)</label><br> <span>이름</span>
+			</c:if>
+			<c:if test="${customer ne null }">
+			<span>이름</span>
 			<div class="col-input">
-				<input type="text" placeholder=" 이름을 입력하세요." id="c_name"><br>
+				<input type="text" placeholder=" 이름을 입력하세요." name="c_name" value="${customer.c_name }"><br>
 			</div>
 	
 			<span>핸드폰</span>
 			<div class="col-input">
-				<input type="text" placeholder="숫자만 입력하세요." name="c_tel"><br>
+				<input type="number" placeholder=" 숫자만 입력하세요." name="c_tel"  value="${customer.c_tel }"><br>
 			</div>
 	
 			<span>생년월일</span>
 			<div class="col-input">
-				<input type="text" name="c_birth" width="350" maxlength="8" placeholder="8자리(yyyy-mm-dd)">
+				<input type="text" name="c_birth" width="350" maxlength="8" placeholder="8자리(yyyy-mm-dd)" value="${customer.c_birth}">
 			</div>
-			<c:if test="">
-	
 			</c:if>
+		</div>
+			
+		<div class="text">운전자정보</div>
+		<input type="checkbox" 	id="elem">
+
+		<div class="div_clear"></div>
 	
-			<c:if test="">
+		<div class="col-group">
+		
+				<label for="is-same">
+				<input type="checkbox" id="same">예약자와 운전자가 동일(체크)</label><br>
+				
+				<span>이름</span>
+				<div class="col-input">
+					<input type="text" placeholder=" 이름을 입력하세요." id="c_name"><br>
+				</div>
+		
+				<span>핸드폰</span>
+				<div class="col-input">
+					<input type="text" placeholder="숫자만 입력하세요." id="c_tel"><br>
+				</div>
+		
+				<span>생년월일</span>
+				<div class="col-input">
+					<input type="text" name="c_birth" width="350" maxlength="8" id="c_birth" placeholder="8자리(yyyy-mm-dd)">
+				</div>
+			
+			
 	
-			</c:if>
+			
 		</div>
 	
 	

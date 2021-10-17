@@ -107,6 +107,7 @@ a:checked {
 				<li><a href="longRentList.do">장기렌트</a></li>
 				<li><a href="quote.do">견적상담</a></li>
 				<li><a href="qna.do">고객센터</a></li>
+				<li><a href="review.re">리뷰(임시)</a></li>
 			</ul>
 			</c:otherwise>
 		</c:choose>

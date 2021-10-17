@@ -104,12 +104,20 @@ insert into rentcar values(null, 'tivoli','SUV', 2022, 'y', 20000, '르노삼성
 
 drop table review;
 create table review (
-review_no int(10),
-car_no int(7),
-review_name nvarchar(45),
-review_contents nvarchar(150),
-review_level char(1)
+review_num int auto_increment primary key, 
+c_id varchar(45) not null,
+c_name varchar(45),
+car_no int(7) not null,
+car_name nvarchar(20),
+rating int not null,
+text nvarchar(200)
 );
+alter table review auto_increment=1;
+
+insert into review(c_id, c_name, car_no, car_name, rating, text) 
+values(1, '김진일', 1, '아반떼', 5, '좋아요');
+
+select * from review;
 
 alter table review
 add foreign key (car_no) references rentcar(car_no);
