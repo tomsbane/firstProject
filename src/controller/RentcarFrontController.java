@@ -7,6 +7,12 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import action.Action;
+
+import action.rent.SelectAllAction;
+import action.rent.SelectFullSizeAction;
+import action.rent.SelectMidSizeAction;
+import action.rent.SelectOverseasSizeAction;
+import action.rent.SelectSmallSizeAction;
 import action.rent.ShortRentAction;
 import action.rent.ShortRentCheckAction;
 import action.rent.ShortRentFinalCheckAction;
@@ -96,8 +102,52 @@ public class RentcarFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		}	
+			/*--여기서부터 카테고리----------------------------------------*/
+		else if(command.equals("/selectAll.do")) {//사용자모드:'차량 전체 보기' 요청이면
+			action  = new SelectAllAction();			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {				
+				e.printStackTrace();
+			}
 		}
 		 
+		 else if(command.equals("/selectSmallSize.do")) {// 사용자모드:'차량 전체 보기' 요청이면
+			action = new SelectSmallSizeAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		 else if(command.equals("/selectMidSize.do")) {// 사용자모드:'차량 전체 보기' 요청이면
+			 action = new SelectMidSizeAction();
+			 try {
+				 forward = action.execute(request, response);
+			 } catch (Exception e) {
+				 e.printStackTrace();
+			 }
+		 }
+		
+		 else if(command.equals("/selectFullSize.do")) {// 사용자모드:'차량 전체 보기' 요청이면
+			 action = new SelectFullSizeAction();
+			 try {
+				 forward = action.execute(request, response);
+			 } catch (Exception e) {
+				 e.printStackTrace();
+			 }
+		 }
+		
+		 else if(command.equals("/selectOverseasSize.do")) {// 사용자모드:'차량 전체 보기' 요청이면
+			 action = new SelectOverseasSizeAction();
+			 try {
+				 forward = action.execute(request, response);
+			 } catch (Exception e) {
+				 e.printStackTrace();
+			 }
+		 }
 		
 		
 		/***************************************************************
