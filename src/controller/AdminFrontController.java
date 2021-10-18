@@ -11,6 +11,7 @@ import action.admin.AdminRegistAction;
 import action.admin.CarDeleteAction;
 import action.admin.CarInsertAction;
 import action.admin.CarInsertFormAction;
+import action.admin.CarModifyAction;
 import action.admin.CarViewAction;
 import action.admin.CustomerListAction;
 import action.admin.NormalRegistAction;
@@ -99,6 +100,14 @@ public class AdminFrontController extends HttpServlet {
 		
 		else if(command.equals("/carView.ad")) {//'특정 카 상품의 상세 정보 보기' 요청이면
 			action = new CarViewAction();
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		else if(command.equals("/carModify.ad")) {//'특정 카 수정' 요청이면
+			action = new CarModifyAction();
 			try {
 				forward = action.execute(request, response);
 			}catch(Exception e) {
