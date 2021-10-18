@@ -40,8 +40,6 @@ function check(){
 			style="background-image: url(../images/bg-rental-rez2.png); height: 180px;"></div>
 	</section>
 	
-
-</script>
 <form action="shortRentcarOrder.do" method="post" name="f">
 
 	<section class="form-field">
