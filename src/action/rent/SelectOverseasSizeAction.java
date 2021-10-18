@@ -20,7 +20,7 @@ public class SelectOverseasSizeAction implements Action {
 		SelectOverseasService selectOverseasService = new SelectOverseasService();
 		ArrayList<Rentcar> selectOverseasList = selectOverseasService.getOverseasList();
 
-		request.setAttribute("overseasList", selectOverseasList);
+		request.setAttribute("overseas", selectOverseasList);
 		request.setAttribute("showRent", "/rent/selectOverseas.jsp");
 
 		forward = new ActionForward("rent_template.jsp", false);

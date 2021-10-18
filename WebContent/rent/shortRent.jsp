@@ -67,7 +67,7 @@ $(function() {
 		<li class="list-item"><a href="selectAll.do">전체</a></li>
 		<li class="list-item"><a href="selectSmallSize.do">경형</a></li>
 		<li class="list-item"><a href="selectMidSize.do">중소형</a></li>
-		<li class="list-item"><a href="selectFullSize">대형</a></li>
+		<li class="list-item"><a href="selectFullSize.do">대형</a></li>
 		<li class="list-item"><a href="selectOverseas.do">수입</a></li>
 	</ul>
 </nav>

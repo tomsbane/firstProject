@@ -66,7 +66,7 @@ $(function() {
 	<ul class="listMenu">
 		<li class="list-item"><a href="selectAll.do">전체</a></li>
 		<li class="list-item"><a href="selectSmallSize.do">경형</a></li>
-		<li class="list-item"><a href="selectMidSize.do">중소형</a></li>
+		<li class="list-item"><a href="selectMidSize.do">중형</a></li>
 		<li class="list-item"><a href="selectFullSize">대형</a></li>
 		<li class="list-item"><a href="selectOverseas.do">수입</a></li>
 	</ul>
@@ -84,11 +84,11 @@ $(function() {
 	<table class="list-car" >
 		<tr>
 			<td colspan="3">
-				<h2>전체 보기</h2>
+				<h2>경차</h2>
 			</td>
 		</tr>
 		<tr>
-			<c:forEach var="car" items="${AllList}" varStatus="status">
+			<c:forEach var="car" items="${smallSize}" varStatus="status">
 				<form action="shortRentCheck.do" method="post">
 				<td>
 				<img src="carImages/${car.car_image}"/> <br />
@@ -106,7 +106,7 @@ $(function() {
 			</c:if>
 			</c:forEach>
 		</tr>
-		<c:if test="${ALlList == null}">
+		<c:if test="${smallSize == null}">
 			<!-- 2.개 상품목록이 없으 -->
 			<div class="div_empty">소형차가 없습니다. 예약불가</div>
 		</c:if>
