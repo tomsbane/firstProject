@@ -21,8 +21,8 @@ public class SelectFullSizeAction implements Action {
 		SelectFullSizeService selectFullSizeService = new SelectFullSizeService();
 		ArrayList<Rentcar> selectFullSizeList = selectFullSizeService.getFullSizeList();
 
-		request.setAttribute("fullSizeList", selectFullSizeList);
-		request.setAttribute("showRent", "/rent/selectfullSize.jsp");
+		request.setAttribute("fullSize", selectFullSizeList);
+		request.setAttribute("showRent", "/rent/selectFullSize.jsp");
 
 		forward = new ActionForward("rent_template.jsp", false);
 		return forward;

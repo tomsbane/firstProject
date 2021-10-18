@@ -251,7 +251,7 @@ public class CarDAO {
 		ArrayList<Rentcar> carList = null;
 
 		try {
-			psmt = con.prepareStatement("select * from rentcar where car_group='경형' ");
+			psmt = con.prepareStatement("select * from rentcar where car_group='중소형' ");
 			rs = psmt.executeQuery();
 			
 			if(rs.next()) {
@@ -285,7 +285,7 @@ public class CarDAO {
 		ArrayList<Rentcar> carList = null;
 
 		try {
-			psmt = con.prepareStatement("select * from rentcar where car_group='경형' ");
+			psmt = con.prepareStatement("select * from rentcar where car_group='대형' ");
 			rs = psmt.executeQuery();
 			
 			if(rs.next()) {
@@ -319,7 +319,7 @@ public class CarDAO {
 		ArrayList<Rentcar> carList = null;
 
 		try {
-			psmt = con.prepareStatement("select * from rentcar where car_group='경형' ");
+			psmt = con.prepareStatement("select * from rentcar where car_group='수입' ");
 			rs = psmt.executeQuery();
 			
 			if(rs.next()) {

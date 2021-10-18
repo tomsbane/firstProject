@@ -64,6 +64,7 @@ lic_num int
 
 select * from rentcar;
 
+truncate rentcar;
 create table rentcar(
 car_no int(7) auto_increment not null primary key,
 car_name nvarchar(20),
@@ -88,14 +89,13 @@ alter table rentcar auto_increment=1;
 insert into rentcar values(null,'k3','중소형', 2022, 'y', 20000, '기아', 'k3.jpg', 0);
 insert into rentcar values(null, 'mornig','경형', 2022, 'y', 20000, '기아', 'morning.jpg', 0);
 insert into rentcar values(null, 'avante','중소형', 2022, 'y', 20000, '현대', 'avante.jpg',0);
-insert into rentcar values(null, 'A6TDI','수입', 2022, 'y', 20000, '아우디', 'A6TDI.jpg',0);
+insert into rentcar values(null, 'AUDI','수입', 2022, 'y', 20000, '아우디', 'AUDI.jpg',0);
 insert into rentcar values(null, 'eclass','수입', 2022, 'y', 20000, '벤츠', 'eclass.jpg',0);
 insert into rentcar values(null, 'malibu','중소형', 2022, 'y', 20000, '쉐보레', 'malibu.jpg',0);
 insert into rentcar values(null, 'ray','경형', 2022, 'y', 20000, '기아', 'ray.jpg',0);
 insert into rentcar values(null, 'sm6','중소형', 2022, 'y', 20000, '르노삼성', 'sm6.jpg',0);
-insert into rentcar values(null, 'sorento','SUV', 2022, 'y', 20000, '르노삼성', 'sorento.jpg',0);
-insert into rentcar values(null, 'tivoli','SUV', 2022, 'y', 20000, '르노삼성', 'tivoli.jpg',0);
-
+insert into rentcar values(null, 'sorento','대형', 2022, 'y', 20000, '르노삼성', 'sorento.jpg',0);
+insert into rentcar values(null, 'tivoli','대형', 2022, 'y', 20000, '르노삼성', 'tivoli.jpg',0);
 
 
 

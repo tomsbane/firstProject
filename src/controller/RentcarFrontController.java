@@ -140,7 +140,7 @@ public class RentcarFrontController extends HttpServlet {
 			 }
 		 }
 		
-		 else if(command.equals("/selectOverseasSize.do")) {// 사용자모드:'차량 전체 보기' 요청이면
+		 else if(command.equals("/selectOverseas.do")) {// 사용자모드:'차량 전체 보기' 요청이면
 			 action = new SelectOverseasSizeAction();
 			 try {
 				 forward = action.execute(request, response);
