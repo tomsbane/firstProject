@@ -16,9 +16,10 @@
 </head>
 <body>
 <jsp:include page="userHeader.jsp"></jsp:include>
-
 	<jsp:include page="${showRent}"/>
-	
+	<div>
+	<jsp:include page="sidebar.html" />
+	</div>
 </body>
 </html>
 
