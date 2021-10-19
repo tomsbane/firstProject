@@ -307,7 +307,7 @@ public class CustomerDAO {
 												 	  rs.getString("c_email1"),
 													  rs.getString("c_email2"),
 													  rs.getString("c_tel"),
-													  rs.getString("c_joindate")
+													  rs.getString("c_joindate") 
 									));
 				}while(rs.next());
 			}

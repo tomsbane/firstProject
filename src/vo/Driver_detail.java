@@ -4,7 +4,7 @@ public class Driver_detail {
 
 	private String c_id;
 	private String c_name;
-	private int c_birth;
+	private	String c_birth;
 	private int c_tel;
 
 	private String rental_place1;
@@ -19,7 +19,7 @@ public class Driver_detail {
 
 	public Driver_detail() {}
 
-	public Driver_detail(String c_id, String c_name, int c_birth, int c_tel, String rental_place1, String rental_place2,
+	public Driver_detail(String c_id, String c_name, String c_birth, int c_tel, String rental_place1, String rental_place2,
 			String rental_place3, String return_place1, String return_place2, String return_place3, String request) {
 		super();
 		this.c_id = c_id;
@@ -51,11 +51,11 @@ public class Driver_detail {
 		this.c_name = c_name;
 	}
 
-	public int getC_birth() {
+	public String getC_birth() {
 		return c_birth;
 	}
 
-	public void setC_birth(int c_birth) {
+	public void setC_birth(String c_birth) {
 		this.c_birth = c_birth;
 	}
 

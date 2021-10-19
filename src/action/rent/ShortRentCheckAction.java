@@ -42,8 +42,10 @@ public class ShortRentCheckAction implements Action {
 			request.setAttribute("carInfo", carInfo);
 			request.setAttribute("rental_date", rental_date);
 			request.setAttribute("return_date", return_date);
-
-			forward = new ActionForward("/rentFirstCheck.jsp", false);
+			
+			request.setAttribute("showRent", "/rent/rentFirstCheck.jsp");
+			
+			forward = new ActionForward("rent_template.jsp", false);
 
 		}
 
