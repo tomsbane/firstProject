@@ -7,23 +7,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="css/style.css">
+<meta charset="utf-8" id="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/admin/css/orderList.css">
 <style type="text/css">
-table, th, td { 
-	border: 1px solid black; 
-}
-table { border-collapse: collapse; }
+
 </style>
-<title>오늘 주문한 리스트</title>
+<title>예약 내역</title>
 </head>
 <body>
-<section>
+
+
+<div class="banner" style="background-image: url(${pageContext.request.contextPath}/images/bg-rental-rez2.png);">주문관리</div>
+
+
+
+<section class="orderList">
 <!-- 1****************************************************** -->
 <!-- 1-1 주문 확인 대기 -->
-<div>
-	<h3>주문 확인 대기</h3>
-</div>
+<div class="head-text">주문 확인 대기<br> ※ 임의로 주문 승인 클릭시 해당 시간부터 사용되니 주의하기 바람 ※</div>
 <br>
 
 <table>		
@@ -31,22 +32,23 @@ table { border-collapse: collapse; }
 		<%-- doneLoop가 반대가 되면 break --%>
 	     <c:if test="${not doneLoop}">
 	        <c:choose>
-			    <c:when test="${order.order_status eq 'order'}">
-					<tr>
+			    <c:when test="${order.order_status eq 'get'}">
+					<tr class="orderList">
 						<th>예약번호</th>
-						<th>고객ID</th>
-						<th>예약시간-시작일</th>
-						<th>예약시간-반납일</th>
-						<th>총 금액</th>
-						<th>주문상태</th>
-						<th>주문'승인/취소'</th>	
+						<th>고객 ID</th>
+						<th>시작일</th>
+						<th>반납일</th>
+						<th>주문 금액</th>
+						<th>배차 상태</th>
+						<th>주문 승인</th>
+						<th>주문 취소</th>
 					</tr>
 					<%-- 원하는 결과가 나오면 true로 선언 : for문의 break 효과 --%>
 					<c:set var="doneLoop" value="true" />
 				</c:when>
 			
-				<c:when test="${order.order_status ne 'order'}">					
-					아직 예약 대기 리스트가 없습니다.		
+				<c:when test="${order.order_status ne 'get'}">					
+					아직 예약 주문이  없습니다.		
 					<%-- 원하는 결과가 나오면 true로 선언 : for문의 break 효과 --%>
 					<c:set var="doneLoop" value="true" />		
 				</c:when>
@@ -55,21 +57,24 @@ table { border-collapse: collapse; }
 	</c:forEach>	
 	<form method="post">
 	<c:forEach var="order" items="${carOrderList}" varStatus="status">
-		<c:if test="${order.order_status eq 'order'}">
-			<tr>
+		<c:if test="${order.order_status eq 'get'}">
+			<tr class="orderList">
 				<td>
 					<b>
-					<a href="orderDetail.adm?order_no=${order.order_no}&u_id=${order.c_id}">${order.order_no }
+					<a href="carOrderDetail.ad?order_no=${order.order_no}&c_id=${order.c_id}">${order.order_no }
 					</a>
 					</b>
 				</td>
-				<td>${order.u_id }</td>
-				<td>${order.order_date }</td>
-				<td>예약 승인 대기 상태</td>
-				<td>${order.totalMoney }</td>
+				<td>${order.c_id }</td>
+				<td>${order.rental_date }</td>
+				<td>${order.return_date }</td>
+				<td>${order.rental_price }</td>
+				<td>배차 전</td>
 				<td>
-					<a href="orderGet.ad?order_no=${order.order_no}">예약승인</a>
-				    <a href="orderCancel.ad?order_no=${order.order_no}">예약취소</a>
+					<a href="orderToIng.ad?order_no=${order.order_no}">예약승인</a>
+				</td>
+				<td>	
+				    <a href="orderToCancel.ad?order_no=${order.order_no}">예약취소</a>
 				</td>
 			</tr>
 		</c:if>	
@@ -81,9 +86,7 @@ table { border-collapse: collapse; }
 
 <!-- 1-2 주문 확인 대기에서 [주문 승인] :get-->
 <c:if test="${carOrderList ne null && carOrderList.size()>0}">
-<div>
-	<h3>주문 승인</h3>
-</div>
+<div class="head-text">주문 승인</div>
 <br>
 
 <table>    
@@ -92,20 +95,20 @@ table { border-collapse: collapse; }
 		<%-- doneLoop가 반대가 되면 break --%>
 	     <c:if test="${not doneLoop}">
 	        <c:choose>
-			    <c:when test="${order.order_status ne 'get'}">
+			    <c:when test="${order.order_status eq 'ing'}">
 					<tr>
-						<th>주문번호</th>
-						<th>고객ID</th>
-						<th>주문시간</th>
-						<th>주문상태</th>
-						<th>총 금액</th>		
+						<th>예약번호</th>
+						<th>고객 ID</th>
+						<th>시작일</th>
+						<th>반납일</th>
+						<th>주문 금액</th>	
 					</tr>
 					<%-- 원하는 결과가 나오면 true로 선언 : for문의 break 효과 --%>
 					<c:set var="doneLoop" value="true" />
 				</c:when>
 			
-				<c:when test="${order.order_status eq 'get'}">					
-					아직 주문완료된 리스트가 없습니다.		
+				<c:when test="${order.order_status ne 'ing'}">					
+					아직 주문승인된 리스트가 없습니다.		
 					<%-- 원하는 결과가 나오면 true로 선언 : for문의 break 효과 --%>
 					<c:set var="doneLoop" value="true" />		
 				</c:when>
@@ -115,18 +118,18 @@ table { border-collapse: collapse; }
 
 	<form method="post">
 	<c:forEach var="order" items="${carOrderList}" varStatus="status">
-		<c:if test="${order.order_status eq 'get'}">
+		<c:if test="${order.order_status eq 'ing'}">
 			<tr>
 				<td>
 					<b>
-					<a href="orderDetail.adm?order_no=${order.order_no}&u_id=${order.u_id}">${order.order_no }
+					<a href="orderDetail.adm?order_no=${order.order_no}&c_id=${order.c_id}">${order.order_no }
 					</a>
 					</b>
 				</td>
-				<td>${order.u_id }</td>
-				<td>${order.order_date }</td>
+				<td>${order.c_id }</td>
+				<td>${order.order_status }</td>
 				<td>주문 승인</td>
-				<td>${order.totalMoney }</td>
+				<td>${order.rental_price }</td>
 			</tr>
 		</c:if>		
 	</c:forEach>
@@ -137,9 +140,7 @@ table { border-collapse: collapse; }
 
 <!-- 1-3 주문 확인 대기에서 [주문 취소] :cancel-->
 <c:if test="${carOrderList ne null && carOrderList.size()>0}">
-<div>
-	<h3>주문 취소</h3>
-</div>
+<div class="head-text">주문 취소</div>
 <br>
 <table>
 <c:set var="doneLoop" value="false"/>	
@@ -149,11 +150,11 @@ table { border-collapse: collapse; }
 	        <c:choose>
 			    <c:when test="${order.order_status eq 'cancel'}">
 					<tr>
-						<th>주문번호</th>
-						<th>고객ID</th>
-						<th>주문시간</th>
-						<th>주문상태</th>
-						<th>총 금액</th>		
+						<th>예약번호</th>
+						<th>고객 ID</th>
+						<th>시작일</th>
+						<th>반납일</th>
+						<th>주문 금액</th>	
 					</tr>
 					<%-- 원하는 결과가 나오면 true로 선언 : for문의 break 효과 --%>
 					<c:set var="doneLoop" value="true" />
@@ -176,14 +177,14 @@ table { border-collapse: collapse; }
 			<tr>
 				<td>
 					<b>
-					<a href="orderDetail.adm?order_no=${order.order_no}&u_id=${order.u_id}">${order.order_no }
+					<a href="orderDetail.adm?order_no=${order.order_no}&c_id=${order.c_id}">${order.order_no }
 					</a>
 					</b>
 				</td>
-				<td>${order.u_id }</td>
-				<td>${order.order_date }</td>
+				<td>${order.c_id }</td>
+				<td>${order.order_status }</td>
 				<td>주문 취소</td>
-				<td>${order.totalMoney }</td>
+				<td>${order.rental_price }</td>
 			</tr>
 		</c:if>
 	</c:forEach>
@@ -197,7 +198,7 @@ table { border-collapse: collapse; }
 
 <!-- 2****************************************************** -->
 <c:if test="${carOrderList eq null}">
-	<p>아직 주문한 메뉴가 없습니다.</p>
+	<p>주문 내역이 없습니다.</p>
 </c:if>
 
 <br> <hr/> <br>
