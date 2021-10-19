@@ -29,9 +29,10 @@ create table order_car(
 order_no int auto_increment primary key,
 c_id varchar(45) not null,
 car_no int not null,
-rental_date date not null,
-return_date date not null,
-rental_price int not null
+rental_date datetime not null,
+return_date datetime not null,
+rental_price int not null,
+order_status varchar(25) not null default "order"
 );
 alter table order_car auto_increment=1;
 

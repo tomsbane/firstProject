@@ -92,7 +92,7 @@ a:checked {
 		<div class="menu">
 			<ul class="lists">
 				<li><a href="${pageContext.request.contextPath}/adminCarList.ad">차량관리</a></li>
-				<li><a href="#">예약현황관리</a></li>
+				<li><a href="${pageContext.request.contextPath}/carOrderList.ad">예약현황관리</a></li>
 				<li><a href="${pageContext.request.contextPath}/customerList.ad">회원관리</a></li>
 				<li><a href="#">매출관리</a></li>
 				<li><a href="#">고객센터</a></li>
