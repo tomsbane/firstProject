@@ -16,6 +16,8 @@ order_quantity int not null default 0,
 order_money int default 0
 );
 
+
+
 create table address(
 addr_index int auto_increment primary key,/*auto_increment하려면 primary key*/
 c_id varchar(45) not null,
@@ -97,11 +99,6 @@ insert into rentcar values(null, 'ray','경형', 2022, 'y', 20000, '기아', 'ra
 insert into rentcar values(null, 'sm6','중소형', 2022, 'y', 20000, '르노삼성', 'sm6.jpg',0);
 insert into rentcar values(null, 'sorento','대형', 2022, 'y', 20000, '르노삼성', 'sorento.jpg',0);
 insert into rentcar values(null, 'tivoli','대형', 2022, 'y', 20000, '르노삼성', 'tivoli.jpg',0);
-
-
-
-
-
 
 drop table review;
 create table review (
