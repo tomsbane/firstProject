@@ -106,38 +106,34 @@ function deleteCar(car_no){
 	<c:when test="${carOrderList ne null && carOrderList.size() > 0}">
 		<c:forEach var="order" items="${carOrderList}" varStatus="status">
 		<tr>
-			<td>
-			<b>주문번호 :</b>
+			<td style="background-color: yellow;"><b>주문번호 :</b>${order.order_no}	&nbsp;&nbsp;
 			</td>
 			<td>
-			${order.order_no}
-			&nbsp;&nbsp;
-			</td>
-			<td>
-			<b>결제금액 :</b>
-			</td>
-			<td>
-			${order.rental_price}
-			&nbsp;&nbsp;</td>
-			<td>
-			<b>결제상태 :</b>
-			</td>
-			<td>			
+			<b>결제금액 :</b>${order.rental_price}</td>
+			<td>&nbsp;&nbsp;<b>결제상태 :</b>			
 				<c:if test="${order.order_status eq 'get'}">
 					대기
 				</c:if>
 				<c:if test="${order.order_status eq 'ing'}">
 					진행중
 				</c:if>
-				<c:if test="${order.order_status eq 'done'}">
-					승인
-				</c:if>
 				<c:if test="${order.order_status eq 'cancel'}">
 					취소
+				</c:if>
+				<c:if test="${order.order_status eq 'done'}">
+					승인
 				</c:if>
 			</td>
 		<tr>
 		</c:forEach>
+		<c:if test="${carTotalMoney ne null}">
+			<tr>
+				<td colspan="3"><b><%=month+1%>달의 총 결제금액은 </b>${carTotalMoney}원 입니다.</td>
+			</tr>
+			<tr>
+				<td colspan="3"><%=month+1%>달의 총 예약건수: 00건[대기:0, 진행:0, 취소:0, 승인:0]</td>
+			</tr>
+		</c:if>
 	</c:when>
 	<c:otherwise>
 		<c:choose>
@@ -150,6 +146,7 @@ function deleteCar(car_no){
 		</c:choose>
 	</c:otherwise>
 	</c:choose>
+	
 	</table>
 	
 </section>

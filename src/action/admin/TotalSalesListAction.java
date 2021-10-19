@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import action.Action;
 import svc.admin.CarOrderListService;
+import svc.admin.CarTotalPriceService;
 import vo.ActionForward;
 import vo.Order;
 
@@ -34,8 +35,10 @@ public class TotalSalesListAction implements Action {
 		    
 			CarOrderListService carOrderListService = new CarOrderListService();
 			ArrayList<Order> carOrderList = carOrderListService.getCarTotalOrderList(year, month);//오늘 날짜로 주문한 리스트를 얻어와
-			
+			CarTotalPriceService carTotalPriceService=new CarTotalPriceService();
+			String carTotalMoney =carTotalPriceService.getcarTotalPrice(year, month);
 			request.setAttribute("carOrderList", carOrderList);//"오늘 주문한 리스트" 이므로
+			request.setAttribute("carTotalMoney", carTotalMoney);
 			session.setMaxInactiveInterval(60*60*12);//12시간으로 시간 설정함			
 			
 			request.setAttribute("showAdmin", "/admin/totalSales.jsp");

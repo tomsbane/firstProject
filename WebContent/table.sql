@@ -35,9 +35,15 @@ postcode int not null,/*우편번호*/
 address1 Nvarchar(60) not null,
 address2 Nvarchar(60) not null
 );
-update customer set c_grade='admin' where c_id='admin'; /*관리자 초기설정-- 이름을 admin이라고 설정해야 회원관리에서 제외설정가능*/
-
-
+/*################# 예약 매출 테스트용 #######jstl로 더하기############################*/
+select order_status, sum(rental_price), count(order_status) from order_car group by order_status;
+insert into order_car values(null,'admin','1',now(),now(),20000,'done');
+insert into order_car values(null,'admin','1',now(),now(),20000,'ing');
+insert into order_car values(null,'admin','1',now(),now(),20000,'cancel');
+/*################초기 관리자 아이디 설정#############################*/
+insert into customer values('admin','admin','aa','관리자','M','2021-10-19','aa','naver.com','111-1111-1111',now(), 0, 0);
+insert into address values(null, 'admin','11','11','11');
+/*#############################################################*/
 create table order_car(
 order_no int auto_increment primary key,
 c_id varchar(45) not null,
