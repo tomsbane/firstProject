@@ -19,7 +19,7 @@ import action.admin.NormalRegistAction;
 import action.admin.ReserveCarAction;
 import action.admin.ReserveChangeAction;
 import action.admin.SelectCustomerAction;
-import action.admin.totalSalesListAction;
+import action.admin.TotalSalesListAction;
 import vo.ActionForward;
 
 /**
@@ -207,7 +207,7 @@ public class AdminFrontController extends HttpServlet {
 			}
 		}
 		else if(command.equals("/totalSalesList.ad")) {//'예약 현황관리' 요청이면						
-			action = new totalSalesListAction();
+			action = new TotalSalesListAction();
 			try {
 				forward = action.execute(request, response);
 			}catch(Exception e) {

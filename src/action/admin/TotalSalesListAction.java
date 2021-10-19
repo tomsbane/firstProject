@@ -13,7 +13,7 @@ import svc.admin.CarOrderListService;
 import vo.ActionForward;
 import vo.Order;
 
-public class totalSalesListAction implements Action {
+public class TotalSalesListAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
