@@ -12,6 +12,7 @@ import action.admin.CarDeleteAction;
 import action.admin.CarInsertAction;
 import action.admin.CarInsertFormAction;
 import action.admin.CarModifyAction;
+import action.admin.CarOrderDetailAction;
 import action.admin.CarOrderListAction;
 import action.admin.CarViewAction;
 import action.admin.CustomerListAction;
@@ -200,6 +201,14 @@ public class AdminFrontController extends HttpServlet {
 		}
 		else if(command.equals("/carOrderList.ad")) {//'예약 현황관리' 요청이면						
 			action = new CarOrderListAction();
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		else if(command.equals("/carOrderDetail.ad")) {//'예약 상세보기' 요청이면						
+			action = new CarOrderDetailAction();
 			try {
 				forward = action.execute(request, response);
 			}catch(Exception e) {

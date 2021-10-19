@@ -46,8 +46,7 @@ public class OrderDAO {
 	public int insertOrder(Order order) {
 		int insertOrderCount = 0;
 
-		String sql = "insert into order_car(c_id, car_no, rental_date, return_date, rental_price)"
-				+ " value (?,?,?,?,?)";
+		String sql = "insert into order_car(c_id, car_no, rental_date, return_date, rental_price) value (?,?,?,?,?)";
 
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -117,8 +116,14 @@ public class OrderDAO {
 
 				do {
 					// 주문번호의 주문상세정보 결과로 채운 OrderDetail객체를 추가함
-					carOrderList.add(new Order(rs.getInt("order_no"), rs.getString("c_id"),
-							rs.getInt("car_no"), rs.getString("rental_date"),rs.getString("return_date"), rs.getInt("rental_price"), rs.getString("order_status")));
+					Order OrderList = new Order(rs.getInt("order_no"),
+											   rs.getString("c_id"),
+											   rs.getInt("car_no"),
+											   rs.getString("rental_date"),
+											   rs.getString("return_date"),
+											   rs.getInt("rental_price"),
+											   rs.getString("order_status"));
+					carOrderList.add(OrderList);
 				} while (rs.next()); // 주문상세정보가 없을 때까지 반복함
 			}
 		} catch (Exception e) {
@@ -163,4 +168,34 @@ public class OrderDAO {
 		return carOrderList;
 	}
 
+
+
+	public Order selectOrderDetail() {
+		Order orderDetail = null;
+
+		// DATE(order_date)=? 의미:주문한 날짜인 order_date와 매개값으로 전송된 날짜인 simpleDate_today가 같은
+		// 날을 찾아서 가장 최근 주문한 것을 제일 위에 표시
+		String sql = "select * from order_car where order_no=?";
+
+		try {
+			pstmt = con.prepareStatement(sql);
+			
+			//pstmt.setString(1, );
+			
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				orderDetail = new Order();
+				
+				
+			}
+		} catch (Exception e) {
+			System.out.println("selectOrderDetail 에러:" + e);
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+
+		return orderDetail;
+	}
 }
