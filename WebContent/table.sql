@@ -7,7 +7,7 @@ c_grade nvarchar(10) not null,/*회원가입 폼에서 제외*/
 c_password varchar(256) not null,
 c_name nvarchar(20) not null,
 c_gender char(1) not null,
-c_birth datetime not null,
+c_birth date not null,
 c_email1 varchar(45),
 c_email2 varchar(45),
 c_tel varchar(40) not null,
@@ -33,15 +33,17 @@ rental_date datetime not null,
 return_date datetime not null,
 rental_price int not null,
 order_status varchar(25) not null default "order"
+
 );
 alter table order_car auto_increment=1;
 
+select * from order_car;
 
 drop table driver_detail;
 create table driver_detail (
 c_id varchar(45) not null,
 c_name nvarchar(20) not null,
-c_birth datetime not null,
+c_birth date not null,
 c_tel varchar(40) not null,
 rental_place1 nvarchar(20) not null,
 rental_place2 nvarchar(20) not null,
@@ -97,10 +99,6 @@ insert into rentcar values(null, 'ray','경형', 2022, 'y', 20000, '기아', 'ra
 insert into rentcar values(null, 'sm6','중소형', 2022, 'y', 20000, '르노삼성', 'sm6.jpg',0);
 insert into rentcar values(null, 'sorento','대형', 2022, 'y', 20000, '르노삼성', 'sorento.jpg',0);
 insert into rentcar values(null, 'tivoli','대형', 2022, 'y', 20000, '르노삼성', 'tivoli.jpg',0);
-
-
-
-
 
 
 drop table review;

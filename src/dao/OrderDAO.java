@@ -79,7 +79,7 @@ public class OrderDAO {
 
 			pstmt.setString(1, driver.getC_id());
 			pstmt.setString(2, driver.getC_name());
-			pstmt.setInt(3, driver.getC_birth());
+			pstmt.setString(3, driver.getC_birth());
 			pstmt.setInt(4, driver.getC_tel());
 			pstmt.setString(5, driver.getRental_place1());
 			pstmt.setString(6, driver.getRental_place2());

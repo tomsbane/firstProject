@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="../css/style1.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style1.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Insert title here</title>
 <script>
@@ -18,11 +18,11 @@ function check(){
 </script> 
 </head>
 <body>
-<jsp:include page="/userHeader.jsp"></jsp:include>
+
 
 <section class="section-bg-img2">
 	<div class="banner"
-		style="background-image: url(images/bg-rental-rez2.png); height: 180px;"></div>
+		style="background-image: url(${pageContext.request.contextPath}/images/bg-rental-rez2.png); height: 180px;"></div>
 </section>
 <form action="shortRentFinalCheck.do" method="post" name="f">
 <input type="hidden" value="${car_no }" name="car_no" id="car_no">

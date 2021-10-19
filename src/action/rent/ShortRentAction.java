@@ -29,7 +29,7 @@ public class ShortRentAction implements Action {
 		
 		driver.setC_id(c_id);
 		driver.setC_name(request.getParameter("c_name"));
-		driver.setC_birth(Integer.parseInt(request.getParameter("c_birth")));
+		driver.setC_birth((request.getParameter("c_birth")));
 		driver.setC_tel(Integer.parseInt(request.getParameter("c_tel")));
 		driver.setRental_place1(request.getParameter("rental_place1"));
 		driver.setRental_place2(request.getParameter("rental_place2"));

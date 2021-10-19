@@ -55,7 +55,9 @@ public class ShortRentFinalCheckAction implements Action {
 		CustomerBean customerInfo=customerViewService.getCustomer(c_id);
 		request.setAttribute("customer", customerInfo);
 		
-		forward = new ActionForward("/rentFinalCheck.jsp", false);
+		request.setAttribute("showRent", "/rent/rentFinalCheck.jsp");
+		
+		forward = new ActionForward("rent_template.jsp", false);
 
 		return forward;
 	}
