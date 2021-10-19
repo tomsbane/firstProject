@@ -27,30 +27,29 @@ if(cookies != null && cookies.length > 0){
 <!-- DAUM API 적용(DAUM에서 제공하는 주소 검색을 사용하기 위해 반드시 포함) -->
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script type="text/javascript">
-function findAddr(){
-	new daum.Postcode({
-		oncomplete : function(data){
-			console.log(data)
+function findAddr(){   
+    new daum.Postcode({
+        oncomplete: function(data) { //선택시 입력값 세팅
+			console.log(data);
 			
 			document.getElementById("postcode").value = data.zonecode;//우편번호
 			
-			var roadAddr = data.roadAddress;/* 도로명 주소 */
-			var jibunAddr = data.jibunAddress;/* 지번 주소 */
+			var roadAddr = data.roadAddress;//도로명 주소
+			var jibunAddr = data.jibunAddress;//지번 주소
 			
-			if(roadAddr != ''){
+			if(roadAddr != ''){//도로명 주소가 있으면 도로면 주소가 등록되고
 				document.getElementById("address1").value = roadAddr;
-			}else if(jibunAddr != ''){//도로명 주소가 없으면 지번주소가 등록됨
+			}else if(jibunAddr != ''){//도로명 주소가 없고 지번주소가 있으면 지번주소가 등록됨
 				document.getElementById("address1").value = jibunAddr;
-				//만약 지번주소 대신 무조건 도로명 주소만 입력하고 싶다면
-				//document.getElementById("address1").value = roadAddr;
 			}
+			//만약 지번주소 대신 무조건 도로명 주소만 입력하고 싶다면 if-else 대신 
+			//document.getElementById("address1").value = roadAddr;
 			
-			//상세주소 필드에 커서를 깜박거려 바로 입력가능한 상태로 만듦
+			//상세주소 필드에 커서를 두어 바로 입력가능한 상태로 만듦
 			document.getElementById("address2").focus();
-		}
-	}).open();
-}
-</script>
+        }
+    }).open();  
+}</script>
 <!-- 유효성 검사 -->
 <script type="text/javascript">
 function check(){

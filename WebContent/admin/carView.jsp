@@ -13,12 +13,9 @@
 <style type="text/css">
 #viewForm{
 	margin:auto;
+	padding-left: 8%;
 	width:640px;
 	border:1px solid red;
-}
-
-h2{
-	text-align:center;
 }
 
 img{
@@ -41,23 +38,33 @@ img{
 	float:left;
 }
 
-#commandList{
-	text-align: center;
-}
 #button{
 border: 1px black;
 }
 </style>
 </head>
+<script type="text/javascript">
+function deleteCar(car_no){
+	if(confirm("정말로 삭제하시겠습니까?\n삭제 후 다시 복원되지 않습니다") == true){
+		location.href="carDelete.ad?car_no="+car_no;
+	}else{
+		return false;
+	}
+}
+</script>
 <body>
 <!-- ★혜-752p-두번째 그림 -->
 <section id="viewForm">
 	<h2>${car.car_name}의 상세정보</h2>	
 	<section id = "content_main">
 		<section id = "content_left">
-			<img src = "carImages/${car.car_image}" />
+			<img src = "${pageContext.request.contextPath}/carImages/${car.car_image}" />
+			
 		</section>
 		<section id = "content_right"> 
+			<form action="carModify.ad" method="post" name="addForm" enctype="multipart/form-data">
+			<input type="hidden" name="car_no" value="${car.car_no}">
+			<b>이미지 수정:</b>${car.car_image} <input type="file" name="car_image"><br/>
 			<b>상품명 :</b> <input type="text" name="car_name" value="${car.car_name}"> <br/>
 			<b>그룹명 :</b> 
 			<select name="car_group">
@@ -87,18 +94,19 @@ border: 1px black;
 				n
 				</option>
 			</select> <br/>
-			<b>가격 :</b> <input type="number" name="" value="${car.car_price}" min="0" max="1000000" step="1000"> <br/>
-			<b>브랜드 :</b> <input type="text" name="" value="${car.car_brand}"> <br/>
+			<b>가격 :</b> <input type="number" name="car_price" value="${car.car_price}" min="0" max="1000000" step="1000"> <br/>
+			<b>브랜드 :</b> <input type="text" name="car_brand" value="${car.car_brand}"> <br/><br/>
+			<a href="adminCarList.ad"><button>전체 목록보기</button></a>
+			<input type="submit" value="수정하기" >
+			<input type="button" value="삭제하기" onclick="deleteCar('${car.car_no}')">
+			<br><br>
+			</form>
 		</section>
 	</section>
 	
 	<div style="clear:both"></div>
 	
-	<nav id="commandList">
-		<div id="button"><a href="adminCarList.ad">전체 목록보기 </a></div>
-		<div id="button"><a href=""> 수정하기 </a></div>
-		<div id="button"><a href="carDelete.ad?car_no=${car.car_no}"> 삭제하기</a></div>
-	</nav>
+	
 </section>
 </body>
 </html>
