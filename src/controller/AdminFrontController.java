@@ -19,6 +19,7 @@ import action.admin.NormalRegistAction;
 import action.admin.ReserveCarAction;
 import action.admin.ReserveChangeAction;
 import action.admin.SelectCustomerAction;
+import action.admin.totalSalesListAction;
 import vo.ActionForward;
 
 /**
@@ -199,6 +200,14 @@ public class AdminFrontController extends HttpServlet {
 		}
 		else if(command.equals("/carOrderList.ad")) {//'예약 현황관리' 요청이면						
 			action = new CarOrderListAction();
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		else if(command.equals("/totalSalesList.ad")) {//'예약 현황관리' 요청이면						
+			action = new totalSalesListAction();
 			try {
 				forward = action.execute(request, response);
 			}catch(Exception e) {

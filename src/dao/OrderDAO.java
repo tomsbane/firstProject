@@ -131,4 +131,36 @@ public class OrderDAO {
 		return carOrderList;
 	}
 
+	public ArrayList<Order> selectTotalCarOrderList(String year, String month) {
+		ArrayList<Order> carOrderList = null;
+		String date= year+'-'+month+'-'+01;
+		// DATE(order_date)=? 의미:주문한 날짜인 order_date와 매개값으로 전송된 날짜인 simpleDate_today가 같은
+		// 날을 찾아서 가장 최근 주문한 것을 제일 위에 표시
+		String sql = "select * from order_car where rental_date between ? and last_day(?) ORDER BY order_no DESC";
+
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, date);
+			pstmt.setString(2, date);
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				carOrderList = new ArrayList<Order>();// 기본값으로 채워진 myOrderDetailList를
+
+				do {
+					// 주문번호의 주문상세정보 결과로 채운 OrderDetail객체를 추가함
+					carOrderList.add(new Order(rs.getInt("order_no"), rs.getString("c_id"),
+							rs.getInt("car_no"), rs.getString("rental_date"),rs.getString("return_date"), rs.getInt("rental_price"), rs.getString("order_status")));
+				} while (rs.next()); // 주문상세정보가 없을 때까지 반복함
+			}
+		} catch (Exception e) {
+			System.out.println("selectCarOrderList 에러:" + e);
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+
+		return carOrderList;
+	}
+
 }

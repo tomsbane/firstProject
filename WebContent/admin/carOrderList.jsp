@@ -59,11 +59,11 @@ table { border-collapse: collapse; }
 			<tr>
 				<td>
 					<b>
-					<a href="orderDetail.adm?order_no=${order.order_no}&u_id=${order.c_id}">${order.order_no }
+					<a href="orderDetail.adm?order_no=${order.order_no}&c_id=${order.c_id}">${order.order_no }
 					</a>
 					</b>
 				</td>
-				<td>${order.u_id }</td>
+				<td>${order.c_id }</td>
 				<td>${order.order_date }</td>
 				<td>예약 승인 대기 상태</td>
 				<td>${order.totalMoney }</td>
@@ -119,11 +119,11 @@ table { border-collapse: collapse; }
 			<tr>
 				<td>
 					<b>
-					<a href="orderDetail.adm?order_no=${order.order_no}&u_id=${order.u_id}">${order.order_no }
+					<a href="orderDetail.adm?order_no=${order.order_no}&c_id=${order.c_id}">${order.order_no }
 					</a>
 					</b>
 				</td>
-				<td>${order.u_id }</td>
+				<td>${order.c_id }</td>
 				<td>${order.order_date }</td>
 				<td>주문 승인</td>
 				<td>${order.totalMoney }</td>
@@ -176,11 +176,11 @@ table { border-collapse: collapse; }
 			<tr>
 				<td>
 					<b>
-					<a href="orderDetail.adm?order_no=${order.order_no}&u_id=${order.u_id}">${order.order_no }
+					<a href="orderDetail.adm?order_no=${order.order_no}&c_id=${order.c_id}">${order.order_no }
 					</a>
 					</b>
 				</td>
-				<td>${order.u_id }</td>
+				<td>${order.c_id }</td>
 				<td>${order.order_date }</td>
 				<td>주문 취소</td>
 				<td>${order.totalMoney }</td>

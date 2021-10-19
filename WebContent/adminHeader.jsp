@@ -94,7 +94,7 @@ a:checked {
 				<li><a href="${pageContext.request.contextPath}/adminCarList.ad">차량관리</a></li>
 				<li><a href="${pageContext.request.contextPath}/carOrderList.ad">예약현황관리</a></li>
 				<li><a href="${pageContext.request.contextPath}/customerList.ad">회원관리</a></li>
-				<li><a href="#">매출관리</a></li>
+				<li><a href="${pageContext.request.contextPath}/totalSalesList.ad">매출관리</a></li>
 				<li><a href="#">고객센터</a></li>
 			</ul>
 		</div>

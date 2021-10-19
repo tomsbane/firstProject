@@ -15,7 +15,7 @@ c_joindate datetime not null default now(),/*회원가입 폼에 없음*/
 order_quantity int not null default 0,
 order_money int default 0
 );
-/*email1, tel primary key --아이디 찾기, 비밀번호 찾기 활용예정1*/
+/*email1, tel primary key --아이디 찾기, 비밀번호 찾기 활용예정*/
 create table address(
 addr_index int auto_increment primary key,/*auto_increment하려면 primary key*/
 c_id varchar(45) not null,
@@ -23,6 +23,7 @@ postcode int not null,/*우편번호*/
 address1 Nvarchar(60) not null,
 address2 Nvarchar(60) not null
 );
+update customer set c_grade='admin' where c_id='admin'; /*관리자 초기설정-- 이름을 admin이라고 설정해야 회원관리에서 제외설정가능*/
 
 drop table order_car;
 create table order_car(
@@ -32,8 +33,7 @@ car_no int not null,
 rental_date datetime not null,
 return_date datetime not null,
 rental_price int not null,
-order_status varchar(25) not null default "order"
-
+order_status varchar(25) not null default "get"
 );
 alter table order_car auto_increment=1;
 

@@ -62,7 +62,7 @@ function deleteCar(car_no){
 			
 		</section>
 		<section id = "content_right"> 
-			<form action="carModify.ad" method="post" name="addForm" enctype="multipart/form-data">
+			<form action="carModify.ad" method="post" name="modifyForm" enctype="multipart/form-data">
 			<input type="hidden" name="car_no" value="${car.car_no}">
 			<b>이미지 수정:</b>${car.car_image} <input type="file" name="car_image"><br/>
 			<b>상품명 :</b> <input type="text" name="car_name" value="${car.car_name}"> <br/>
