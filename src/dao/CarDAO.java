@@ -348,4 +348,34 @@ public class CarDAO {
 
 		return carList;
 	}
+
+	public int modifyCar(Rentcar car) {
+		int modifyCarCount = 0;
+		String car_image=car.getCar_image();
+		String sql = "update rentcar set car_name=? ,car_group=? ,car_year=? ,car_reserve=? ,car_price=? ,car_brand=?";
+		if(car_image != null) {
+		sql += ", car_image='"+ car_image +"'";
+		}
+		sql += " where car_no=?";
+		
+		try {
+			psmt = con.prepareStatement(sql);
+			psmt.setString(1, car.getCar_name());
+			psmt.setString(2, car.getCar_group());
+			psmt.setInt(3, car.getCar_year());
+			psmt.setString(4, car.getCar_reserve());
+			psmt.setInt(5, car.getCar_price());
+			psmt.setString(6, car.getCar_brand());
+			psmt.setInt(7, car.getCar_no());
+			modifyCarCount = psmt.executeUpdate();
+		}catch (Exception e) {
+			System.out.println("modifyCar 에러:"+ e);
+		}
+		finally {
+			close(psmt);
+		}
+		
+		return modifyCarCount;
+	}
+
 }

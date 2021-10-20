@@ -20,15 +20,15 @@ public class CarDeleteAction implements Action {
 		CarDeleteService carDeleteService=new CarDeleteService();
 		boolean isDeleteCarSuccess = carDeleteService.deleteCar(car_no);
 		
-		if(isDeleteCarSuccess) {
-			forward = new ActionForward("adminCarList.ad", true);
-		}else {
+		if(!isDeleteCarSuccess) {
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out=response.getWriter();
 			out.println("<script>");
 			out.println("alert('차량 삭제 실패')");
 			out.println("history.back()");
 			out.println("</script>");
+		}else {
+			forward = new ActionForward("adminCarList.ad", true);
 		}
 		
 		return forward;

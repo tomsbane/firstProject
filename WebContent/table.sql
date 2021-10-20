@@ -1,5 +1,18 @@
 drop table customer;
 drop table address;
+drop table order_car;
+drop table driver_detail;
+drop table drive_lic;
+drop table review;
+drop table cust_service;
+drop table coupon_create;
+drop table coupon_info;
+
+
+
+
+select * from order_car;
+
 create table customer(
 /*회원가입 폼에 있음*/
 c_id varchar(45) primary key,
@@ -15,11 +28,7 @@ c_joindate datetime not null default now(),/*회원가입 폼에 없음*/
 order_quantity int not null default 0,
 order_money int default 0
 );
-
-
-
-/*email1, tel primary key --아이디 찾기, 비밀번호 찾기 활용예정1*/
-
+/*email1, tel primary key --아이디 찾기, 비밀번호 찾기 활용예정*/
 create table address(
 addr_index int auto_increment primary key,/*auto_increment하려면 primary key*/
 c_id varchar(45) not null,
@@ -28,7 +37,22 @@ address1 Nvarchar(60) not null,
 address2 Nvarchar(60) not null
 );
 
-drop table order_car;
+select * from order_car;
+delete table order_car where order_no = 4;
+update order_car set order_status ='done' where car_no = 3;
+
+/*################# 예약 매출 테스트용 #######jstl로 더하기############################*/
+select order_status, sum(rental_price), count(order_status) from order_car group by order_status;
+insert into order_car values(null,'admin','1',now(),now(),20000,'done');
+insert into order_car values(null,'admin','1',now(),now(),20000,'ing');
+insert into order_car values(null,'admin','1',now(),now(),20000,'cancel');
+/*################초기 관리자 아이디 설정#############################*/
+insert into customer values('admin','admin','aa','관리자','M','2021-10-19','aa','naver.com','111-1111-1111',now(), 0, 0);
+insert into address values(null, 'admin','11','11','11');
+/*#############################################################*/
+
+
+
 create table order_car(
 order_no int auto_increment primary key,
 c_id varchar(45) not null,
@@ -36,14 +60,14 @@ car_no int not null,
 rental_date datetime not null,
 return_date datetime not null,
 rental_price int not null,
-order_status varchar(25) not null default "order"
-
+order_status varchar(25) not null default "get"
 );
 alter table order_car auto_increment=1;
 
+drop table order_car;
+
 select * from order_car;
 
-drop table driver_detail;
 create table driver_detail (
 c_id varchar(45) not null,
 c_name nvarchar(20) not null,
@@ -57,10 +81,8 @@ return_place2 nvarchar(20) not null,
 return_place3 nvarchar(20) not null,
 request nvarchar(200)
 );
-select * from driver_detail;
-select * from order_car;
 
-drop table drive_lic;
+
 create table drive_lic(
 c_id varchar(45),
 c_name varchar(45),
@@ -69,9 +91,6 @@ lic_area nvarchar(20),
 lic_num int
 );
 
-select * from rentcar;
-
-truncate rentcar;
 create table rentcar(
 car_no int(7) auto_increment not null primary key,
 car_name nvarchar(20),
@@ -105,9 +124,6 @@ insert into rentcar values(null, 'sorento','대형', 2022, 'y', 20000, '르노�
 insert into rentcar values(null, 'tivoli','대형', 2022, 'y', 20000, '르노삼성', 'tivoli.jpg',0);
 
 
-
-
-drop table review;
 create table review (
 review_num int auto_increment primary key, 
 c_id varchar(45) not null,
@@ -128,7 +144,6 @@ alter table review
 add foreign key (car_no) references rentcar(car_no);
 
 
-drop table cust_service;
 create table cust_service (
 customer_no int(5),
 board_no int(5),
@@ -142,7 +157,6 @@ alter table cust_service
 add foreign key (customer_no) references customer(customer_no);
 
 
-drop table coupon_create;
 create table coupon_create (
 coupon_no int(3),
 coupon_name nvarchar(20),
@@ -156,7 +170,6 @@ add foreign key (customer_no) references customer(customer_no);
 alter table coupon_create
 add foreign key (coupon_name) references coupon_info(coupon_name);
 
-drop table coupon_info;
 create table coupon_info (
 coupon_name nvarchar(20),
 coupon_discount int(5),

@@ -8,8 +8,21 @@ public class Order {
 	private String rental_date;
 	private String return_date;
 	private int rental_price;
-
+	private String order_status;
+	
 	public Order() {}
+	
+	public Order(int order_no, String c_id, int car_no, String rental_date, String return_date, int rental_price,
+			String order_status) {
+		super();
+		this.order_no = order_no;
+		this.c_id = c_id;
+		this.car_no = car_no;
+		this.rental_date = rental_date;
+		this.return_date = return_date;
+		this.rental_price = rental_price;
+		this.order_status = order_status;
+	}
 
 	public Order(int order_no, String c_id, int car_no, String rental_date, String return_date, int rental_price) {
 		super();
@@ -35,6 +48,14 @@ public class Order {
 
 	public void setC_id(String c_id) {
 		this.c_id = c_id;
+	}
+
+	public String getOrder_status() {
+		return order_status;
+	}
+
+	public void setOrder_status(String order_status) {
+		this.order_status = order_status;
 	}
 
 	public int getCar_no() {

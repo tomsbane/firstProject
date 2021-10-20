@@ -11,12 +11,18 @@ import action.admin.AdminRegistAction;
 import action.admin.CarDeleteAction;
 import action.admin.CarInsertAction;
 import action.admin.CarInsertFormAction;
+import action.admin.CarModifyAction;
+import action.admin.CarOrderDetailAction;
+import action.admin.CarOrderListAction;
 import action.admin.CarViewAction;
 import action.admin.CustomerListAction;
 import action.admin.NormalRegistAction;
+import action.admin.OrderToDoneAction;
+import action.admin.OrderToIngAction;
 import action.admin.ReserveCarAction;
 import action.admin.ReserveChangeAction;
 import action.admin.SelectCustomerAction;
+import action.admin.TotalSalesListAction;
 import vo.ActionForward;
 
 /**
@@ -105,6 +111,14 @@ public class AdminFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
+		else if(command.equals("/carModify.ad")) {//'특정 카 수정' 요청이면
+			action = new CarModifyAction();
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
 		else if(command.equals("/reserveChange.ad")) {//'예약 값변경' 요청이면
 			action = new ReserveChangeAction();
 			try {
@@ -181,6 +195,46 @@ public class AdminFrontController extends HttpServlet {
 		}
 		else if(command.equals("/normalRegist.ad")) {//'회원id로 일반고객등록' 요청이면						
 			action = new NormalRegistAction();
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		else if(command.equals("/carOrderList.ad")) {//'예약 현황관리' 요청이면						
+			action = new CarOrderListAction();
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		else if(command.equals("/carOrderDetail.ad")) {//'예약 상세보기' 요청이면						
+			action = new CarOrderDetailAction();
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		else if(command.equals("/totalSalesList.ad")) {//'예약 현황관리' 요청이면						
+			action = new TotalSalesListAction();
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		else if(command.equals("/orderToIng.ad")) {//'예약 현황관리' 요청이면						
+			action = new OrderToIngAction();
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		else if(command.equals("/orderToDone.ad")) {//'예약 현황관리' 요청이면						
+			action = new OrderToDoneAction();
 			try {
 				forward = action.execute(request, response);
 			}catch(Exception e) {
