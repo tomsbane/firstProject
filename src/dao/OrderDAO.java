@@ -169,47 +169,5 @@ public class OrderDAO {
 	}
 
 
-	public String selectCarTotalMoney(String year, String month) {
-		String totalMoney = null;
-		String date= year+'-'+month+'-'+01;
-		// DATE(order_date)=? 의미:주문한 날짜인 order_date와 매개값으로 전송된 날짜인 simpleDate_today가 같은
-		// 날을 찾아서 가장 최근 주문한 것을 제일 위에 표시
-		String sql = "select sum(rental_price) from order_car where rental_date between ? and last_day(?)";
-
-		try {
-			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, date);
-			pstmt.setString(2, date);
-			rs = pstmt.executeQuery();
-			if(rs.next()) {
-			totalMoney=rs.getString("sum(rental_price)");
-			}
-		} catch (Exception e) {
-			System.out.println("selectCarTotalMoney 에러:" + e);
-		} finally {
-			close(rs);
-			close(pstmt);
-		}
-
-		return totalMoney;
-	}
-
-	public int modifyOrderStatus(int order_no) {
-		int modifyOrderStatusCount = 0;
-		
-		String sql = "update order_car set order_status = 'ing' where order_no = "+order_no;
-		
-		
-		try {
-			pstmt = con.prepareStatement(sql);
-			
-		}catch (Exception e) {
-			System.out.println("modifyOrderStatus 에러:"+ e);
-		}
-		finally {
-			close(pstmt);
-		}
-		
-		return modifyOrderStatusCount;
 	}
 }

@@ -1,3 +1,4 @@
+
 package action.admin;
 
 import java.io.PrintWriter;
@@ -48,3 +49,4 @@ public class TotalSalesListAction implements Action {
 	}
 
 }
+
