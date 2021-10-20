@@ -17,6 +17,8 @@ import action.admin.CarOrderListAction;
 import action.admin.CarViewAction;
 import action.admin.CustomerListAction;
 import action.admin.NormalRegistAction;
+import action.admin.OrderToDoneAction;
+import action.admin.OrderToIngAction;
 import action.admin.ReserveCarAction;
 import action.admin.ReserveChangeAction;
 import action.admin.SelectCustomerAction;
@@ -223,6 +225,23 @@ public class AdminFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
+		else if(command.equals("/orderToIng.ad")) {//'예약 현황관리' 요청이면						
+			action = new OrderToIngAction();
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		else if(command.equals("/orderToDone.ad")) {//'예약 현황관리' 요청이면						
+			action = new OrderToDoneAction();
+			try {
+				forward = action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+
 		
 		
 		/***************************************************************

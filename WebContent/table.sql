@@ -8,10 +8,6 @@ drop table cust_service;
 drop table coupon_create;
 drop table coupon_info;
 
-c_id, c_name, c_tel, car_no, car_name,
-rental_date, return_date, rental_price
-select c_id car_no, 
-
 create table customer(
 /*회원가입 폼에 있음*/
 c_id varchar(45) primary key,
@@ -35,15 +31,29 @@ postcode int not null,/*우편번호*/
 address1 Nvarchar(60) not null,
 address2 Nvarchar(60) not null
 );
+
+
+select * from order_car;
+delete table order_car where order_no = 4;
+update order_car set order_status ='done' where car_no = 3;
+
+/*################# 예약 매출 테스트용 #######jstl로 더하기############################*/
+select order_status, sum(rental_price), count(order_status) from order_car group by order_status;
+insert into order_car values(null,'admin','1',now(),now(),20000,'done');
+insert into order_car values(null,'admin','1',now(),now(),20000,'ing');
+insert into order_car values(null,'admin','1',now(),now(),20000,'cancel');
+
 /*################# 예약 매출 테스트용 ##############################*/
 insert into order_car values(null,'admin','1',now(),now(),20000,'done');
 insert into order_car values(null,'admin','1',now(),now(),20000,'ing');
 insert into order_car values(null,'admin','1',now(),now(),20000,'cancel');
 insert into order_car values(null,'admin','1',now(),now(),20000,'get');
+
 /*################초기 관리자 아이디 설정#############################*/
 insert into customer values('admin','admin','aa','관리자','M','2021-10-19','aa','naver.com','111-1111-1111',now(), 0, 0);
 insert into address values(null, 'admin','11','11','11');
 /*#############################################################*/
+
 create table order_car(
 order_no int auto_increment primary key,
 c_id varchar(45) not null,
@@ -54,9 +64,6 @@ rental_price int not null,
 order_status varchar(25) not null default "get"
 );
 alter table order_car auto_increment=1;
-
-
-
 
 create table driver_detail (
 c_id varchar(45) not null,
