@@ -395,5 +395,44 @@ public class CustomerDAO {
 		return adminUpdateCount;
 	}
 
+	public int DeleteCustomer(String c_id) {
+		int DeleteCustomerCount = 0;
+		String sql = "delete from customer where c_id=?";
+
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, c_id);
+
+			DeleteCustomerCount = pstmt.executeUpdate();// 업데이트를 성공하면 1을 리턴받음
+
+		} catch (Exception e) {
+			System.out.println("DeleteCustomer 에러:" + e);
+		} finally {
+			// close(rs);
+			close(pstmt);
+		}
+		return DeleteCustomerCount;
+	}
+
+	public int DeleteAddr(String c_id) {
+		int DeleteAddrCount = 0;
+		String sql = "delete from address where c_id=?";
+
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, c_id);
+
+			DeleteAddrCount = pstmt.executeUpdate();// 업데이트를 성공하면 1을 리턴받음
+
+		} catch (Exception e) {
+			System.out.println("DeleteAddr 에러:" + e);
+		} finally {
+			// close(rs);
+			close(pstmt);
+		}
+		return DeleteAddrCount;
+	}
+	
+
 
 }

@@ -31,8 +31,9 @@ postcode int not null,/*우편번호*/
 address1 Nvarchar(60) not null,
 address2 Nvarchar(60) not null
 );
-
-
+select * from customer;
+delete from customer where c_id='a123';
+delete from address where c_id='a123';
 select * from order_car;
 delete table order_car where order_no = 4;
 update order_car set order_status ='done' where car_no = 3;

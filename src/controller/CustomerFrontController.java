@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import action.Action;
 import action.admin.CarViewAction;
+import action.customer.CustomerDeleteAction;
 import action.customer.CustomerJoinAction;
 import action.customer.CustomerLoginAction;
 import action.customer.CustomerModifyAction;
@@ -130,7 +131,15 @@ public class CustomerFrontController extends HttpServlet {
 			}
 		}
 		/*----'회원탈퇴'-------------------*/
+		else if (command.equals("/customerDeleteAction.cus")) {// '회원탈퇴' 요청이면
+			action = new CustomerDeleteAction();
 
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 		/***************************************************************
 		 * 포워딩
 		 * 
