@@ -10,17 +10,37 @@
 <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="css/style.css">
 <title>회원정보보기</title>
-<style>
-	#userViewArea{
-		width : 70%;
-		margin : auto;
-		border : 1px solid gray;
-	}
-	table{
-		width : 100%;
-		margin :  auto;
-		text-align: center;
-	}
+<style type="text/css">
+#customerViewArea{
+	margin:auto;
+	padding-left: 8%;
+	width:640px;
+	border:1px solid red;
+}
+
+img{
+ 	width: 280px;
+ 	height: 280px;
+ 	border: none;
+}
+
+#content_main{
+	height:300px;
+}
+
+#content_left{
+	width: 300px;
+	float:left;
+}
+
+#content_right{
+	width: 340px;
+	float:left;
+}
+
+#button{
+border: 1px black;
+}
 </style>
 
 <!-- DAUM API 적용(DAUM에서 제공하는 주소 검색을 사용하기 위해 반드시 포함) -->
@@ -140,28 +160,27 @@ function check(){
 </script>
 </head>
 <body>
-<section id = "userViewArea">
-<form action="userModifyAction.usr" method="post" name="f" >
+<section id = "customerViewArea">
+<form action="customerModifyAction.cus" method="post" name="f" >
 <br>
 <table>
 	<tr>
 		<th colspan="2">
 			<h2>[회원정보]</h2>
-			<h3>회원님의 등급은 ${user.c_grade} 입니다.</h3>
-			<h4>(기본등급 : Normal, 지난달 주문 총 금액이 100,000원이상이면 VIP등급으로 변경됨)</h4>
+			<h3>회원님의 등급은 ${customer.c_grade} 입니다.</h3>
 		</th>
 	</tr>
 	<tr>
 		<th>아이디</th>
-		<td><input type="text" name="c_id" id="c_id" value="${user.c_id}" readonly /></td>
+		<td><input type="text" name="c_id" id="c_id" value="${customer.c_id}" readonly /></td>
 	</tr>	
 	<tr>
 	 	<th>이름</th>
-	 	<td><input type="text" name="c_name" value="${user.c_name}" placeholder="한글 또는 영문만 입력하세요.(특수문자 제외)" required></td>
+	 	<td><input type="text" name="c_name" value="${customer.c_name}" placeholder="한글 또는 영문만 입력하세요.(특수문자 제외)" required></td>
 	</tr>
 	<tr>
 		<th>이메일 주소</th>
-		<td align="left"><input type="text" name="c_email1" size="7" required="required">@<input type="text" name="c_email2" size="7" required="required">
+		<td align="left"><input type="text" name="c_email1" value="${customer.c_email1}" size="7" required="required">@<input type="text" name="c_email2" value="${customer.c_email2}" size="7" required="required">
 			<select  onchange="idVal(this)" id="idValue">
  			  <option value="" id="optionId1">직접입력</option>
  			  <option value="naver.com" id="optionId1">naver.com</option>
@@ -173,7 +192,7 @@ function check(){
 	<tr>
 	 	<th>휴대전화</th>
 	 	<td>
-	 		<input type="text" name="c_call" value="${user.c_call}" placeholder="(-)없이 숫자만 입력하세요" required></td>
+	 		<input type="text" name="c_tel" value="${customer.c_tel}" placeholder="(-)없이 숫자만 입력하세요" required></td>
 	 	</td>
 	</tr>
 	<tr>
@@ -189,7 +208,7 @@ function check(){
 	<tr>
 		<td colspan="2">
 			<input type="submit" value="수정하기" onclick="check();">
-			<a href="userDelete.usr?id=${user.c_id}">회원탈퇴</a>
+			<a href="customerDelete.cus?id=${customer.c_id}">회원탈퇴</a>
 		</td>
 	</tr>
 </table>

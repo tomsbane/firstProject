@@ -130,7 +130,15 @@ public class CustomerFrontController extends HttpServlet {
 			}
 		}
 		/*----'회원탈퇴'-------------------*/
+		else if (command.equals("/customerDeleteAction.cus")) {// '사용자 한명 상세 정보 수정' 요청이면
+			action = new CustomerModifyAction();
 
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 		/***************************************************************
 		 * 포워딩
 		 * 
