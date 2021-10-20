@@ -38,6 +38,7 @@ public class CustomerDeleteAction implements Action {
 			out.println("history.back();");
 			out.println("</script>");
 		}else {
+			session.invalidate();
 			request.setAttribute("showPage", "customer/customerDeleteComplete.jsp");
 			forward = new ActionForward("index.jsp", false);//요청(리다이렉트 방식)
 		}
