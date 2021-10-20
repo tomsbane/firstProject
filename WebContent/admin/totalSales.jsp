@@ -118,11 +118,7 @@ function deleteCar(car_no){
 					진행중
 				</c:if>
 				<c:if test="${order.order_status eq 'cancel'}">
-
-					취소
-
 					<span style="color: red;">취소</span>
-
 				</c:if>
 				<c:if test="${order.order_status eq 'done'}">
 					승인
@@ -130,14 +126,6 @@ function deleteCar(car_no){
 			</td>
 		<tr>
 		</c:forEach>
-
-		<c:if test="${carTotalMoney ne null}">
-			<tr>
-				<td colspan="3"><b><%=month+1%>달의 총 결제금액은 </b>${carTotalMoney}원 입니다.</td>
-			</tr>
-			<tr>
-				<td colspan="3"><%=month+1%>달의 총 예약건수: 00건[대기:0, 진행:0, 취소:0, 승인:0]</td>
-
 		<c:if test="${carTotalList ne null}">
 			<!-- 
 			대기 : carTotalList[2] 건수       // carTotalList[1] 금액
@@ -152,8 +140,7 @@ function deleteCar(car_no){
 				<td colspan="3"><%=month+1%>달의 총 예약건수: ${carTotalList[2]+carTotalList[5]+carTotalList[8]+carTotalList[11]}건[대기:${carTotalList[2]}, 진행:${carTotalList[8]}, 취소:${carTotalList[11]}, 승인:${carTotalList[5]}]</td>
 			</tr>
 			<tr>
-				<td colspan="3"><%=month+1%>달의 총 매출은(취소금액 제외): ${carTotalList[1]+carTotalList[4]+carTotalList[7]}원 입니다.</td>
-
+				<td colspan="3"><%=month+1%>달의 총 매출은(대기,취소금액 제외): ${carTotalList[4]+carTotalList[7]}원 입니다.</td>
 			</tr>
 		</c:if>
 	</c:when>

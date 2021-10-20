@@ -135,7 +135,6 @@ public class OrderDAO {
 
 		return carOrderList;
 	}
-
 	public ArrayList<Order> selectTotalCarOrderList(String year, String month) {
 		ArrayList<Order> carOrderList = null;
 		String date= year+'-'+month+'-'+01;
@@ -167,7 +166,36 @@ public class OrderDAO {
 
 		return carOrderList;
 	}
+	public ArrayList<String> selectCarTotalList(String year, String month) {
+		ArrayList<String> totalList = null;
+		String date= year+'-'+month+'-'+01;
+		// DATE(order_date)=? 의미:주문한 날짜인 order_date와 매개값으로 전송된 날짜인 simpleDate_today가 같은
+		// 날을 찾아서 가장 최근 주문한 것을 제일 위에 표시
+		String sql = "select order_status, sum(rental_price), count(order_status) from order_car where rental_date between ? and last_day(?) group by order_status";
 
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, date);
+			pstmt.setString(2, date);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				totalList=new ArrayList<String>();
+				do {
+					totalList.add(rs.getString("order_status"));
+					totalList.add(rs.getString("sum(rental_price)"));
+					totalList.add(rs.getString("count(order_status)"));
+				}while(rs.next());
+			}
+		} catch (Exception e) {
+			System.out.println("selectCarTotalMoney 에러:" + e);
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
 
+		return totalList;
 	}
+
+
+	
 }
