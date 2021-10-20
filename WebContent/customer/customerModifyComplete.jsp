@@ -12,9 +12,9 @@
 </head>
 <body>
 	<div>
-		<h3>[${sessionScope.u_name}]회원님의 정보 수정이 완료되었습니다.</h3>
+		<h3>[${sessionScope.c_name}]회원님의 정보 수정이 완료되었습니다.</h3>
 		<br>
-		<a href="userMain.jsp">확인</a>
+		<a href="shortRentList.do">확인</a>
 	</div>
 </body>
 </html>
