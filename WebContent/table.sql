@@ -35,11 +35,11 @@ postcode int not null,/*우편번호*/
 address1 Nvarchar(60) not null,
 address2 Nvarchar(60) not null
 );
-/*################# 예약 매출 테스트용 #######jstl로 더하기############################*/
-select order_status, sum(rental_price), count(order_status) from order_car group by order_status;
+/*################# 예약 매출 테스트용 ##############################*/
 insert into order_car values(null,'admin','1',now(),now(),20000,'done');
 insert into order_car values(null,'admin','1',now(),now(),20000,'ing');
 insert into order_car values(null,'admin','1',now(),now(),20000,'cancel');
+insert into order_car values(null,'admin','1',now(),now(),20000,'get');
 /*################초기 관리자 아이디 설정#############################*/
 insert into customer values('admin','admin','aa','관리자','M','2021-10-19','aa','naver.com','111-1111-1111',now(), 0, 0);
 insert into address values(null, 'admin','11','11','11');

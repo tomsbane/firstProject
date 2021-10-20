@@ -4,13 +4,14 @@ import static db.JdbcUtil.close;
 import static db.JdbcUtil.getConnection;
 
 import java.sql.Connection;
+import java.util.ArrayList;
 
 import dao.OrderDAO;
 import vo.Order;
 
-public class CarTotalPriceService {
+public class CarTotalListService {
 
-	public String getcarTotalPrice(String year, String month) {
+	public ArrayList<String> getcarTotalList(String year, String month) {
 		// 1.커넥션 풀에서 Connection객체 얻어와
 				Connection con = getConnection();
 				// 2.싱글톤 패턴:OrderDAO객체 생성
@@ -19,7 +20,7 @@ public class CarTotalPriceService {
 				orderDAO.setConnection(con);
 
 				/*----DAO의 해당 메서드를 호출하여 처리-------------------*/
-				String carTotalMoeny= orderDAO.selectCarTotalMoney(year, month);
+				ArrayList<String> carTotalList= orderDAO.selectCarTotalList(year, month);
 
 				/*-(update,delete,insert)성공하면 commit 실패하면 rollback
 				 * (select제외)----*/
@@ -27,7 +28,7 @@ public class CarTotalPriceService {
 				// 4.해제
 				close(con);// Connection객체 해제
 
-				return carTotalMoeny;
+				return carTotalList;
 	}
 
 }
