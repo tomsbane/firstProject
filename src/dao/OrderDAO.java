@@ -168,6 +168,45 @@ public class OrderDAO {
 		return carOrderList;
 	}
 
-
+	public int modifyOrderGetToIng(int order_no) {
+		int modifyOrderCount = 0;
+		
+		String sql = "update order_car set order_status='ing' where order_no=?";
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, order_no);
+			
+			modifyOrderCount = pstmt.executeUpdate();
+		} catch (Exception e) {
+			System.out.println("modifyOrderGetToIng 에러:" + e);
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return modifyOrderCount;
 	}
+	public int modifyOrderIngToDone(int order_no) {
+		int modifyOrderCount = 0;
+		
+		String sql = "update order_car set order_status='done' where order_no=?";
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, order_no);
+			
+			modifyOrderCount = pstmt.executeUpdate();
+		} catch (Exception e) {
+			System.out.println("modifyOrderIngToDone 에러:" + e);
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return modifyOrderCount;
+	}
+
+
 }
+

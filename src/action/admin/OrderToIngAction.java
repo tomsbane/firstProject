@@ -18,18 +18,17 @@ public class OrderToIngAction implements Action {
 		
 		int order_no = Integer.parseInt(request.getParameter("order_no"));
 		
-		System.out.println(order_no);
-		
+
 		OrderToIngService orderToIngService = new OrderToIngService();
-		boolean isOrderChanged = orderToIngService.changeOrderToIng(order_no);
+		boolean modifyOrderStatus = orderToIngService.modifyOrderToIng(order_no);
 		
 		
-		if(!isOrderChanged) {
+		if(!modifyOrderStatus) {
 			response.setContentType("text/html;charset=UTF-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script>");
 			out.println("alert('주문 승인이 실패했습니다. 다시 시도해주세요.');");
-			out.println("location.reload();");
+			out.println("history.back();");
 			out.println("</script>");
 		}else {
 			forward = new ActionForward("carOrderList.ad", true);

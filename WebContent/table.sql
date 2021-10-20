@@ -8,6 +8,9 @@ drop table cust_service;
 drop table coupon_create;
 drop table coupon_info;
 
+
+select * from customer;
+update customer set c_grade = 'admin' where c_id = 'akdmldl';
 create table customer(
 /*회원가입 폼에 있음*/
 c_id varchar(45) primary key,
