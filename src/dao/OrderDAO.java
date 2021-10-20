@@ -172,27 +172,7 @@ public class OrderDAO {
 		// DATE(order_date)=? 의미:주문한 날짜인 order_date와 매개값으로 전송된 날짜인 simpleDate_today가 같은
 		// 날을 찾아서 가장 최근 주문한 것을 제일 위에 표시
 		String sql = "select order_status, sum(rental_price), count(order_status) from order_car where rental_date between ? and last_day(?) group by order_status";
-
-<<<<<<< HEAD
-	public int modifyOrderGetToIng(int order_no) {
-		int modifyOrderCount = 0;
 		
-		String sql = "update order_car set order_status='ing' where order_no=?";
-		
-		try {
-			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, order_no);
-			
-			modifyOrderCount = pstmt.executeUpdate();
-		} catch (Exception e) {
-			System.out.println("modifyOrderGetToIng 에러:" + e);
-		} finally {
-			close(rs);
-			close(pstmt);
-		}
-		
-		return modifyOrderCount;
-=======
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, date);
@@ -214,9 +194,29 @@ public class OrderDAO {
 		}
 
 		return totalList;
->>>>>>> refs/remotes/origin/tom
 	}
-<<<<<<< HEAD
+	
+	public int modifyOrderGetToIng(int order_no) {
+		int modifyOrderCount = 0;
+		
+		String sql = "update order_car set order_status='ing' where order_no=?";
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, order_no);
+			
+			modifyOrderCount = pstmt.executeUpdate();
+		} catch (Exception e) {
+			System.out.println("modifyOrderGetToIng 에러:" + e);
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return modifyOrderCount;
+
+		}
+
 	public int modifyOrderIngToDone(int order_no) {
 		int modifyOrderCount = 0;
 		
@@ -237,11 +237,5 @@ public class OrderDAO {
 		return modifyOrderCount;
 	}
 
-
-=======
-
-
-	
->>>>>>> refs/remotes/origin/tom
 }
 
