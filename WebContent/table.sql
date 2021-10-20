@@ -34,8 +34,9 @@ postcode int not null,/*우편번호*/
 address1 Nvarchar(60) not null,
 address2 Nvarchar(60) not null
 );
-
-
+select * from customer;
+delete from customer where c_id='a123';
+delete from address where c_id='a123';
 select * from order_car;
 delete table order_car where order_no = 4;
 update order_car set order_status ='done' where car_no = 3;
@@ -55,6 +56,9 @@ insert into order_car values(null,'admin','1',now(),now(),20000,'get');
 /*################초기 관리자 아이디 설정#############################*/
 insert into customer values('admin','admin','aa','관리자','M','2021-10-19','aa','naver.com','111-1111-1111',now(), 0, 0);
 insert into address values(null, 'admin','11','11','11');
+/*################테스트용 고객 아이디 설정#############################*/
+insert into customer values('aa','normal','aa','관리자','M','2021-10-19','aa','naver.com','111-1111-1111',now(), 0, 0);
+insert into address values(null, 'aa','11','11','11');
 /*#############################################################*/
 
 create table order_car(
