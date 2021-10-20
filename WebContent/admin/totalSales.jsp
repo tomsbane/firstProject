@@ -140,7 +140,7 @@ function deleteCar(car_no){
 				<td colspan="3"><%=month+1%>달의 총 예약건수: ${carTotalList[2]+carTotalList[5]+carTotalList[8]+carTotalList[11]}건[대기:${carTotalList[2]}, 진행:${carTotalList[8]}, 취소:${carTotalList[11]}, 승인:${carTotalList[5]}]</td>
 			</tr>
 			<tr>
-				<td colspan="3"><%=month+1%>달의 총 매출은(취소금액 제외): ${carTotalList[1]+carTotalList[4]+carTotalList[7]}원 입니다.</td>
+				<td colspan="3"><%=month+1%>달의 총 매출은(대기,취소금액 제외): ${carTotalList[4]+carTotalList[7]}원 입니다.</td>
 			</tr>
 		</c:if>
 	</c:when>

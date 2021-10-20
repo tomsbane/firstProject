@@ -32,19 +32,19 @@ table{
 	<br><br>
 		<table>
 			<tr>
-				<td colspan="5">
-				<h3>차량 선택</h3>
-				</td>
+				<td>차량번호</td>
+				<td>상품명</td>
+				<td>예약가능여부</td>
 			</tr>
-				
-			
 			<c:forEach var="car" items="${reservecarList}" varStatus="status">
 			<tr>
 				<td><a href="carView.ad?no=${car.car_no}">${car.car_no}</a></td>
-				<td>상품명: ${car.car_name}&nbsp;&nbsp;no:${car.car_no}</td>
-				<td>예약가능여부 :</td>
+				<td>${car.car_name}&nbsp;&nbsp;no:${car.car_no}</td>
 				<td>${car.car_reserve }&nbsp;</td>
 				<td><a href="reserveChange.ad?car_no=${car.car_no}&car_reserve=${car.car_reserve}"><input type="button" value="전환"></a></td>
+			</tr>
+			<tr>
+				<td colspan="4"><hr></td>
 			</tr>
 			</c:forEach>
 				

@@ -36,10 +36,7 @@ background-color: yellow;
 				<td>차량번호</td>
 				<td>상품명</td>
 				<td>예약가능여부</td>
-				
 			</tr>
-				
-			
 			<c:forEach var="car" items="${carList}" varStatus="status">
 			<tr>
 				<td><a href="carView.ad?no=${car.car_no}">${car.car_no}</a></td>
