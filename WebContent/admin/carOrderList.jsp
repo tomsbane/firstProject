@@ -31,7 +31,11 @@
 		<%-- doneLoop가 반대가 되면 break --%>
 	     <c:if test="${not doneLoop}">
 	        <c:choose>
-			    <c:when test="${order.order_status eq 'get'}">
+	        	<c:when test="${empty (order.order_status eq 'get')}">
+				아직 주문이 확인되지 않았습니다.		
+				<c:set var="doneLoop" value="true" />
+				</c:when>
+	        	<c:otherwise>
 					<tr>
 						<th>예약번호</th>
 						<th>고객 ID</th>
@@ -44,13 +48,7 @@
 					</tr>
 					<%-- 원하는 결과가 나오면 true로 선언 : for문의 break 효과 --%>
 					<c:set var="doneLoop" value="true" />
-				</c:when>
-			
-				<c:when test="${order.order_status ne 'get'}">					
-					아직 주문이 확인되지 않았습니다.		
-					<%-- 원하는 결과가 나오면 true로 선언 : for문의 break 효과 --%>
-					<c:set var="doneLoop" value="true" />		
-				</c:when>
+				</c:otherwise>
 			</c:choose>
 		</c:if>
 	</c:forEach>
@@ -89,9 +87,14 @@
 <c:set var="doneLoop" value="false"/>	
 	<c:forEach var="order" items="${carOrderList}" varStatus="status">
 		<%-- doneLoop가 반대가 되면 break --%>
+		
 	     <c:if test="${not doneLoop}">
-	        <c:choose>
-			    <c:when test="${order.order_status eq 'ing'}">
+	     <c:choose>
+	    	 <c:when test="${empty (order.order_status eq 'ing')}">
+				배차 진행된 차량이 없습니다.	
+				<c:set var="doneLoop" value="true" />
+			</c:when>
+			<c:otherwise>
 					<tr>
 						<th>예약번호</th>
 						<th>고객 ID</th>
@@ -104,14 +107,8 @@
 					</tr>
 					<%-- 원하는 결과가 나오면 true로 선언 : for문의 break 효과 --%>
 					<c:set var="doneLoop" value="true" />
-				</c:when>
-				<c:when test="${order.order_status ne 'get'}">					
-					배차 진행된 차량이 없습니다.		
-					<%-- 원하는 결과가 나오면 true로 선언 : for문의 break 효과 --%>
-					<c:set var="doneLoop" value="true" />		
-				</c:when>
-				
-			</c:choose>
+			</c:otherwise>
+		</c:choose>
 		</c:if>
 	</c:forEach>
 	
@@ -151,7 +148,11 @@
 		<%-- doneLoop가 반대가 되면 break --%>
 	     <c:if test="${not doneLoop}">
 	        <c:choose>
-			    <c:when test="${order.order_status eq 'done'}">
+	        	<c:when test="${empty (order.order_status eq 'done')}">
+				배차 종료된 차량이 없습니다.	
+				<c:set var="doneLoop" value="true" />
+				</c:when>
+	        	<c:otherwise>
 					<tr>
 						<th>예약번호</th>
 						<th>고객 ID</th>
@@ -164,8 +165,7 @@
 					</tr>
 					<%-- 원하는 결과가 나오면 true로 선언 : for문의 break 효과 --%>
 					<c:set var="doneLoop" value="true" />
-				</c:when>
-			
+				</c:otherwise>
 				
 			</c:choose>
 		</c:if>
@@ -205,7 +205,12 @@
 		<%-- doneLoop가 반대가 되면 break --%>
 	     <c:if test="${not doneLoop}">
 	        <c:choose>
-			    <c:when test="${order.order_status eq 'done'}">
+	        	<c:when test="${empty (order.order_status eq 'cancel')}">
+	        		취소된 예약이 없습니다.	
+					<%-- 원하는 결과가 나오면 true로 선언 : for문의 break 효과 --%>
+					<c:set var="doneLoop" value="true" />		
+	        	</c:when>
+			    <c:otherwise>
 					<tr>
 						<th>예약번호</th>
 						<th>고객 ID</th>
@@ -217,13 +222,7 @@
 					</tr>
 					<%-- 원하는 결과가 나오면 true로 선언 : for문의 break 효과 --%>
 					<c:set var="doneLoop" value="true" />
-				</c:when>
-				<c:when test="${order.order_status ne 'get'}">					
-					취소된 예약이 없습니다.	
-					<%-- 원하는 결과가 나오면 true로 선언 : for문의 break 효과 --%>
-					<c:set var="doneLoop" value="true" />		
-				</c:when>
-				
+				</c:otherwise>
 			</c:choose>
 		</c:if>
 	</c:forEach>
@@ -232,7 +231,7 @@
 	
 	<form method="post">
 	<c:forEach var="order" items="${carOrderList}" varStatus="status"> 
-		<c:if test="${order.order_status eq 'done'}">
+		<c:if test="${order.order_status eq 'cancel'}">
 			<tr>
 				<td>
 					<b>
