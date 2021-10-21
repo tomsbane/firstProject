@@ -243,7 +243,7 @@ public class AdminFrontController extends HttpServlet {
 		}
 
 		
-		
+		System.out.println(command);
 		/***************************************************************
 		 * 포워딩
 		 * 
