@@ -17,12 +17,13 @@
 <body>
 <jsp:include page="userHeader.jsp"/>
 	<jsp:include page="${showRent}"/>
+<jsp:include page="footer.jsp"/>
 	<div>
 	<jsp:include page="sidebar.html" />
 	</div>
-<div>
-<jsp:include page="footer.jsp"/>
-</div>
+
+
+
 </body>
 </html>
 
