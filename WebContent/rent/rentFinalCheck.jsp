@@ -32,6 +32,18 @@ function check(){
 	}
 	
 </script>
+<script>
+var regExp = /^\d{4}-\d{2}-\d{2}$/;
+if(!regExp.test($("input[id='c_birth']").val())) {            
+    //경고
+    return false;
+
+    
+var regex = /^[A-Za-z0-9]{6,12}$/;
+
+
+}
+</script>
 <body>
 	<section class="section-bg-img2">
 		<div class="banner"
@@ -61,7 +73,7 @@ function check(){
 	
 			<span>생년월일</span>
 			<div class="col-input">
-				<input type="text" name="c_birth" width="350" maxlength="8" placeholder="8자리(yyyy-mm-dd)">
+				<input type="text" name="c_birth" id="c_birth"  width="350" maxlength="8" placeholder="8자리(yyyy-mm-dd)">
 			</div>
 			</c:if>
 			<c:if test="${customer ne null }">
@@ -77,7 +89,7 @@ function check(){
 	
 			<span>생년월일</span>
 			<div class="col-input">
-				<input type="text" name="c_birth" width="350" maxlength="8" placeholder="8자리(yyyy-mm-dd)" value="${customer.c_birth}">
+				<input type="text" name="c_birth" id="c_birth" width="350" maxlength="8" placeholder="8자리(yyyy-mm-dd)" value="${customer.c_birth}">
 			</div>
 			</c:if>
 		</div>

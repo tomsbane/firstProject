@@ -25,7 +25,6 @@ if(cookies != null && cookies.length > 0){
 
 </head>
 <body>
-<jsp:include page="../userHeader.jsp"></jsp:include>
 
 	<nav class="navbar navbar-default">
 		<div class="navbar-header">
@@ -36,13 +35,12 @@ if(cookies != null && cookies.length > 0){
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="customerJoin.cus">회원가입</a>
+			<a class="navbar-brand" href="../index.jsp">TAGO</a>
 		</div>
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		
 			<ul class="nav navbar-nav">
-				<li><a href="javascript:window.open('${pageContext.request.contextPath}/idCheck/idFind.jsp?openInit=true','아이디찾기','top=10, left=10, width=500, height=300')">아이디 찾기</a></li>
-				<li><a href="javascript:window.open('${pageContext.request.contextPath}/idCheck/idFind.jsp?openInit=true','비밀번호찾기','top=10, left=10, width=500, height=300')">비밀번호 찾기</a></li>
+				
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown">
@@ -51,8 +49,11 @@ if(cookies != null && cookies.length > 0){
 						aria-expanded="false">접속하기<span class=caret></span></a>
 						
 					<ul class="dropdown-menu">
-						<li class="active"><a href="customerLoginAction.cus">로그인</a></li>
+						<li class="active"><a href="../index.jsp">홈으로</a></li>
 						<li><a href="customerJoin.cus">회원가입</a></li>
+						<li><a href="javascript:window.open('${pageContext.request.contextPath}/idCheck/idFind.jsp?openInit=true','아이디찾기','top=10, left=10, width=500, height=300')">아이디 찾기</a></li>
+				<li><a href="javascript:window.open('${pageContext.request.contextPath}/idCheck/idFind.jsp?openInit=true','비밀번호찾기','top=10, left=10, width=500, height=300')">비밀번호 찾기</a></li>
+						
 					</ul>
 				</li>
 			</ul>
@@ -63,14 +64,14 @@ if(cookies != null && cookies.length > 0){
 		<div class="col-lg-4">
 			<div class="jumbotron" style="padding-top: 20px;">
 				<form method="post" action="customerLoginAction.cus">
-					<h3 style="text-align:center;">로그인 화면</h3>
+					
 					<div class="form-group">
 						<input type="text" class="form-control" name="c_id" value="<%=cookieId%>" placeholder="아이디" name="userID" maxlength="20"/>
 					</div>
 					<div class="form-group">
 						<input type="password" class="form-control" name="c_password" placeholder="비밀번호" name="userPassword" maxlength="20"/>
 					</div>
-						<input type="submit" class="btn btn-primary form-control" value="로그인">
+						<input type="submit" class="btn btn-primary form-control" value="로그인"><br>
 						<input type="checkbox" name="remember" <%if(cookieId != "") {out.print("checked");} %>/>아이디 저장<br><br>
 						<nav style="display: flex;">
 						<div><a href="#"><input type="image" src="${pageContext.request.contextPath}/images/naver_login.png" style="width:100px;"></a></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

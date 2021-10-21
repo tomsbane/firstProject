@@ -1,0 +1,326 @@
+@import
+	url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap')
+	;
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
+}
+
+ul, li {
+	list-style: none;
+}
+
+.carListArea {
+	right: 0;
+	width: 100%;
+	min-height: 100vh;
+	justify-content: space-between;
+	align-items: center;
+	background: purple;
+	transition: 0.5s;
+	margin: auto;
+	width: 400px;
+	border: 1px solid gray;
+	z-index: 100;
+}
+
+.list-car {
+	margin: 0 auto;
+	border: 1px solid black;
+	border-collapse: collapse;
+	text-align: center;
+}
+
+.div_clear {
+	clear: both;
+}
+
+.div_empty {
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	background-color: yellow;
+}
+
+.banner {
+	width: 100%;
+	height: 250px;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.section-bg-img h2 {
+	text-align: center;
+	line-height: 240px;
+	color: #fff;
+	font-size: 40px;
+}
+
+.section-reserve {
+	margin: 0 auto;
+	text-align: center;
+	width: 1200px;
+	height: 100%;
+}
+
+.text {
+	text-align: center;
+	font-size: 20px;
+	font-weight: bold;
+	float: left;
+	margin: 20px 0px 10px 30px;
+}
+
+.text-input {
+	text-align: center;
+	font-size: 20px;
+	font-weight: bold;
+	float: left;
+	margin: 20px 0px 10px 30px;
+}
+
+.car-info {
+	background: white;
+	margin-bottom: 10px;
+	margin-right: 250px;
+}
+
+.car-info img {
+	float: right;
+	margin-right: 10px;
+}
+
+.car-table {
+	width: 450px;
+	border-collapse: collapse;
+	float: right;
+}
+
+.line_left {
+	text-align: left;
+	border-bottom: 1px solid black;
+	padding-left: 10px;
+	padding-top: 10px;
+}
+
+.line_right {
+	text-align: right;
+	border-collapse: collapse;
+	border-bottom: 1px solid black;
+	padding-right: 10px;
+	padding-top: 10px;
+}
+
+.section-button {
+	clear: both;
+}
+
+.select-insur {
+	height: 350px;
+}
+
+.insur-button {
+	border-radius: 30px;
+	float: left;
+	margin: 10px 0px 10px 25px;
+	background-color: #dfe0e8;
+	width: 350px;
+	height: 150px;
+	font-size: 15px;
+}
+.insur-button:active {
+	border-radius: 30px;
+	border: 2px solid red;	
+	float: left;
+	margin: 10px 0px 10px 25px;
+	background-color: #dfe0e8;
+	width: 350px;
+	height: 150px;
+	font-size: 15px;
+}
+
+.insur-text {
+	width: 222px;
+	margin: 40px 10px 0px 100px;
+}
+
+.insur-text b {
+	text-align: left;
+}
+
+.alert {
+	width: 720px;
+	height: 100px;
+	font-size: 13px;
+	margin: 10px 0px 20px 30px;
+}
+
+.alert2 {
+	width: 720px;
+	height: 100%;
+	font-size: 13px;
+	margin: 70px 0px 20px 30px;
+	text-align: left;
+}
+
+.alert ul {
+	text-align: left;
+}
+
+.form-field {
+	text-align: center;
+	width: 1200px;
+	height: 150px;
+}
+
+.col-group {
+	padding: 30px 10px 10px 30px;
+	text-align: left;
+	width: 100%;
+	height: 180px;
+}
+
+.col-left {
+	width: 500px;
+	height: 100px;
+	text-align: left;
+	float: left;
+}
+
+.col-right {
+	width: 570px;
+	height: 100px;
+	text-align: left;
+	
+	display: inline-block;
+}
+
+.cnt-group {
+	border-radius: 30px;
+	width: 1150px;
+	height: 100px;
+	background-color: #5EBAC5;
+	line-height: 100px;
+}
+
+.div-font {
+	font-size: 18px;
+	font-weight: bold;
+
+}
+
+.div-date {
+	margin: 20px 0px 0px 20px;
+	color: white;
+	line-height: 100px;
+	height: 50px;
+	clear: both;
+	text-align: center;
+}
+
+.cnt-title h2 {
+	width: 570px;
+	text-align: left;
+}
+
+.cnt-info {
+	color: red;
+	font-size: 15px;
+	margin-bottom: 5px;
+}
+
+.label-hidden {
+	display: none;
+}
+
+.label-check {
+	cursor: pointer;
+}
+
+.label-left {
+	cursor: pointer;
+	text-align: left;
+	margin: 30px 0px 30px 30px;
+}
+
+.arrow {
+	width: 100px;
+	height: 50px;
+	vertical-align: middle;
+}
+
+.box {
+	margin-bottom: 100px;
+}
+
+.box-a {
+	display: inline-block;
+	font-size: 1em;
+	background: #F14E3B;
+	padding: 10px 30px;
+	text-transform: uppercase;
+	text-decoration: none;
+	font-weight: 500;
+	margin-top: 10px;
+	color: #111;
+	letter-spacing: 2px;
+	transition: 0.2s;
+}
+
+.box-b {
+	display: inline-block;
+	font-size: 1em;
+	background: #807F7F;
+	padding: 10px 30px;
+	text-transform: uppercase;
+	text-decoration: none;
+	font-weight: 500;
+	margin-top: 10px;
+	color: #111;
+	letter-spacing: 2px;
+	transition: 0.2s;
+}
+.menu-box { 
+	text-align:center;
+	background-color: darkslategrey;
+	height: 55px;
+}
+
+.menu-box > ul {
+	list-style: none;
+	text-decoration: none;
+	display:inline-block; 
+	margin:0 auto;
+}
+
+.menu-box > ul > li {
+	padding: 15px;
+	cursor: pointer;
+	margin-left: 30px;
+	float:left;
+}
+.menu-box > ul > li > a{
+	text-decoration: none;
+	color: white;
+}
+.menu-box > ul > li:hover{
+	text-decoration: none;
+	color: white;
+	background-color: grey;
+}
+@media (min-width:1125px) {
+	
+	
+}
+@media (min-width:768px) {
+	
+	
+}
+
+@media (min-width:768px) {
+	
+	
+}

@@ -1,6 +1,5 @@
 @import
-	url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap')
-	;
+	url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
 
 * {
 	margin: 0;
@@ -8,8 +7,26 @@
 	box-sizing: border-box;
 	font-family: 'Poppins', sans-serif;
 }
-
-#header {
+a {
+	text-decoration: none;
+	color: black;
+}
+.header-logo {
+	width:145px;
+	height:83px;
+	margin-right:10px;
+	float: left;
+}
+.header-logo-text{
+	font-size: 50px;
+	color: black;
+	text-transform: uppercase;
+	cursor: pointer;
+	text-decoration: none;
+}
+.header-box { 
+	text-align:center;
+	text-align:center;
 	width: 100%;
 	height: 83px;
 	padding: 0px 115px 0px 115px;
@@ -17,79 +34,63 @@
 	position: relative;
 }
 
-a {
-	text-decoration: none;
-	color: black;
-}
-
-a:active {
-	text-decoration: none;
-	
-}
-
-a:hover {
-	text-decoration: none;
-	
-}
-
-a:checked {
-	text-decoration: none;
-}
-
-.logo {
-	width:145px;
-	height:83px;
-	margin-right:10px;
-	float: left;
-}
-.logo-text{
-	font-size: 50px;
-	color: black;
-	text-transform: uppercase;
-	cursor: pointer;
-	text-decoration: none;
-}
-
-.menu {
-	font-size: 17px;
-	line-height: 83px;
-	width:650px;
-	height:83px;
-	float:left;
-	text-align: center;
-
-}
-.menu.clearfix{ <!--클래스를 두개둬서그런가 적용이 안되는데 여기다가 마진레프트 두니까 되서 일단 비워둘게요 -->
-
-}
-.menu-list {
+.header-box > ul {
 	list-style: none;
-	text-align: center;
-
+	text-decoration: none;
+	display:inline-block; 
+	
+	height: 83px;
 }
-.menu-list li {
+
+.header-box > ul > li {
+	cursor: pointer;
+	margin-left: 20px;
+	margin-right:20px;
 	float:left;
-	margin-right: 50px;
 	font-weight: bold;
 	font-size: 20px;
 	text-align: center;
+	line-height: 83px;
+	
 }
-
+.header-box > ul > li > a{
+	text-decoration: none;
+	color: black;
+}
+.header-box > ul > li:hover{
+	text-decoration: none;
+	color: black;
+}
 .log {
-	width:60px;
+	width:100px;
 	float:right;
 	text-decoration: none;
 	font-size: 20px;
 	line-height: 83px;
-	font-weight: bold;
-	
-}
-.clearfix:before, .clearfix:after {
-    display: block;
-    content: '';
-    line-height: 0;
+	font-weight: bold;	
 }
 
-.clearfix:after {
-    clear:both;
+@media (max-width:1125px) {
+	.header-box > ul > li {
+	cursor: pointer;
+	margin-left: 5px;
+	margin-right:5px;
+	float:left;
+	font-weight: bold;
+	font-size: 20px;
+	text-align: center;
+	line-height: 83px;
+	
+}
+@media (max-width:980px) {
+	.header-box > ul > li {
+		display: none;
+	}	
+	.log {
+		display:none;
+	}
+}
+@media (min-width:768px) {
+	
+	
 }
