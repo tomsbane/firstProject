@@ -62,16 +62,15 @@ $(function() {
 
 <section>
 
-<nav>
-	<ul class="listMenu">
-		<li class="list-item"><a href="selectAll.do">전체</a></li>
-		<li class="list-item"><a href="selectSmallSize.do">경형</a></li>
-		<li class="list-item"><a href="selectMidSize.do">중소형</a></li>
-		<li class="list-item"><a href="selectFullSize.do">대형</a></li>
-		<li class="list-item"><a href="selectOverseas.do">수입</a></li>
+<nav class="menu-box">
+	<ul>
+		<li><a href="selectAll.do">전체</a></li>
+		<li><a href="selectSmallSize.do">경차</a></li>
+		<li><a href="selectMidSize.do">중형</a></li>
+		<li><a href="selectFullSize.do">대형</a></li>
+		<li><a href="selectOverseas.do">수입</a></li>
 	</ul>
 </nav>
-
 </section>
 <form name="f">
 	<div align="center">	

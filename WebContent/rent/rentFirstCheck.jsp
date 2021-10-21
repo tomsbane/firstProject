@@ -118,7 +118,8 @@ function check(){
 				사고 건당 고객부담금 
 				50만원<br>(면책한도 500만원, 휴차료 별도)
 				</div>	
-			</div>	
+			</div>
+				
 			<div class=insur-button>
 				<div class="insur-text">
 				<b>슈퍼자차</b><br>
@@ -126,9 +127,11 @@ function check(){
 				20만원<br>(면책한도 500만원, 휴차료 포함)
 				</div>
 			</div>
+			
 			<div class=insur-button>
 				<div class="insur-text"><b>차량면책 선택안함</b></div>
-			</div>		
+			</div>	
+				
 			<div class="div_clear"></div>	
 			<div class="alert">			
 				<ul>

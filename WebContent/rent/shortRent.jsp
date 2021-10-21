@@ -4,9 +4,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>TAGO</title>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style1.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/shortRent.css">
 <link type="text/css" href="${pageContext.request.contextPath}/css/jquery.simple-dtpicker.css" rel="stylesheet" />
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script type="text/javascript" src="js/jquery.simple-dtpicker.js"></script>
@@ -60,19 +60,19 @@ $(function() {
 <div class="banner" style="background-image: url(${pageContext.request.contextPath}/images/bg1.png)"><h2>단기렌트예약</h2></div>
 </section>
 
-<section>
 
-<nav>
-	<ul class="listMenu">
-		<li class="list-item"><a href="selectAll.do">전체</a></li>
-		<li class="list-item"><a href="selectSmallSize.do">경형</a></li>
-		<li class="list-item"><a href="selectMidSize.do">중소형</a></li>
-		<li class="list-item"><a href="selectFullSize.do">대형</a></li>
-		<li class="list-item"><a href="selectOverseas.do">수입</a></li>
+
+<nav class="menu-box">
+	<ul>
+		<li><a href="selectAll.do">전체</a></li>
+		<li><a href="selectSmallSize.do">경차</a></li>
+		<li><a href="selectMidSize.do">중형</a></li>
+		<li><a href="selectFullSize.do">대형</a></li>
+		<li><a href="selectOverseas.do">수입</a></li>
 	</ul>
 </nav>
 
-</section>
+
 <form name="f">
 	<div align="center">	
 		인수일시 <input type="text" name="rental_date" id="rental_date" value="">&nbsp; -->

@@ -18,79 +18,82 @@
 	box-sizing: border-box;
 	font-family: 'Poppins', sans-serif;
 }
-
-#header {
-	width: auto;
-	height: 83px;
-	margin-left:15px;
-	margin-right:15px;
-	display:flex;
-	z-index: 10;
-	position: relative;
-}
-
 a {
 	text-decoration: none;
 	color: black;
 }
-
-a:active {
-	text-decoration: none;
-	color: black;
+.header-logo {
+	width:145px;
+	height:83px;
+	margin-right:10px;
+	float: left;
 }
-
-a:hover {
-	text-decoration: none;
-	color: black;
-}
-
-a:checked {
-	text-decoration: none;
-	color: black;
-}
-
-.logo {
+.header-logo-text{
 	font-size: 50px;
 	color: black;
 	text-transform: uppercase;
 	cursor: pointer;
 	text-decoration: none;
-	margin-left:50px;
+}
+.header-box { 
+	text-align:center;
+	text-align:center;
+	width: 100%;
+	height: 83px;
+	padding: 0px 115px 0px 115px;
+	z-index: 10;
+	position: relative;
 }
 
-.menu {
-	font-size: 17px;
+.header-box > ul {
+	list-style: none;
+	text-decoration: none;
+	display:inline-block; 
+	
+	height: 83px;
+}
+
+.header-box > ul > li {
+	cursor: pointer;
+	margin-left: 20px;
+	margin-right:20px;
+	float:left;
+	font-weight: bold;
+	font-size: 20px;
+	text-align: center;
 	line-height: 83px;
-	margin: 0px 0px 0px 50px;
-	justify-content: space-between;
 	
 }
- 
-.lists li {
-	list-style: none;
-	padding: 0px;
-	float: left;
-	margin-right: 50px;
-}
-
-.log {
+.header-box > ul > li > a{
 	text-decoration: none;
-	float: right;
-	font-size: 17px;
+	color: black;
+}
+.header-box > ul > li:hover{
+	text-decoration: none;
+	color: black;
+}
+.log {
+	width:100px;
+	float:right;
+	text-decoration: none;
+	font-size: 20px;
 	line-height: 83px;
-	margin-right: 50px;
+	font-weight: bold;	
 }
 </style>
 </head>
 <body>
-	<section id="header">
-		<div class="logo">
-			<h2 class="logo">
-				<a href="index.jsp">TAGO</a>
-			</h2>
-		</div>
-		<div class="menu">
-			<ul class="lists">
+<nav class="header-box">
+
+<div class="header-logo">
+	<h2 class="header-logo-text">	
+		<a href="${pageContext.request.contextPath}/index.jsp">TAGO</a>
+	</h2>
+</div>
+
+	<c:choose>
+    	<c:when test="${c_grade eq 'admin'}">
+			<ul>
 				<li><a href="${pageContext.request.contextPath}/adminCarList.ad">차량관리</a></li>
 				<li><a href="${pageContext.request.contextPath}/carOrderList.ad">예약현황관리</a></li>
 				<li><a href="${pageContext.request.contextPath}/customerList.ad">회원관리</a></li>
@@ -98,15 +101,21 @@ a:checked {
 				<li><a href="#">고객센터</a></li>
 				<li><a href="${pageContext.request.contextPath}/customerView.cus">내정보 보기(임시)</a></li>
 			</ul>
-		</div>
-		 <c:choose>
-	    	<c:when test="${c_id eq null}">
-			<div class="log"><a href="${pageContext.request.contextPath}/customerLogin.cus">Log In</a></div>
-			</c:when>
-			<c:otherwise>
-			<div class="log"><a href="${pageContext.request.contextPath}/customerLogout.cus">Log Out</a></div>
-			</c:otherwise>
-		</c:choose>
-	</section>
+		</c:when>
+	</c:choose>
+	
+<div class="log">
+	<c:choose>
+	   	<c:when test="${c_id eq null}">
+			<a href="${pageContext.request.contextPath}/customerLogin.cus">로그인</a>
+		</c:when>
+		
+		<c:otherwise>
+			<a href="${pageContext.request.contextPath}/customerLogout.cus">로그아웃</a>
+		</c:otherwise>
+	</c:choose>
+</div>	
+		
+</nav>			
 </body>
 </html>

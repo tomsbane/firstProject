@@ -9,7 +9,7 @@
     padding: 10px;
     box-sizing: border-box;
     opacity: 0.5;
-    position: absolute; top:10%; right: 1%;
+    position: absolute; top:50%; right: 6%;
 }
 .sideMenu:hover{
 	opacity: 1;

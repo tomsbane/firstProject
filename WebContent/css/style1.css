@@ -131,6 +131,16 @@ ul, li {
 	height: 150px;
 	font-size: 15px;
 }
+.insur-button:active {
+	border-radius: 30px;
+	border: 2px solid red;	
+	float: left;
+	margin: 10px 0px 10px 25px;
+	background-color: #dfe0e8;
+	width: 350px;
+	height: 150px;
+	font-size: 15px;
+}
 
 .insur-text {
 	width: 222px;
@@ -184,7 +194,7 @@ ul, li {
 	width: 570px;
 	height: 100px;
 	text-align: left;
-	float: right;
+	
 	display: inline-block;
 }
 
@@ -199,6 +209,7 @@ ul, li {
 .div-font {
 	font-size: 18px;
 	font-weight: bold;
+
 }
 
 .div-date {
@@ -207,7 +218,7 @@ ul, li {
 	line-height: 100px;
 	height: 50px;
 	clear: both;
-	text-align: left;
+	text-align: center;
 }
 
 .cnt-title h2 {
@@ -272,28 +283,31 @@ ul, li {
 	letter-spacing: 2px;
 	transition: 0.2s;
 }
-
-.listMenu {
+.menu-box { 
+	text-align:center;
 	background-color: darkslategrey;
-	display: flex;
-	flex-direction: row;
-	width: 100%;
-	list-style-type: none;
+	height: 55px;
 }
 
-.list-item {
+.menu-box > ul {
+	list-style: none;
+	text-decoration: none;
+	display:inline-block; 
+	margin:0 auto;
+}
+
+.menu-box > ul > li {
 	padding: 15px;
 	cursor: pointer;
 	margin-left: 30px;
+	float:left;
 }
-
-.list-item:hover {
-	background-color: grey;
-}
-
-.list-item a {
-	text-align: center;
+.menu-box > ul > li > a{
 	text-decoration: none;
 	color: white;
 }
+.menu-box > ul > li:hover{
+	text-decoration: none;
+	color: white;
+	background-color: grey;
 }

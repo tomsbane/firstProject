@@ -71,6 +71,8 @@ public class CustomerFrontController extends HttpServlet {
 		 * 요청이 파악되면 해당 요청을 처리하는 각 Action클래스를 사용해서 요청 처리 각 요청에 해당하는 Action클래스 객체들을 다형성을
 		 * 이용해서 동일한 타입(Action)으로 참조하기 위해 'Action 인터페이스' 타입의 변수 선언(혜574p)
 		 */
+		
+		System.out.println(command);
 		Action action = null;
 		ActionForward forward = null;
 		/*---'로그인 폼 보기' -> 처리-----------------------------------*/
