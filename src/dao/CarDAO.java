@@ -378,4 +378,24 @@ public class CarDAO {
 		return modifyCarCount;
 	}
 
+	public String getReserve(int car_no) {
+		String sql = "select car_reserve from rentcar where car_no=?";
+		String car_reserve=null;
+		try {
+			psmt = con.prepareStatement(sql);
+			psmt.setInt(1, car_no);
+			rs = psmt.executeQuery();
+			
+			if(rs.next()) {
+				car_reserve=rs.getString("car_reserve");
+			}
+		}catch (Exception e) {
+			System.out.println("getReserve 에러:"+ e);
+		}
+		finally {
+			close(psmt);
+		}
+		return car_reserve;
+	}
+
 }

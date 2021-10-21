@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import action.Action;
+import svc.admin.ReserveChangeService;
+import svc.rent.SelectReserveService;
 import svc.rent.ShortRentService;
 import vo.ActionForward;
 import vo.Driver_detail;
@@ -47,10 +49,12 @@ public class ShortRentAction implements Action {
 		order.setReturn_date(request.getParameter("return_date"));
 		order.setRental_price(Integer.parseInt(request.getParameter("rental_price")));
 		
-		ShortRentService shortRentService = new ShortRentService();
-		boolean isAllInsertSuccess =  shortRentService.insertOrder(driver, order);
-
-		if(isAllInsertSuccess == false) {
+		int car_no=order.getCar_no();
+		
+		SelectReserveService selectReserveService=new SelectReserveService();
+		String car_reserve=selectReserveService.getReserve(car_no);
+		
+		if(car_reserve.equals("n")) {
 			response.setContentType("text/html;charset=UTF-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script>");
@@ -58,10 +62,28 @@ public class ShortRentAction implements Action {
 			out.println("history.back();");
 			out.println("</script>");
 		}else {
-			forward = new ActionForward("shortRentList.do", false);
-		}
+			ReserveChangeService reserveChangeService = new ReserveChangeService();
+			boolean isReserveChangeSuccess = reserveChangeService.setreserveCar(car_no, car_reserve);
+			if (isReserveChangeSuccess) {
+				
+			}
+			ShortRentService shortRentService = new ShortRentService();
+			boolean isAllInsertSuccess =  shortRentService.insertOrder(driver, order);
 
+			if(isAllInsertSuccess == false) {
+				response.setContentType("text/html;charset=UTF-8");
+				PrintWriter out = response.getWriter();
+				out.println("<script>");
+				out.println("alert('예약 실패');");
+				out.println("history.back();");
+				out.println("</script>");
+			}else {
+				forward = new ActionForward("shortRentList.do", false);
+			}
+		}
+		
 		return forward;
+		
 	}
 
 }
