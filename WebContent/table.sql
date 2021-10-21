@@ -41,12 +41,6 @@ select * from order_car;
 delete table order_car where order_no = 4;
 update order_car set order_status ='done' where car_no = 3;
 
-/*################# 예약 매출 테스트용 #######jstl로 더하기############################*/
-select order_status, sum(rental_price), count(order_status) from order_car group by order_status;
-insert into order_car values(null,'admin','1',now(),now(),20000,'done');
-insert into order_car values(null,'admin','1',now(),now(),20000,'ing');
-insert into order_car values(null,'admin','1',now(),now(),20000,'cancel');
-
 /*################# 예약 매출 테스트용 ##############################*/
 insert into order_car values(null,'admin','1',now(),now(),20000,'done');
 insert into order_car values(null,'admin','1',now(),now(),20000,'ing');
