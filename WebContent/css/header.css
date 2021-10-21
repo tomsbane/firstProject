@@ -10,11 +10,9 @@
 }
 
 #header {
-	width: auto;
+	width: 100%;
 	height: 83px;
-	margin-left:15px;
-	margin-right:15px;
-	display:flex;
+	padding: 0px 115px 0px 115px;
 	z-index: 10;
 	position: relative;
 }
@@ -26,47 +24,72 @@ a {
 
 a:active {
 	text-decoration: none;
-	color: black;
+	
 }
 
 a:hover {
 	text-decoration: none;
-	color: black;
+	
 }
 
 a:checked {
 	text-decoration: none;
-	color: black;
 }
 
 .logo {
+	width:145px;
+	height:83px;
+	margin-right:10px;
+	float: left;
+}
+.logo-text{
 	font-size: 50px;
 	color: black;
 	text-transform: uppercase;
 	cursor: pointer;
 	text-decoration: none;
-	margin-left:50px;
 }
 
 .menu {
 	font-size: 17px;
 	line-height: 83px;
-	margin: 0px 0px 0px 10px;
-	justify-content: space-between;
-	
+	width:650px;
+	height:83px;
+	float:left;
+	text-align: center;
+
 }
- 
-.lists li {
+.menu.clearfix{ <!--클래스를 두개둬서그런가 적용이 안되는데 여기다가 마진레프트 두니까 되서 일단 비워둘게요 -->
+
+}
+.menu-list {
 	list-style: none;
-	padding: 0px;
-	float: left;
+	text-align: center;
+
+}
+.menu-list li {
+	float:left;
 	margin-right: 50px;
+	font-weight: bold;
+	font-size: 20px;
+	text-align: center;
 }
 
 .log {
+	width:60px;
+	float:right;
 	text-decoration: none;
-	float: right;
-	font-size: 17px;
+	font-size: 20px;
 	line-height: 83px;
-	margin-right: 50px;
+	font-weight: bold;
+	
+}
+.clearfix:before, .clearfix:after {
+    display: block;
+    content: '';
+    line-height: 0;
+}
+
+.clearfix:after {
+    clear:both;
 }

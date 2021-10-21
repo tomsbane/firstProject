@@ -237,5 +237,25 @@ public class OrderDAO {
 		return modifyOrderCount;
 	}
 
+	public int modifyOrderAllToCancel(int order_no) {
+int modifyOrderCount = 0;
+		
+		String sql = "update order_car set order_status='cancel' where order_no=?";
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, order_no);
+			
+			modifyOrderCount = pstmt.executeUpdate();
+		} catch (Exception e) {
+			System.out.println("modifyOrderAllToCancel 에러:" + e);
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return modifyOrderCount;
+	}
+
 }
 

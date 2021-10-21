@@ -105,7 +105,11 @@
 					<%-- 원하는 결과가 나오면 true로 선언 : for문의 break 효과 --%>
 					<c:set var="doneLoop" value="true" />
 				</c:when>
-			
+				<c:when test="${order.order_status ne 'get'}">					
+					배차 진행된 차량이 없습니다.		
+					<%-- 원하는 결과가 나오면 true로 선언 : for문의 break 효과 --%>
+					<c:set var="doneLoop" value="true" />		
+				</c:when>
 				
 			</c:choose>
 		</c:if>
@@ -129,7 +133,7 @@
 				<td>${order.rental_date}</td>
 				<td>${order.rental_price }</td>
 				<td><a href="orderToDone.ad?order_no=${order.order_no}">승인</a></td>
-				<td><a href="orderCancel.ad?order_no=${order.order_no}">취소</a></td>
+				<td><a href="orderToCancel.ad?order_no=${order.order_no}">취소</a></td>
 			</tr>
 		</c:if>
 	</c:forEach>
@@ -155,8 +159,8 @@
 						<th>시작일</th>
 						<th>반납일</th>
 						<th>주문 금액</th>	
-						<th>차량 점검</th>	
-						<th>주문 취소</th>	
+						<th colspan="2">차량 점검</th>	
+							
 					</tr>
 					<%-- 원하는 결과가 나오면 true로 선언 : for문의 break 효과 --%>
 					<c:set var="doneLoop" value="true" />
@@ -208,14 +212,17 @@
 						<th>차량번호</th>
 						<th>시작일</th>
 						<th>반납일</th>
-						
-						<th>주문 승인</th>	
-						<th>주문 취소</th>	
+						<th colspan="2">사유 확인</th>	
+							
 					</tr>
 					<%-- 원하는 결과가 나오면 true로 선언 : for문의 break 효과 --%>
 					<c:set var="doneLoop" value="true" />
 				</c:when>
-			
+				<c:when test="${order.order_status ne 'get'}">					
+					취소된 예약이 없습니다.	
+					<%-- 원하는 결과가 나오면 true로 선언 : for문의 break 효과 --%>
+					<c:set var="doneLoop" value="true" />		
+				</c:when>
 				
 			</c:choose>
 		</c:if>
@@ -239,7 +246,7 @@
 				<td>${order.rental_date}</td>
 				
 				<td><a href="orderGet.ad?order_no=${order.order_no}">승인</a></td>
-				<td><a href="orderCancel.ad?order_no=${order.order_no}">취소</a></td>
+				
 			</tr>
 		</c:if>
 	</c:forEach>
