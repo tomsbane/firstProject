@@ -58,8 +58,8 @@ public class ShortRentAction implements Action {
 			response.setContentType("text/html;charset=UTF-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script>");
-			out.println("alert('예약 실패');");
-			out.println("history.back();");
+			out.println("alert('이미 예약중인 상품입니다. 다른 상품을 선택해주세요.');");
+			out.println("location.href='shortRentList.do'");
 			out.println("</script>");
 		}else {
 			ReserveChangeService reserveChangeService = new ReserveChangeService();
@@ -75,7 +75,7 @@ public class ShortRentAction implements Action {
 				PrintWriter out = response.getWriter();
 				out.println("<script>");
 				out.println("alert('예약 실패');");
-				out.println("history.back();");
+				out.println("location.href='shortRentList.do'");
 				out.println("</script>");
 			}else {
 				forward = new ActionForward("shortRentList.do", false);
