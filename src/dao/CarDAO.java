@@ -161,7 +161,7 @@ public class CarDAO {
 		}catch(Exception e) {
 			System.out.println("viewCar 에러 : "+e);
 		}finally {
-			close(con);
+			close(rs);
 			close(psmt);
 		}
 		return carInfo;
@@ -393,6 +393,7 @@ public class CarDAO {
 			System.out.println("getReserve 에러:"+ e);
 		}
 		finally {
+			close(rs);
 			close(psmt);
 		}
 		return car_reserve;

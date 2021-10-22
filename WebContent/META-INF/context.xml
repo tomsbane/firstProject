@@ -23,13 +23,21 @@
 	   username="java" 
 	   password="java"
 	   driverClassName="com.mysql.jdbc.Driver"
-	   url="jdbc:mysql://localhost:3306/testDB"
+	   url="jdbc:mysql://localhost/testDB"
 	   
 	   factory="org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory"
 	   
 	   maxActive="500" 
 	   maxIdle="100" 
 	   maxWait="1000"/>
+	   
+	   <!-- ############### 서버용 #################### -->
+       <!-- username="ipc21ajky" password="ipc21ajky" -->
+       <!-- url="jdbc:mysql://118.131.179.138:3306/ipc21ajky" -->
+       <!-- ############### 컴터용 #################### -->
+       <!-- username="java" password="java" -->
+       <!-- url="jdbc:mysql://localhost:3306/testDB" -->
+       <!-- ######################################## -->
 	   <!-- name으로 '커넥션 풀(DataSource)'에 접근 -->
 	   <!-- Container에서 인증하겠다. -->
 	   <!-- DataSource객체의 getConnection()사용해 Connection객체를 얻을 수 있다. -->

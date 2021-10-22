@@ -98,8 +98,7 @@ a {
 				<li><a href="${pageContext.request.contextPath}/carOrderList.ad">예약현황관리</a></li>
 				<li><a href="${pageContext.request.contextPath}/customerList.ad">회원관리</a></li>
 				<li><a href="${pageContext.request.contextPath}/totalSalesList.ad">매출관리</a></li>
-				<li><a href="#">고객센터</a></li>
-				<li><a href="${pageContext.request.contextPath}/customerView.cus">내정보 보기(임시)</a></li>
+				<li><a href="${pageContext.request.contextPath}/customerView.cus">MyPage</a></li>
 			</ul>
 		</c:when>
 	</c:choose>

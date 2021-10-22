@@ -111,7 +111,10 @@ public class CustomerFrontController extends HttpServlet {
 		/*----'로그아웃' -> 처리 후 customerMain.jsp-------------------*/
 		else if (command.equals("/customerLogout.cus")) {// '로그아웃' 요청이면
 			HttpSession session = request.getSession();
-			session.invalidate();// 세션의 모든 속성을 삭제
+			session.removeAttribute("c_id");
+			session.removeAttribute("c_password");
+			session.removeAttribute("c_grade");
+			session.removeAttribute("c_name");
 			forward = new ActionForward("index.jsp", true);// 리다이렉트 방식
 		}
 		/*----'사용자 한명 상세 정보 보기' -> 정보 수정 처리-------------------*/

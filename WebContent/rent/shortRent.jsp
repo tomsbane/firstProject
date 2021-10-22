@@ -73,12 +73,12 @@ $(function() {
 </nav>
 
 
-<form name="f">
 	<div align="center">	
-		인수일시 <input type="text" name="rental_date" id="rental_date" value="">&nbsp; -->
+		<form name="f">
+		인수일시 <input type="text" name="rental_date" id="rental_date" value="">&nbsp; <img src="${pageContext.request.contextPath}/images/arrow.png" class="arrow">
 		반납일시 <input type="text" name="return_date" id="return_date" value="">
+		</form>
 	</div>
-</form>
 
 <section id="carListArea">
 	<table class="list-car" >
@@ -89,17 +89,17 @@ $(function() {
 		</tr>
 		<tr>
 			<c:forEach var="car" items="${carList}" varStatus="status">
-				<form action="shortRentCheck.do" method="post">
 				<td>
+				<form action="shortRentCheck.do" method="post">
 				<img src="carImages/${car.car_image}"/> <br />
 				상품명: ${car.car_name} <br />
 				가격: ${car.car_price}원 <br />
 				<input type="hidden" name="car_no" id="car_no" value="${car.car_no }">
 				<input type="hidden" name="return_date" id="return_date" value="javascript:f.return_date.value">
 				<input type="hidden" name="rental_date" id="rental_date" value="javascript:f.rental_date.value">
-				<input type="button" value="문의하기" onclick="submit();">
-				</td>
+				<input type="submit" value="문의하기">
 				</form>
+				</td>
 				<c:if test="${((status.index+1) mod 3) == 0 }">
 		</tr>
 		<tr>
@@ -107,7 +107,6 @@ $(function() {
 			</c:forEach>
 		</tr>
 		<c:if test="${carList == null}">
-			<!-- 2.개 상품목록이 없으 -->
 			<div class="div_empty">렌트카 상품이 없습니다. 예약불가</div>
 		</c:if>
 	</table>

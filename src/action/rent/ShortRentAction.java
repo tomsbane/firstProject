@@ -32,7 +32,7 @@ public class ShortRentAction implements Action {
 		driver.setC_id(c_id);
 		driver.setC_name(request.getParameter("c_name"));
 		driver.setC_birth((request.getParameter("c_birth")));
-		driver.setC_tel(Integer.parseInt(request.getParameter("c_tel")));
+		driver.setC_tel(request.getParameter("c_tel"));
 		driver.setRental_place1(request.getParameter("rental_place1"));
 		driver.setRental_place2(request.getParameter("rental_place2"));
 		driver.setRental_place3(request.getParameter("rental_place3"));
@@ -54,19 +54,10 @@ public class ShortRentAction implements Action {
 		SelectReserveService selectReserveService=new SelectReserveService();
 		String car_reserve=selectReserveService.getReserve(car_no);
 		
-		if(car_reserve.equals("n")) {
-			response.setContentType("text/html;charset=UTF-8");
-			PrintWriter out = response.getWriter();
-			out.println("<script>");
-			out.println("alert('이미 예약중인 상품입니다. 다른 상품을 선택해주세요.');");
-			out.println("location.href='shortRentList.do'");
-			out.println("</script>");
-		}else {
 			ReserveChangeService reserveChangeService = new ReserveChangeService();
 			boolean isReserveChangeSuccess = reserveChangeService.setreserveCar(car_no, car_reserve);
 			if (isReserveChangeSuccess) {
 				
-			}
 			ShortRentService shortRentService = new ShortRentService();
 			boolean isAllInsertSuccess =  shortRentService.insertOrder(driver, order);
 
@@ -80,6 +71,13 @@ public class ShortRentAction implements Action {
 			}else {
 				forward = new ActionForward("shortRentList.do", false);
 			}
+		}else {
+			response.setContentType("text/html;charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script>");
+			out.println("alert('랜트예약체크 실패');");
+			out.println("location.href='shortRentList.do'");
+			out.println("</script>");
 		}
 		
 		return forward;

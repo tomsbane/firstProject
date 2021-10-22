@@ -31,7 +31,7 @@
 				<li><a href="${pageContext.request.contextPath}/carOrderList.ad">예약현황관리</a></li>
 				<li><a href="${pageContext.request.contextPath}/customerList.ad">회원관리</a></li>
 				<li><a href="${pageContext.request.contextPath}/totalSalesList.ad">매출관리</a></li>
-				<li><a href="qna.do">고객센터</a></li>
+				<li><a href="${pageContext.request.contextPath}/customerView.cus">MyPage</a></li>
 			</ul>
 			</c:when>
 			<c:otherwise>
@@ -40,7 +40,7 @@
 				<li><a href="${pageContext.request.contextPath}/shortRentList.do">단기렌트</a></li>
 				<li><a href="longRentList.do">장기렌트</a></li>
 				<li><a href="quote.do">견적상담</a></li>
-				<li><a href="qna.do">고객센터</a></li>
+				<li><a href="${pageContext.request.contextPath}/customerView.cus">MyPage</a></li>
 			</ul>
 			</c:otherwise>
 		</c:choose>

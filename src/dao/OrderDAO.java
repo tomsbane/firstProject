@@ -79,7 +79,7 @@ public class OrderDAO {
 			pstmt.setString(1, driver.getC_id());
 			pstmt.setString(2, driver.getC_name());
 			pstmt.setString(3, driver.getC_birth());
-			pstmt.setInt(4, driver.getC_tel());
+			pstmt.setString(4, driver.getC_tel());
 			pstmt.setString(5, driver.getRental_place1());
 			pstmt.setString(6, driver.getRental_place2());
 			pstmt.setString(7, driver.getRental_place3());
@@ -209,7 +209,7 @@ public class OrderDAO {
 		} catch (Exception e) {
 			System.out.println("modifyOrderGetToIng 에러:" + e);
 		} finally {
-			close(rs);
+			//close(rs);
 			close(pstmt);
 		}
 		
@@ -230,7 +230,7 @@ public class OrderDAO {
 		} catch (Exception e) {
 			System.out.println("modifyOrderIngToDone 에러:" + e);
 		} finally {
-			close(rs);
+			//close(rs);
 			close(pstmt);
 		}
 		
@@ -238,7 +238,7 @@ public class OrderDAO {
 	}
 
 	public int modifyOrderAllToCancel(int order_no) {
-int modifyOrderCount = 0;
+		int modifyOrderCount = 0;
 		
 		String sql = "update order_car set order_status='cancel' where order_no=?";
 		
@@ -250,7 +250,7 @@ int modifyOrderCount = 0;
 		} catch (Exception e) {
 			System.out.println("modifyOrderAllToCancel 에러:" + e);
 		} finally {
-			close(rs);
+			//close(rs);
 			close(pstmt);
 		}
 		

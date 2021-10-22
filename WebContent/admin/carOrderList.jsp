@@ -17,7 +17,7 @@
 <body>
 
 
-<div class="banner" style="background-image: url(${pageContext.request.contextPath}/images/bg-rental-rez2.png);">주문관리</div>
+<div class="banner" style="background-image: url(${pageContext.request.contextPath}/images/bg-rental-rez2.png);">예약현황관리</div>
 
 
 
@@ -70,7 +70,7 @@
 				<td>${order.rental_date}</td>
 				<td>${order.rental_price }</td>
 				<td><a href="orderToIng.ad?order_no=${order.order_no}">승인</a></td>
-				<td><a href="orderCancel.ad?order_no=${order.order_no}">취소</a></td>
+				<td><a href="orderToCancel.ad?order_no=${order.order_no}">취소</a></td>
 			</tr>
 		</c:if>
 	</c:forEach>

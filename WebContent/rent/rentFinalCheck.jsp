@@ -68,7 +68,7 @@ var regex = /^[A-Za-z0-9]{6,12}$/;
 	
 			<span>핸드폰</span>
 			<div class="col-input">
-				<input type="number" placeholder=" 숫자만 입력하세요." name="c_tel"><br>
+				<input type="text" placeholder=" 숫자만 입력하세요." name="c_tel"><br>
 			</div>
 	
 			<span>생년월일</span>
@@ -84,7 +84,7 @@ var regex = /^[A-Za-z0-9]{6,12}$/;
 	
 			<span>핸드폰</span>
 			<div class="col-input">
-				<input type="number" placeholder=" 숫자만 입력하세요." name="c_tel"  value="${customer.c_tel }"><br>
+				<input type="text" placeholder=" 숫자만 입력하세요." name="c_tel"  value="${customer.c_tel }"><br>
 			</div>
 	
 			<span>생년월일</span>
