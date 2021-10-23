@@ -53,9 +53,9 @@ function check(){
 	
 	<div class="cnt-group">
 	<div class="div-date">
-		<input type="hidden" id="rental_date" name="rental_date" value="${param.rental_date }">
-		<input type="hidden" id="return_date" name="return_date" value="${param.return_date }">
-		<span class="div-font">인수일시</span> ${rental_date} <img src="images/arrow.png" class="arrow"> <span class="div-font">반납일시</span> ${return_date}
+		<input type="hidden" id="rental_date" name="rental_date" value="${rental_date }">
+		<input type="hidden" id="return_date" name="return_date" value="${return_date }">
+		<span class="div-font">인수일시</span> ${rental_date} <img src="images/arrow.png" class="arrow"><span class="div-font">반납일시</span>  ${return_date}
 	</div>
 	</div>
 
