@@ -40,7 +40,6 @@ $(function(){
 </script>
 <script type="text/javascript">
 function dateChk(){
-	
 	var rental_date= document.getElementById("rental_date").value;
 	var return_date= document.getElementById("return_date").value;
 	const rentalTime = rental_date.substring(11,13);
@@ -48,7 +47,11 @@ function dateChk(){
 	const rentalDatetime = rental_date.substring(8,13).replace(" ","");
 	const returnDatetime = return_date.substring(8,13).replace(" ","");
 	
-	if(rental_date > return_date){
+	 if(!document.f.car_no.value){
+			alert("차량을 선택해 주세요.");
+			return false; 
+		}
+	else if(rental_date > return_date){
 			alert("반납일이 인수일 보다 늦어야 합니다.");
 			return false; 
 		}
@@ -82,12 +85,11 @@ function dateChk(){
 		<li><a href="selectOverseas.do">수입</a></li>
 	</ul>
 </nav>
-<form name="dateForm" id="dateForm" method="post">
+<form action="shortRentCheck.do" name="f" method="post" onsubmit="return dateChk()">
 	<div align="center">	
 		인수일시 <input type="text" name="rental_date" id="rental_date" value="">&nbsp;<img src="images/arrow.png" class="arrow">
 		반납일시 <input type="text" name="return_date" id="return_date" value="">
 	</div>
-</form>
 
 <section id="carListArea">
 	<table class="list-car" >
@@ -99,12 +101,14 @@ function dateChk(){
 		<tr>
 			<c:forEach var="car" items="${carList}" varStatus="status">
 				<td>
+				<label>
 				<img src="carImages/${car.car_image}"/> <br />
 				상품명: ${car.car_name} <br />
 				가격: ${car.car_price}원 <br />
-				<form action="shortRentCheck.do" name="f" method="post" onsubmit="return dateChk()">
-				<input type="hidden" name="car_no" id="car_no" value="${car.car_no }">
+				
+				<input type="radio" name="car_no" id="car_no" value="${car.car_no }">
 				<input type="submit" value="문의하기">
+				</label>
 				</form>
 				</td>
 				<c:if test="${((status.index+1) mod 3) == 0 }">
