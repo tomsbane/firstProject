@@ -47,7 +47,7 @@ public class ShortRentAction implements Action {
 		order.setCar_no(Integer.parseInt(request.getParameter("car_no")));
 		order.setRental_date(request.getParameter("rental_date"));
 		order.setReturn_date(request.getParameter("return_date"));
-		order.setRental_price(Integer.parseInt(request.getParameter("rental_price")));
+		order.setRental_price(Integer.parseInt(request.getParameter("car_price")));
 		
 		int car_no=order.getCar_no();
 		

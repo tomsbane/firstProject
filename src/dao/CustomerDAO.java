@@ -58,8 +58,8 @@ public class CustomerDAO {
 		} catch (Exception e) {
 			System.out.println("selectLoginId 에러:" + e);
 		} finally {
-			close(rs);
-			close(pstmt);
+			 if (rs != null) try { close(rs); } catch(Exception ex) {}
+		     if (pstmt != null) try { close(pstmt); } catch(Exception ex) {}
 		}
 		return loginId;// 회원가입이 되어있으면 id를 리턴, 그렇지 않으면 null
 	}
@@ -91,8 +91,8 @@ public class CustomerDAO {
 		} catch (Exception e) {
 			System.out.println("getCustomerInfo 에러:" + e);
 		} finally {
-			close(rs);
-			close(pstmt);
+			if (rs != null) try { close(rs); } catch(Exception ex) {}
+		     if (pstmt != null) try { close(pstmt); } catch(Exception ex) {}
 		}
 		return customerInfo;
 	}
@@ -118,8 +118,8 @@ public class CustomerDAO {
 		} catch (Exception e) {
 			System.out.println("getCustomerAddrInfo 에러:" + e);
 		} finally {
-			close(rs);
-			close(pstmt);
+			if (rs != null) try { close(rs); } catch(Exception ex) {}
+		     if (pstmt != null) try { close(pstmt); } catch(Exception ex) {}
 		}
 		return customerAddrInfo;
 	}
@@ -161,8 +161,8 @@ public class CustomerDAO {
 		} catch (Exception e) {
 			System.out.println("upGrade 에러:" + e);
 		} finally {
-			// close(rs);
-			close(pstmt);
+			if (rs != null) try { close(rs); } catch(Exception ex) {}
+		     if (pstmt != null) try { close(pstmt); } catch(Exception ex) {}
 		}
 		return gradeCount;
 	}
@@ -181,8 +181,8 @@ public class CustomerDAO {
 		} catch (Exception e) {
 			System.out.println("downGrade 에러:" + e);
 		} finally {
-			// close(rs);
-			close(pstmt);
+			if (rs != null) try { close(rs); } catch(Exception ex) {}
+		     if (pstmt != null) try { close(pstmt); } catch(Exception ex) {}
 		}
 		return gradeCount;
 	}
@@ -209,8 +209,8 @@ public class CustomerDAO {
 		} catch (Exception e) {
 			System.out.println("insertCustomer 에러:" + e);
 		} finally {
-			// close(rs);
-			close(pstmt);
+			if (rs != null) try { close(rs); } catch(Exception ex) {}
+		    if (pstmt != null) try { close(pstmt); } catch(Exception ex) {}
 		}
 		return insertCustomerCount;
 	}
@@ -235,8 +235,8 @@ public class CustomerDAO {
 		} catch (Exception e) {
 			System.out.println("insertAddr 에러:" + e);
 		} finally {
-			// close(rs);
-			close(pstmt);
+			if (rs != null) try { close(rs); } catch(Exception ex) {}
+		    if (pstmt != null) try { close(pstmt); } catch(Exception ex) {}
 		}
 		return insertAddrCount;
 	}
@@ -259,8 +259,8 @@ public class CustomerDAO {
 		} catch (Exception e) {
 			System.out.println("modifyCustomer 에러:" + e);
 		} finally {
-			// close(rs);
-			close(pstmt);
+			if (rs != null) try { close(rs); } catch(Exception ex) {}
+		    if (pstmt != null) try { close(pstmt); } catch(Exception ex) {}
 		}
 		return modifyCustomerCount;
 	}
@@ -282,8 +282,8 @@ public class CustomerDAO {
 		} catch (Exception e) {
 			System.out.println("modifyAddr 에러:" + e);
 		} finally {
-			// close(rs);
-			close(pstmt);
+			if (rs != null) try { close(rs); } catch(Exception ex) {}
+		    if (pstmt != null) try { close(pstmt); } catch(Exception ex) {}
 		}
 		return modifyAddrCount;
 	}
@@ -314,8 +314,8 @@ public class CustomerDAO {
 		} catch (Exception e) {
 			System.out.println("customerList 에러:" + e);
 		} finally {
-			close(rs);
-			close(pstmt);
+			if (rs != null) try { close(rs); } catch(Exception ex) {}
+		    if (pstmt != null) try { close(pstmt); } catch(Exception ex) {}
 		}
 		return customerList;
 	}
@@ -347,8 +347,8 @@ public class CustomerDAO {
 		} catch (Exception e) {
 			System.out.println("selectCustomer 에러:" + e);
 		} finally {
-			close(rs);
-			close(pstmt);
+			if (rs != null) try { close(rs); } catch(Exception ex) {}
+		    if (pstmt != null) try { close(pstmt); } catch(Exception ex) {}
 		}
 		return customerList;
 	}
@@ -367,8 +367,8 @@ public class CustomerDAO {
 		} catch (Exception e) {			
 			System.out.println("adminUpdate 에러:"+ e);
 		} finally {
-			//close(rs);
-			close(pstmt);
+			if (rs != null) try { close(rs); } catch(Exception ex) {}
+		    if (pstmt != null) try { close(pstmt); } catch(Exception ex) {}
 		}			
 		
 		return normalUpdateCount;
@@ -388,8 +388,8 @@ public class CustomerDAO {
 		} catch (Exception e) {			
 			System.out.println("adminUpdate 에러:"+ e);
 		} finally {
-			//close(rs);
-			close(pstmt);
+			if (rs != null) try { close(rs); } catch(Exception ex) {}
+		    if (pstmt != null) try { close(pstmt); } catch(Exception ex) {}
 		}			
 		
 		return adminUpdateCount;
@@ -408,8 +408,8 @@ public class CustomerDAO {
 		} catch (Exception e) {
 			System.out.println("DeleteCustomer 에러:" + e);
 		} finally {
-			// close(rs);
-			close(pstmt);
+			if (rs != null) try { close(rs); } catch(Exception ex) {}
+		    if (pstmt != null) try { close(pstmt); } catch(Exception ex) {}
 		}
 		return DeleteCustomerCount;
 	}
@@ -427,8 +427,8 @@ public class CustomerDAO {
 		} catch (Exception e) {
 			System.out.println("DeleteAddr 에러:" + e);
 		} finally {
-			// close(rs);
-			close(pstmt);
+			if (rs != null) try { close(rs); } catch(Exception ex) {}
+		    if (pstmt != null) try { close(pstmt); } catch(Exception ex) {}
 		}
 		return DeleteAddrCount;
 	}

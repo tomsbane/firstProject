@@ -69,8 +69,8 @@ public class CarDAO {
 		} catch (Exception e) {
 			System.out.println("selectCarList 에러 :" + e);
 		}finally {
-			close(rs);
-			close(psmt);
+			  if (rs != null) try { close(rs); } catch(Exception ex) {}
+		      if (psmt != null) try { close(psmt); } catch(Exception ex) {}
 		}
 
 		return carList;
@@ -102,8 +102,8 @@ public class CarDAO {
 		} catch (Exception e) {
 			System.out.println("selectCarList 에러 :" + e);
 		}finally {
-			close(rs);
-			close(psmt);
+			 if (rs != null) try { close(rs); } catch(Exception ex) {}
+		      if (psmt != null) try { close(psmt); } catch(Exception ex) {}
 		}
 		
 		return carList;
@@ -130,7 +130,8 @@ public class CarDAO {
 		} catch (Exception e) {					
 			System.out.println("insertNewCar 에러 :" + e);//e:예외종류+예외메세지
 		}finally {
-			close(psmt);			
+			 if (rs != null) try { close(rs); } catch(Exception ex) {}
+		      if (psmt != null) try { close(psmt); } catch(Exception ex) {}
 		}
 		
 		return insertCount;
@@ -161,8 +162,8 @@ public class CarDAO {
 		}catch(Exception e) {
 			System.out.println("viewCar 에러 : "+e);
 		}finally {
-			close(rs);
-			close(psmt);
+			 if (rs != null) try { close(rs); } catch(Exception ex) {}
+		      if (psmt != null) try { close(psmt); } catch(Exception ex) {}
 		}
 		return carInfo;
 		
@@ -188,8 +189,8 @@ public class CarDAO {
 		} catch (Exception e) {			
 			System.out.println("carReserveUpdate 에러:"+ e);
 		} finally {
-			//close(rs);
-			close(psmt);
+			 if (rs != null) try { close(rs); } catch(Exception ex) {}
+		      if (psmt != null) try { close(psmt); } catch(Exception ex) {}
 		}			
 		
 		return carReserveUpdateCount;
@@ -208,7 +209,8 @@ public class CarDAO {
 		}catch (Exception e) {
 			System.out.println("deleteCar 에러"+e);
 		}finally {
-			close(psmt);
+			 if (rs != null) try { close(rs); } catch(Exception ex) {}
+		      if (psmt != null) try { close(psmt); } catch(Exception ex) {}
 		}
 		return deleteCarCount;
 	}
@@ -240,8 +242,8 @@ public class CarDAO {
 		} catch (Exception e) {
 			System.out.println("selectSmallSizeList 에러 :" + e);
 		}finally {
-			close(rs);
-			close(psmt);
+			 if (rs != null) try { close(rs); } catch(Exception ex) {}
+		      if (psmt != null) try { close(psmt); } catch(Exception ex) {}
 		}
 
 		return carList;
@@ -274,8 +276,8 @@ public class CarDAO {
 		} catch (Exception e) {
 			System.out.println("selectMidSizeList 에러 :" + e);
 		}finally {
-			close(rs);
-			close(psmt);
+			 if (rs != null) try { close(rs); } catch(Exception ex) {}
+		      if (psmt != null) try { close(psmt); } catch(Exception ex) {}
 		}
 
 		return carList;
@@ -308,8 +310,8 @@ public class CarDAO {
 		} catch (Exception e) {
 			System.out.println("selectFullSizeList 에러 :" + e);
 		}finally {
-			close(rs);
-			close(psmt);
+			 if (rs != null) try { close(rs); } catch(Exception ex) {}
+		      if (psmt != null) try { close(psmt); } catch(Exception ex) {}
 		}
 
 		return carList;
@@ -342,8 +344,8 @@ public class CarDAO {
 		} catch (Exception e) {
 			System.out.println("selectOverseasList 에러 :" + e);
 		}finally {
-			close(rs);
-			close(psmt);
+			 if (rs != null) try { close(rs); } catch(Exception ex) {}
+		      if (psmt != null) try { close(psmt); } catch(Exception ex) {}
 		}
 
 		return carList;
@@ -372,7 +374,8 @@ public class CarDAO {
 			System.out.println("modifyCar 에러:"+ e);
 		}
 		finally {
-			close(psmt);
+			 if (rs != null) try { close(rs); } catch(Exception ex) {}
+		      if (psmt != null) try { close(psmt); } catch(Exception ex) {}
 		}
 		
 		return modifyCarCount;
@@ -393,8 +396,8 @@ public class CarDAO {
 			System.out.println("getReserve 에러:"+ e);
 		}
 		finally {
-			close(rs);
-			close(psmt);
+			 if (rs != null) try { close(rs); } catch(Exception ex) {}
+		      if (psmt != null) try { close(psmt); } catch(Exception ex) {}
 		}
 		return car_reserve;
 	}

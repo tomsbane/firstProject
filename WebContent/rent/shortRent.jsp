@@ -82,11 +82,12 @@ function dateChk(){
 		<li><a href="selectOverseas.do">수입</a></li>
 	</ul>
 </nav>
-<form action="shortRentCheck.do" name="f" method="post" onsubmit="return dateChk()">
+<form name="dateForm" id="dateForm" method="post">
 	<div align="center">	
 		인수일시 <input type="text" name="rental_date" id="rental_date" value="">&nbsp;<img src="images/arrow.png" class="arrow">
 		반납일시 <input type="text" name="return_date" id="return_date" value="">
 	</div>
+</form>
 
 <section id="carListArea">
 	<table class="list-car" >
@@ -101,7 +102,7 @@ function dateChk(){
 				<img src="carImages/${car.car_image}"/> <br />
 				상품명: ${car.car_name} <br />
 				가격: ${car.car_price}원 <br />
-				
+				<form action="shortRentCheck.do" name="f" method="post" onsubmit="return dateChk()">
 				<input type="hidden" name="car_no" id="car_no" value="${car.car_no }">
 				<input type="submit" value="문의하기">
 				</form>

@@ -62,7 +62,8 @@ public class OrderDAO {
 			System.out.println("insertOrder 에러 :" + e);
 
 		} finally {
-			close(pstmt);
+			if (rs != null) try { close(rs); } catch(Exception ex) {}
+		    if (pstmt != null) try { close(pstmt); } catch(Exception ex) {}
 		}
 
 		return insertOrderCount;
@@ -94,7 +95,8 @@ public class OrderDAO {
 			System.out.println("insertDriverDetail 에러 :" + e);
 
 		} finally {
-			close(pstmt);
+			if (rs != null) try { close(rs); } catch(Exception ex) {}
+		    if (pstmt != null) try { close(pstmt); } catch(Exception ex) {}
 		}
 
 		return insertDriverCount;
@@ -129,8 +131,8 @@ public class OrderDAO {
 		} catch (Exception e) {
 			System.out.println("selectCarOrderList 에러:" + e);
 		} finally {
-			close(rs);
-			close(pstmt);
+			if (rs != null) try { close(rs); } catch(Exception ex) {}
+		    if (pstmt != null) try { close(pstmt); } catch(Exception ex) {}
 		}
 
 		return carOrderList;
@@ -160,8 +162,8 @@ public class OrderDAO {
 		} catch (Exception e) {
 			System.out.println("selectCarOrderList 에러:" + e);
 		} finally {
-			close(rs);
-			close(pstmt);
+			if (rs != null) try { close(rs); } catch(Exception ex) {}
+		    if (pstmt != null) try { close(pstmt); } catch(Exception ex) {}
 		}
 
 		return carOrderList;
@@ -189,8 +191,8 @@ public class OrderDAO {
 		} catch (Exception e) {
 			System.out.println("selectCarTotalMoney 에러:" + e);
 		} finally {
-			close(rs);
-			close(pstmt);
+			if (rs != null) try { close(rs); } catch(Exception ex) {}
+		    if (pstmt != null) try { close(pstmt); } catch(Exception ex) {}
 		}
 
 		return totalList;
@@ -209,8 +211,8 @@ public class OrderDAO {
 		} catch (Exception e) {
 			System.out.println("modifyOrderGetToIng 에러:" + e);
 		} finally {
-			//close(rs);
-			close(pstmt);
+			if (rs != null) try { close(rs); } catch(Exception ex) {}
+		    if (pstmt != null) try { close(pstmt); } catch(Exception ex) {}
 		}
 		
 		return modifyOrderCount;
@@ -230,8 +232,27 @@ public class OrderDAO {
 		} catch (Exception e) {
 			System.out.println("modifyOrderIngToDone 에러:" + e);
 		} finally {
-			//close(rs);
-			close(pstmt);
+			if (rs != null) try { close(rs); } catch(Exception ex) {}
+		    if (pstmt != null) try { close(pstmt); } catch(Exception ex) {}
+		}
+		
+		return modifyOrderCount;
+	}
+	public int modifyOrderDoneToFresh(int order_no) {
+		int modifyOrderCount = 0;
+		
+		String sql = "update order_car set order_status='fresh' where order_no=?";
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, order_no);
+			
+			modifyOrderCount = pstmt.executeUpdate();
+		} catch (Exception e) {
+			System.out.println("modifyOrderDoneToGet 에러:" + e);
+		} finally {
+			if (rs != null) try { close(rs); } catch(Exception ex) {}
+			if (pstmt != null) try { close(pstmt); } catch(Exception ex) {}
 		}
 		
 		return modifyOrderCount;
@@ -250,11 +271,35 @@ public class OrderDAO {
 		} catch (Exception e) {
 			System.out.println("modifyOrderAllToCancel 에러:" + e);
 		} finally {
-			//close(rs);
-			close(pstmt);
+			if (rs != null) try { close(rs); } catch(Exception ex) {}
+		    if (pstmt != null) try { close(pstmt); } catch(Exception ex) {}
 		}
 		
 		return modifyOrderCount;
+	}
+
+	public int getCarNo(int order_no) {
+		int car_no = 0;
+		String sql = "select car_no from order_car where order_no=?";
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, order_no);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				car_no=rs.getInt("car_no");
+			}
+		} catch (Exception e) {
+			System.out.println("modifyOrderAllToCancel 에러:" + e);
+		} finally {
+			if (rs != null) try { close(rs); } catch(Exception ex) {}
+		    if (pstmt != null) try { close(pstmt); } catch(Exception ex) {}
+		}
+		
+		
+		return car_no;
 	}
 
 }

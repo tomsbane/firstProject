@@ -21,7 +21,8 @@ public class ReviewListService {
 		reviewDAO.setConnection(con);
 
 		ArrayList<Review> reviewList = reviewDAO.getReviewList(); 
-		
+		//4.해제
+		close(con);//Connection객체 해제	
 		return reviewList;
 
 	}

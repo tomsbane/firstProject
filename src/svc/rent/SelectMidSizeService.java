@@ -1,5 +1,6 @@
 package svc.rent;
 
+import static db.JdbcUtil.close;
 import static db.JdbcUtil.getConnection;
 
 import java.sql.Connection;
@@ -19,7 +20,10 @@ public class SelectMidSizeService {
 		carDAO.setConnection(con);
 
 		ArrayList<Rentcar> midSizeList = carDAO.selectMidSizeList();
-
+		
+		//4.해제
+		close(con);//Connection객체 해제	
+		
 		return midSizeList;
 	}
 

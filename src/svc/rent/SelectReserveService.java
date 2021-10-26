@@ -1,5 +1,6 @@
 package svc.rent;
 
+import static db.JdbcUtil.close;
 import static db.JdbcUtil.getConnection;
 
 import java.sql.Connection;
@@ -18,7 +19,8 @@ public class SelectReserveService {
 		carDAO.setConnection(con);
 
 		String car_reserve = carDAO.getReserve(car_no);
-
+		//4.해제
+		close(con);//Connection객체 해제	
 		return car_reserve;
 	}
 

@@ -50,7 +50,8 @@ public class ShortRentService {
 		
 		/*----------------------------------*/
 		Rentcar carInfo = carDAO.viewCar(car_no);
-		
+		//4.해제
+		close(con);//Connection객체 해제	
 		return carInfo;
 		
 	

@@ -27,7 +27,8 @@ public class ShortRentListService {
 
 		ArrayList<Rentcar> carList = carDAO.selectCarList();
 		
-		close(con);
+		//4.해제
+		close(con);//Connection객체 해제	
 		
 		return carList;
 	}

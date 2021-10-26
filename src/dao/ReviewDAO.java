@@ -63,8 +63,8 @@ public class ReviewDAO {
 		} catch (Exception e) {
 			System.out.println("getReviewList 에러 :" + e);
 		} finally {
-			close(rs);
-			close(pstmt);
+			if (rs != null) try { close(rs); } catch(Exception ex) {}
+		    if (pstmt != null) try { close(pstmt); } catch(Exception ex) {}
 		}
 
 		return reviewList;
@@ -88,7 +88,8 @@ public class ReviewDAO {
 		} catch (Exception e) {
 			System.out.println("insertReview 에러 :" + e);
 		}finally {
-			close(pstmt);
+			if (rs != null) try { close(rs); } catch(Exception ex) {}
+		    if (pstmt != null) try { close(pstmt); } catch(Exception ex) {}
 		}
 		
 		return insertReviewCount;
@@ -105,12 +106,12 @@ public class ReviewDAO {
 			
 			deleteReviewCount = pstmt.executeUpdate();//업데이트가 성공하면 1리턴	
 			
-			
+				
 		} catch (Exception e) {			
 			System.out.println("deleteReview 에러:"+ e);
 		} finally {
-			//close(rs);
-			close(pstmt);
+			if (rs != null) try { close(rs); } catch(Exception ex) {}
+		    if (pstmt != null) try { close(pstmt); } catch(Exception ex) {}
 		}	
 		return deleteReviewCount;
 	}
