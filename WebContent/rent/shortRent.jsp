@@ -40,18 +40,40 @@ $(function(){
 </script>
 <script type="text/javascript">
 function dateChk(){
+	// DATE 객체
+	var NOW_DATE = new Date(); 
+
+	// UTC 시간 계산
+	const UTC = NOW_DATE.getTime() + (NOW_DATE.getTimezoneOffset() * 60 * 1000); 
+
+	// UTC to KST (UTC + 9시간)
+	const KR_TIME_DIFF = 9 * 60 * 60 * 1000;
+	const KR_DATE = new Date(UTC + (KR_TIME_DIFF));
+
+	// 개별 데이터 확인 실시
+	var YYYY = KR_DATE.getFullYear(); // 연 (4자리)    		
+	var MM = ("00"+(KR_DATE.getMonth()+1)).slice(-2); // 월 (2자리)
+	var DD = ("00"+KR_DATE.getDate()).slice(-2); // 일 (2자리)
+	var HH24 = ("00"+KR_DATE.getHours()).slice(-2); // 시간 (24시간 기준, 2자리)
+	var MI = ("00"+KR_DATE.getMinutes()).slice(-2); // 분 (2자리)
+	var SS = ("00"+KR_DATE.getSeconds()).slice(-2); // 초 (2자리)
+	
+	var todayDatetime=YYYY+MM+DD+HH24+MI;
 	var rental_date= document.getElementById("rental_date").value;
 	var return_date= document.getElementById("return_date").value;
 	const rentalTime = rental_date.substring(11,13);
 	const returnTime = return_date.substring(11,13);
-	const rentalDatetime = rental_date.substring(8,13).replace(" ","");
-	const returnDatetime = return_date.substring(8,13).replace(" ","");
-	
+	const rentalDatetime=rental_date.replace("-","").replace(":","").replace(" ","").replace("-","");
+	const returnDatetime=return_date.replace("-","").replace(":","").replace(" ","").replace("-","");
 	 if(!document.f.car_no.value){
 			alert("차량을 선택해 주세요.");
 			return false; 
 		}
-	else if(rental_date > return_date){
+	else if(todayDatetime > rentalDatetime || todayDatetime > returnDatetime){
+			alert("현재 시간 이후만 예약가능합니다.");
+			return false; 
+		}
+	else if(rentalDatetime > returnDatetime){
 			alert("반납일이 인수일 보다 늦어야 합니다.");
 			return false; 
 		}
