@@ -210,7 +210,7 @@ var regex = /^[A-Za-z0-9]{6,12}$/;
 						<td class="line_left">차량 대여료</td>
 						<td class="line_right">
 						${carInfo.car_price }
-						<input type="hidden" name="rental_price" value="${carInfo.car_price }">
+						<input type="hidden" name="car_price" value="${carInfo.car_price }">
 						</td>
 					</tr>
 	
