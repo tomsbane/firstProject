@@ -21,9 +21,14 @@
 <nav class="header-box">
 <div class="header-logo">
 	<h2 class="header-logo-text">	
-		<a href="${pageContext.request.contextPath}/index.jsp">TAGO</a>
+		<a href="${pageContext.request.contextPath}/index.jsp">TAGO</a>		
 	</h2>
 </div>
+<div class="back">	
+<div class="toggle"></div>
+</div>	
+
+
 		<c:choose>
 	    	<c:when test="${c_grade eq 'admin'}">
 			<ul>
@@ -36,6 +41,7 @@
 			</c:when>
 			<c:otherwise>
 			<ul>
+			
 				<li><a href="main.jsp">회사소개</a></li>
 				<li><a href="${pageContext.request.contextPath}/shortRentList.do">단기렌트</a></li>
 				<li><a href="longRentList.do">장기렌트</a></li>
@@ -44,6 +50,7 @@
 			</ul>
 			</c:otherwise>
 		</c:choose>
+	
 <div class="log">
 	<c:choose>
     	<c:when test="${c_id eq null}">
@@ -54,9 +61,30 @@
 			<a href="${pageContext.request.contextPath}/customerLogout.cus">로그아웃</a>
 		</c:otherwise>
 	</c:choose>
-</div>			
-</nav>			
 	
+</div>
+	
+<div class="menu">
+		<ul>
+			<li><a href="main.jsp">회사소개</a></li>
+			<li><a href="shortRentList.do">단기렌트</a></li>
+			<li><a href="longRentList.do">장기렌트</a></li>
+			<li><a href="quote.do">견적상담</a></li>
+			<li><a href="qna.do">고객센터</a></li>
+		</ul>
+</div>	
+
+<script>
+		const menuToggle = document.querySelector('.toggle')
+		const header-box = document.querySelector('.header-box')
+		
+		menuToggle.addEventListener('click', () => {
+			menuToggle.classList.toggle('active')
+			header-box.classList.toggle('active')
+		})
+</script>
+
+</nav>		
 
 		
 

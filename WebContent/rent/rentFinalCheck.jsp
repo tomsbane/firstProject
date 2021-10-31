@@ -60,22 +60,6 @@ var regex = /^[A-Za-z0-9]{6,12}$/;
 		
 		<!-- 추후에 비로그인 상태에서 주문할 수 있도록 아이디 칸 두개로 만듬 -->
 		<div class="col-group">
-			<c:if test="${customer eq null }">
-			<span>이름</span>
-			<div class="col-input">
-				<input type="text" placeholder=" 이름을 입력하세요." name="c_name"><br>
-			</div>
-	
-			<span>핸드폰</span>
-			<div class="col-input">
-				<input type="text" placeholder=" 숫자만 입력하세요." name="c_tel"><br>
-			</div>
-	
-			<span>생년월일</span>
-			<div class="col-input">
-				<input type="text" name="c_birth" id="c_birth"  width="350" maxlength="8" placeholder="8자리(yyyy-mm-dd)">
-			</div>
-			</c:if>
 			<c:if test="${customer ne null }">
 			<span>이름</span>
 			<div class="col-input">
@@ -92,6 +76,22 @@ var regex = /^[A-Za-z0-9]{6,12}$/;
 				<input type="text" name="c_birth" id="c_birth" width="350" maxlength="8" placeholder="8자리(yyyy-mm-dd)" value="${customer.c_birth}">
 			</div>
 			</c:if>
+						<c:if test="${customer eq null }">
+			<span>이름</span>
+			<div class="col-input">
+				<input type="text" placeholder=" 이름을 입력하세요." name="c_name"><br>
+			</div>
+	
+			<span>핸드폰</span>
+			<div class="col-input">
+				<input type="text" placeholder=" 숫자만 입력하세요." name="c_tel"><br>
+			</div>
+	
+			<span>생년월일</span>
+			<div class="col-input">
+				<input type="text" name="c_birth" id="c_birth"  width="350" maxlength="8" placeholder="8자리(yyyy-mm-dd)">
+			</div>
+			</c:if>
 		</div>
 			
 		<div class="text">운전자정보</div>
@@ -101,9 +101,28 @@ var regex = /^[A-Za-z0-9]{6,12}$/;
 	
 		<div class="col-group">
 		
-				<label for="is-same">
-				<input type="checkbox" id="same">예약자와 운전자가 동일(체크)</label><br>
+				<!-- <label for="is-same">
+				<input type="checkbox" id="same">예약자와 운전자가 동일(체크)
+				</label><br> -->
 				
+				<c:if test="${customer ne null }">
+				<span>이름</span>
+				<div class="col-input">
+					<input type="text" placeholder=" 이름을 입력하세요." name="c_name" value="${customer.c_name }"><br>
+				</div>
+		
+				<span>핸드폰</span>
+				<div class="col-input">
+					<input type="text" placeholder=" 숫자만 입력하세요." name="c_tel"  value="${customer.c_tel }"><br>
+				</div>
+		
+				<span>생년월일</span>
+				<div class="col-input">
+					<input type="text" name="c_birth" id="c_birth" width="350" maxlength="8" placeholder="8자리(yyyy-mm-dd)" value="${customer.c_birth}">
+				</div>
+				</c:if>
+				
+				<c:if test="${customer eq null }">
 				<span>이름</span>
 				<div class="col-input">
 					<input type="text" placeholder=" 이름을 입력하세요." id="c_name"><br>
@@ -118,7 +137,7 @@ var regex = /^[A-Za-z0-9]{6,12}$/;
 				<div class="col-input">
 					<input type="text" name="c_birth" width="350" maxlength="8" id="c_birth" placeholder="8자리(yyyy-mm-dd)">
 				</div>
-			
+				</c:if>
 			
 	
 			

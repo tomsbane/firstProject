@@ -129,7 +129,7 @@ function dateChk(){
 				가격: ${car.car_price}원 <br />
 				
 				<input type="radio" name="car_no" id="car_no" value="${car.car_no }">
-				<input type="submit" value="문의하기">
+				<button value="submit">문의하기</button>
 				</label>
 				</form>
 				</td>

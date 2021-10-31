@@ -46,14 +46,13 @@ if(cookies != null && cookies.length > 0){
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle"
 						data-toggle="dropdown" role="botton" aria-haspupup="true"
-						aria-expanded="false">접속하기<span class=caret></span></a>
+						aria-expanded="false">메뉴<span class=caret></span></a>
 						
 					<ul class="dropdown-menu">
-						<li class="active"><a href="../index.jsp">홈으로</a></li>
+						<li><a href="${pageContext.request.contextPath}/index.jsp">홈으로</a></li>
 						<li><a href="customerJoin.cus">회원가입</a></li>
 						<li><a href="javascript:window.open('${pageContext.request.contextPath}/idCheck/idFind.jsp?openInit=true','아이디찾기','top=10, left=10, width=500, height=300')">아이디 찾기</a></li>
-				<li><a href="javascript:window.open('${pageContext.request.contextPath}/idCheck/idFind.jsp?openInit=true','비밀번호찾기','top=10, left=10, width=500, height=300')">비밀번호 찾기</a></li>
-						
+						<li><a href="javascript:window.open('${pageContext.request.contextPath}/idCheck/idFind.jsp?openInit=true','비밀번호찾기','top=10, left=10, width=500, height=300')">비밀번호 찾기</a></li>
 					</ul>
 				</li>
 			</ul>
@@ -73,10 +72,12 @@ if(cookies != null && cookies.length > 0){
 					</div>
 						<input type="submit" class="btn btn-primary form-control" value="로그인"><br>
 						<input type="checkbox" name="remember" <%if(cookieId != "") {out.print("checked");} %>/>아이디 저장<br><br>
+						
 						<nav style="display: flex;">
 						<div><a href="#"><input type="image" src="${pageContext.request.contextPath}/images/naver_login.png" style="width:100px;"></a></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						<div><a href="#"><input type="image" src="${pageContext.request.contextPath}/images/kakao_login.png" style="width:100px;"></a></div>
 						</nav>
+						<br> <a href="customerJoin.cus">계정이 없으신가요? 회원가입 하기</a>
 				</form>
 			</div>
 		</div>

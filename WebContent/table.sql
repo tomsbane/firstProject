@@ -122,6 +122,7 @@ insert into rentcar values(null, 'sorento','대형', 2022, 'y', 20000, '르노�
 insert into rentcar values(null, 'tivoli','대형', 2022, 'y', 20000, '르노삼성', 'tivoli.jpg',0);
 
 
+select * from rentcar;
 create table review (
 review_num int auto_increment primary key, 
 c_id varchar(45) not null,

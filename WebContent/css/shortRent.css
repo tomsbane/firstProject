@@ -311,6 +311,49 @@ ul, li {
 	color: white;
 	background-color: grey;
 }
+
+.resquick_content {
+    background: #ffffff;
+    text-align: center;
+    color: black;
+    display: block;
+    width:120px;
+}
+.resquick_content > a {
+	text-align:center;
+	border-radius:5px;
+    border: 1px solid #000000;
+    padding: 5% 20%;
+    position: relative;
+    z-index: 1;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -ms-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    transition: all 0.4s;
+}
+.resquick_content > a:after {
+    content: "";
+    width: 0%;
+    height: 100%;
+    top: 0;
+    position: absolute;
+    left: 0;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -ms-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    transition: all 0.4s;
+    background: #ee0202;
+}
+.resquick_content > a:hover {
+    color: #333;
+}
+.resquick_content > a:hover:after {
+    width: 100%;
+    z-index: -1;
+}
+
 @media (min-width:1125px) {
 	
 	

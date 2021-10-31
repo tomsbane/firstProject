@@ -139,7 +139,6 @@ function check(){
 }
 </script>
 <body>
-<jsp:include page="../userHeader.jsp"></jsp:include>
 
 	<nav class="navbar navbar-default">
 		<div class="navbar-header">
@@ -150,23 +149,23 @@ function check(){
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="main.jsp">JSP 게시판 웹사이트</a>
+			<a class="navbar-brand" href="index.jsp">TAGO</a>
 		</div>
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		
-			<ul class="nav navbar-nav">
+		<!-- 	<ul class="nav navbar-nav">
 				<li><a href="main.jsp">메인</a></li>
 				<li><a href="BBS.jsp">게시판</a></li>
-			</ul>
+			</ul> -->
 			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle"
 						data-toggle="dropdown" role="botton" aria-haspupup="true"
-						aria-expanded="false">접속하기<span class=caret></span></a>
+						aria-expanded="false">메뉴<span class=caret></span></a>
 						
 					<ul class="dropdown-menu">
-						<li class="active"><a href="customerLoginAction.cus"></a>로그인</li>
-						<li><a href="customerJoin.cus"></a>회원가입</li>
+						<li><a href="${pageContext.request.contextPath}/index.jsp">홈으로</a></li>
+						<li><a href="${pageContext.request.contextPath}/customerLogin.cus">로그인</a></li>
 					</ul>
 				</li>
 			</ul>
@@ -188,18 +187,18 @@ function check(){
 			</tr>
 			<tr>
 				<th>아이디</th>
-				<td align="left"><input type="text" name="c_id" id="c_id" placeholder="특수문자는 입력하실 수 없습니다." required="required">
+				<td align="left"><input type="text" name="c_id" id="c_id" placeholder="영문만 입력하세요." required="required">
 				<!-- window.open('팝업 주소', '팝업창 이름', '팝업창 설정') -->
-				<input type="button" name="c_idck" id="c_idck" value="아이디 중복 확인" onclick="window.open('${pageContext.request.contextPath}/idCheck/idCheck.jsp?openInit=true','아이디중복확인','top=10, left=10, width=500, height=300')"/>
+				<input type="button" name="c_idck" id="c_idck" value="중복확인" onclick="window.open('${pageContext.request.contextPath}/idCheck/idCheck.jsp?openInit=true','아이디중복확인','top=10, left=10, width=500, height=300')"/>
 				</td>
 			</tr>
 			<tr id="jointd">
 				<th>비밀번호</th>
-				<td align="left"><input type="password" name="c_password" placeholder="8~12자 영문과 숫자조합을 입력하세요" required="required"></td>
+				<td align="left"><input type="password" name="c_password" placeholder="8~12자의 영문과 숫자만 입력하세요." maxlength="12" size="29"  required="required"></td>
 			</tr>
 			<tr>
 				<th>이름</th>
-				<td align="left"><input type="text" name="c_name" placeholder="한글 또는 영문만 입력하세요.(특수문자 제외)" required="required"></td>
+				<td align="left"><input type="text" name="c_name" placeholder="한글과 영문만 입력하세요."  required="required"></td>
 			</tr>
 			<tr>
 				<th>성별</th>
@@ -236,8 +235,9 @@ function check(){
 				</td>
 			</tr>
 			<tr>
-				<td colspan="2">
-					<input type="submit" value="가입하기" onclick="check();">
+				<td colspan="2" style="text-align: center;">
+					<br><input type="submit" value="가입하기" onclick="check();">
+					<input type="button" value="돌아가기" onclick="login.jsp">
 				</td>
 			</tr>
 		</table>
