@@ -22,7 +22,7 @@
 			<h2>DAEGU RENTCAR</h2>
 			<h3>TAGO</h3>
 			<p>렌트카</p>
-			   <a href="shortRentList.do">단기렌트</a> <a href="longRentList.do">장기렌트</a>
+			   <a href="shortRentList.do">단기렌트</a> <a href="longrentList.jsp">장기렌트</a>
 			   
 		</div>
 		<ul class="social">
@@ -34,12 +34,21 @@
 	
 	<div class="menu">
 		<ul>
+		<li><a href="longrentList.jsp">회사소개</a></li>
+		<li><a href="shortRentList.do">단기렌트</a></li>
+		<li><a href="longrentList.jsp">장기렌트</a></li>
+		<li><a href="longrentList.jsp">견적상담</a></li>
+		<li><a href="longrentList.jsp">고객센터</a></li>
+		</ul>
+		<!--
+		<ul>
 		<li><a href="main.jsp">회사소개</a></li>
 		<li><a href="shortRentList.do">단기렌트</a></li>
 		<li><a href="longRentList.do">장기렌트</a></li>
 		<li><a href="quote.do">견적상담</a></li>
 		<li><a href="qna.do">고객센터</a></li>
 		</ul>
+		 -->
 	</div>
 	
 	<script>

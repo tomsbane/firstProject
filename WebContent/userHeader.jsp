@@ -42,10 +42,10 @@
 			<c:otherwise>
 			<ul>
 			
-				<li><a href="main.jsp">회사소개</a></li>
+				<li><a href="longrentList.jsp">회사소개</a></li>
 				<li><a href="${pageContext.request.contextPath}/shortRentList.do">단기렌트</a></li>
-				<li><a href="longRentList.do">장기렌트</a></li>
-				<li><a href="quote.do">견적상담</a></li>
+				<li><a href="longrentList.jsp">장기렌트</a></li>
+				<li><a href="longrentList.jsp">견적상담</a></li>
 				<li><a href="${pageContext.request.contextPath}/customerView.cus">MyPage</a></li>
 			</ul>
 			</c:otherwise>
@@ -66,11 +66,11 @@
 	
 <div class="menu">
 		<ul>
-			<li><a href="main.jsp">회사소개</a></li>
+			<li><a href="longrentList.jsp">회사소개</a></li>
 			<li><a href="shortRentList.do">단기렌트</a></li>
-			<li><a href="longRentList.do">장기렌트</a></li>
-			<li><a href="quote.do">견적상담</a></li>
-			<li><a href="qna.do">고객센터</a></li>
+			<li><a href="longrentList.jsp">장기렌트</a></li>
+			<li><a href="longrentList.jsp">견적상담</a></li>
+			<li><a href="longrentList.jsp">고객센터</a></li>
 		</ul>
 </div>	
 
